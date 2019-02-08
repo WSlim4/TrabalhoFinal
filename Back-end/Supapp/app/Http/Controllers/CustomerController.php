@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Customer;
 
 class CustomerController extends Controller
 {
@@ -13,7 +14,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        //
+        $list = new Customer;
+        $list->listAllCustomers();
+          return response()->json([$list]);
     }
 
     /**
@@ -24,7 +27,9 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $customer = new Customer;
+      $customer->updateCustomer($request);
+        return response()->json([$customer]);
     }
 
     /**
@@ -47,7 +52,10 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+      $customer = Customer::findOrFail($id);
+      $customer->updateCustomer($request);
+        return response()->json([$customer]);
     }
 
     /**
@@ -58,6 +66,8 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $customer = new Customer;
+        $customer->destroyCustomer($id);
+        return response()->json(['DELETADO']);
     }
 }

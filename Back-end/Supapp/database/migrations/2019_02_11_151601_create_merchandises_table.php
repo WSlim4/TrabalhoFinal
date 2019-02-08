@@ -22,7 +22,7 @@ class CreateMerchandisesTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('merchandises'), function(Blueprint $table)
+        Schema::table('merchandises', function(Blueprint $table)
         {
           $table->foreign('mer_id')->references('id')->on('suppliers')->onDelete('cascade');
         });
