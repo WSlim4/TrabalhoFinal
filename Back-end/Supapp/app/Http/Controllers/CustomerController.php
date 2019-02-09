@@ -14,9 +14,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $list = new Customer;
-        $list->listAllCustomers();
-          return response()->json([$list]);
+          $lista = Customer::all();
+
+          return response()->json([$lista]);
     }
 
     /**
@@ -29,7 +29,8 @@ class CustomerController extends Controller
     {
       $customer = new Customer;
       $customer->updateCustomer($request);
-        return response()->json([$customer]);
+
+      return response()->json([$customer]);
     }
 
     /**
@@ -40,7 +41,8 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+      $showCustomer = Customer::find($id);
+      return response()->json([$showCustomer]);
     }
 
     /**
@@ -55,7 +57,8 @@ class CustomerController extends Controller
 
       $customer = Customer::findOrFail($id);
       $customer->updateCustomer($request);
-        return response()->json([$customer]);
+
+      return response()->json([$customer]);
     }
 
     /**
@@ -68,6 +71,7 @@ class CustomerController extends Controller
     {
         $customer = new Customer;
         $customer->destroyCustomer($id);
+
         return response()->json(['DELETADO']);
     }
 }

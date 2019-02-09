@@ -23,16 +23,13 @@ class Customer extends Model
       $this->email = $request->email;
     if($request->id_pic_customer)
       $this->id_pic_customer = $request->id_pic_customer;
-    $this->save();
+
+      $this->save();
   }
-  public function destroyCustomer()
+  public function destroyCustomer($id)
   {
     Customer::destroy($id);
   }
-  public function listAllCustomer()
-  {
-    $list = App\Customer::all();
-    return $list;
-  }
+
   protected $dates = ['deleted_at'];
 }

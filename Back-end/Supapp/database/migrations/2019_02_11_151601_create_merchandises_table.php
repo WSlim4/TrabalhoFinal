@@ -24,9 +24,12 @@ class CreateMerchandisesTable extends Migration
 
         Schema::table('merchandises', function(Blueprint $table)
         {
-          $table->foreign('mer_id')->references('id')->on('suppliers')->onDelete('cascade');
+          $table->foreign('mer_id')->references('id')->on('suppliers')->onDelete('set null');
         });
-
+        Schema::table('merchandises', function($table)
+        {
+          $table->SoftDeletes();
+        });
     }
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Merchandise;
 
 class MerchandiseController extends Controller
 {
@@ -13,7 +14,8 @@ class MerchandiseController extends Controller
      */
     public function index()
     {
-        //
+      $lista = Merchandise::all();
+      return response()->json([$lista]);
     }
 
     /**
@@ -24,7 +26,10 @@ class MerchandiseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $merchandise = new Merchandise;
+      $merchandise->updateMerchandise($request);
+
+      return response()->json([$merchandise]);
     }
 
     /**
@@ -35,7 +40,8 @@ class MerchandiseController extends Controller
      */
     public function show($id)
     {
-        //
+      $showMerchandise = Merchandise::find($id);
+      return response()->json([$showMerchandise]);
     }
 
     /**
@@ -47,7 +53,10 @@ class MerchandiseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $merchandise = Merchandise::findOrFail($id);
+      $merchandise->updateMerchandise($request);
+
+      return response()->json([$merchandise]);
     }
 
     /**
@@ -58,6 +67,9 @@ class MerchandiseController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $merchandise = new Merchandise;
+      $merchandise->destroyMerchandise($id);
+
+      return response()->json(['DELETADO']);
     }
 }

@@ -28,7 +28,10 @@ class CreateSuppliersTable extends Migration
         {
           $table->foreign('supplier_id')->references('id')->on('users')->onDelete('cascade');
         });
-
+        Schema::table('suppliers', function($table)
+        {
+          $table->SoftDeletes();
+        });
     }
 
     /**
