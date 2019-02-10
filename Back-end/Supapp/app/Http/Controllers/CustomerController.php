@@ -14,9 +14,9 @@ class CustomerController extends Controller
      */
     public function index()
     {
-          $lista = Customer::all();
+     $lista = Customer::all();
 
-          return response()->json([$lista]);
+     return response()->json([$lista]);
     }
 
     /**

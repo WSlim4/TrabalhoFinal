@@ -15,7 +15,7 @@ class CreateMerchandisesTable extends Migration
     {
         Schema::create('merchandises', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('mer_id')->unsigned()->nullable();
+            $table->integer('supplier_id')->unsigned()->nullable();
             $table->string('name_mer');
             $table->string('category');
             $table->string('stock');
@@ -24,11 +24,11 @@ class CreateMerchandisesTable extends Migration
 
         Schema::table('merchandises', function(Blueprint $table)
         {
-          $table->foreign('mer_id')->references('id')->on('suppliers')->onDelete('set null');
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
         });
         Schema::table('merchandises', function($table)
         {
-          $table->SoftDeletes();
+            $table->SoftDeletes();
         });
     }
 

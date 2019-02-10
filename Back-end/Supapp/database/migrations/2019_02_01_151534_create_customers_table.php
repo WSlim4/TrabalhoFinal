@@ -15,7 +15,7 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('customer_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->string('cnpj_customer')->unique();
             $table->string('adress_customer');
             $table->string('phone_customer');
@@ -24,12 +24,12 @@ class CreateCustomersTable extends Migration
         });
         Schema::table('customers', function(Blueprint $table)
         {
-          $table->foreign('customer_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
 
         Schema::table('customers', function($table)
         {
-          $table->SoftDeletes();
+            $table->SoftDeletes();
         });
 
     }

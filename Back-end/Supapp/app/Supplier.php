@@ -9,6 +9,22 @@ class Supplier extends Model
 {
   use SoftDeletes;
 
+  public function merchandise()
+  {
+    return $this->hasMany('App\Merchandise');
+  }
+
+  public function supplierUser();
+  {
+    return $this->belongsTo('App\User');
+  }
+
+  public function getCategory()
+  {
+    $category = Merchandise::find($id);
+    return $category->category;
+  }
+
   public function updateSupplier($request)
   {
     if($request->name)

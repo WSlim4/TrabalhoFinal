@@ -9,6 +9,16 @@ class Merchandise extends Model
 {
   use SoftDeletes;
 
+  public function supplier()
+  {
+    return $this->belongsTo('App\Supplier');
+  }
+
+  public function manyCustomer()
+  {
+    return $this->belongsToMany('App\Customer');
+  }
+
   public function updateMerchandise($request)
   {
     if($request->name_mer)
@@ -22,6 +32,7 @@ class Merchandise extends Model
 
       $this->save();
   }
+
   public function destroyMerchandise($id)
   {
     Merchandise::destroy($id);

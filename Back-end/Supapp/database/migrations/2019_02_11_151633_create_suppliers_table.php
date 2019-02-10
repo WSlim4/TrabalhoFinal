@@ -15,7 +15,7 @@ class CreateSuppliersTable extends Migration
     {
         Schema::create('suppliers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('supplier_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->string('cnpj_supplier')->unique();
             $table->string('adress_supplier');
             $table->string('phone_supplier');
@@ -24,13 +24,14 @@ class CreateSuppliersTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('suppliers', function(Blueprint $table)
-        {
-          $table->foreign('supplier_id')->references('id')->on('users')->onDelete('cascade');
-        });
+        Schema::table('suppliers', function(Blueprint $table){
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+         });
+
         Schema::table('suppliers', function($table)
         {
-          $table->SoftDeletes();
+            $table->SoftDeletes();
         });
     }
 

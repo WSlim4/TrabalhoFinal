@@ -10,6 +10,15 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    public function generalSupplier();
+    {
+      return $this->hasOne('App\Supplier');
+    }
+
+    public function generalCustomer();
+    {
+      return $this->hasOne('App\Customer');
+    }
     /**
      * The attributes that are mass assignable.
      *

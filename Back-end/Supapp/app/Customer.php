@@ -9,6 +9,16 @@ class Customer extends Model
 {
   use SoftDeletes;
 
+  public function customerUser()
+  {
+    return $this->belongsTo('App\User');
+  }
+
+  public function manyMerchandise()
+  {
+    return $this->belongsToMany('App\Merchandise');
+  }
+
   public function updateCustomer($request)
   {
     if($request->name)
@@ -26,6 +36,7 @@ class Customer extends Model
 
       $this->save();
   }
+
   public function destroyCustomer($id)
   {
     Customer::destroy($id);
