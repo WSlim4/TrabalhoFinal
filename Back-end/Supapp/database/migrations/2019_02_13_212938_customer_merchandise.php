@@ -26,7 +26,6 @@ class CustomerMerchandise extends Migration
           $table->foreign('merchandise_id')->references('id')->on('merchandises')->onDelete('cascade');
         });
    }
-
     /**
      * Reverse the migrations.
      *
@@ -34,7 +33,6 @@ class CustomerMerchandise extends Migration
      */
     public function down()
     {
-        //
         Schema::dropIfExists('customer_merchandise');
     }
 }
