@@ -14,7 +14,7 @@ class Supplier extends Model
     return $this->hasMany('App\Merchandise');
   }
 
-  public function supplierUser();
+  public function supplierUser()
   {
     return $this->belongsTo('App\User');
   }

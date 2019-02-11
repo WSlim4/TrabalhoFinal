@@ -20,11 +20,12 @@ class CustomerMerchandise extends Migration
           $table->timestamps();
         });
         Schema::table('customer_merchandise', function (Blueprint $table){
-          $table->foreign('customer_id')->references('id')->on('customer');
+          $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });
         Schema::table('customer_merchandise', function (Blueprint $table){
-          $table->foreign('merchandise_id')->references('id')->on('merchandise');
-    }
+          $table->foreign('merchandise_id')->references('id')->on('merchandises')->onDelete('cascade');
+        });
+   }
 
     /**
      * Reverse the migrations.
@@ -34,5 +35,6 @@ class CustomerMerchandise extends Migration
     public function down()
     {
         //
+        Schema::dropIfExists('customer_merchandise');
     }
 }
