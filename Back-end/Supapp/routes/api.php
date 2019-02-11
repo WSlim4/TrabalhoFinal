@@ -16,6 +16,19 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['middleware' => 'auth:api'], function() {
+
+    Route::group([
+      'middleware'=>'CustomerMiddleware',
+    ], function($router){
+         Route::put('updateYourself', 'CustomerController@update');
+         Route::delete('deleteYourself', 'CustomerConhtroller@destroy');
+    });
+});
+
+
+
 Route::apiResource('customers', 'CustomerController');
 Route::apiResource('suppliers', 'SupplierController');
 Route::apiResource('merchandises', 'MerchandiseController');
