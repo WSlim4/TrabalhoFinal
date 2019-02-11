@@ -1,0 +1,29 @@
+/*Classes*/
+.col{
+	background-color: #4E9525;
+	margin: 15em;
+	padding: 2em;
+}
+
+/*Elementos*/
+a{
+	color: white;
+}
+
+img{
+	width: 50%;
+	margin-left: 6.5em;
+}
+
+button{
+	margin-left: 10vw;
+	margin-bottom: 4vh;
+	color: black;
+}
+
+/*elementos*/
+
+#cadastro{
+	margin-left: 9.5vw;
+	text-decoration: underline;
+}
