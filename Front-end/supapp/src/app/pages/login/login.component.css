@@ -2,7 +2,7 @@
 .col{
 	background-color: #4E9525;
 	margin: 15em;
-	padding: 2em;
+	padding: 2em 3em 2em 2em;
 }
 
 /*Elementos*/
@@ -26,4 +26,18 @@ button{
 #cadastro{
 	margin-left: 9.5vw;
 	text-decoration: underline;
+}
+
+#email{
+	background-color: white;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+#password{
+	background-color: white;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }

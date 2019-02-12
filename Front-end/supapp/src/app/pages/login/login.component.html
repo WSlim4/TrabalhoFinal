@@ -1,19 +1,19 @@
- <div class="row">
-    <div class="col offset-l4 offset-m2 l4 m6 s12 ">
+ <div class="row ">
+    <div class="col offset-l4 offset-m2 l4 m6 s12 z-depth-2">
     	<a href="#" class="right"><i class="small material-icons">close</i></a>
     	<img src="../assets/truck.png">
 
     	<form #login="ngForm" (ngSubmit)="onSubmit(login)">
-    		<div class="row">
-        		<div class="input-field">
-          			<input id="email" type="email" class="validate">
-          			<label for="email">Email</label>
+    		<div class="row ">
+        		<div class="input-field ">
+          			<input placeholder="Email" id="email" type="email" class="validate">
+          			<label for="email"></label>
         		</div>
       		</div>
       		<div class="row">
-        		<div class="input-field">
-          			<input id="password" type="password" class="validate">
-          			<label for="password">Password</label>
+        		<div class="input-field ">
+          			<input placeholder="Senha" id="password" type="password" class="validate">
+          			<label for="password"></label>
         		</div>
       		</div>
       		<button class="waves-effect waves-light btn white" type="submit">Enviar</button>
