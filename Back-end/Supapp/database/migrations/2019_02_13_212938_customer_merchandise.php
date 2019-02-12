@@ -15,6 +15,8 @@ class CustomerMerchandise extends Migration
     {
         Schema::create('customer_merchandise', function (Blueprint $table){
           $table->increments('id');
+          $table->integer('price_paid');
+          $table->integer('amount_purchased');
           $table->integer('customer_id')->unsigned();
           $table->integer('merchandise_id')->unsigned();
           $table->timestamps();
