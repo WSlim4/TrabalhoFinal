@@ -3,6 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
+use DB;
+use App\Supplier;
 
 class SupplierMiddleware
 {
@@ -15,6 +18,11 @@ class SupplierMiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+
+      if (Auth::user()->id===$request->id){
+          return $next($request);
+      }else{
+          return response()->json(['Permission denied'], 401);
+      }
     }
 }
