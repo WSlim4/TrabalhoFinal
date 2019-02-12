@@ -1,0 +1,22 @@
+.titulo{
+  font-family: 'Montserrat Subrayada', sans-serif;
+  font-size: 6vh;
+  color:white;
+}
+.botoes-nav{
+  background-color: #2E5A1C;
+}
+.texto-botoes{
+  color:white;
+  font-size: 3vh;
+  font-family: 'Rubik', sans-serif;
+}
+.botao-sobre{
+  font-family: 'Rubik', sans-serif;
+  font-size: 3vh;
+  color:white;
+  background-color: #477B32;
+}
+#slide-out{
+  background-color: #4E9525;
+}
