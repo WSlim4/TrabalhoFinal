@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use DB;
 use Closure;
 use App\Customer;
 use Auth;
@@ -17,7 +18,7 @@ class CustomerMiddleware
     public function handle($request, Closure $next)
     {
 
-      if (Auth::user()->id==$request->id){
+      if (Auth::user()->id===$request->id){
           return $next($request);
       }else{
           return response()->json(['Permission denied'], 401);
