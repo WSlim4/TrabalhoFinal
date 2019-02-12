@@ -17,6 +17,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::apiResource('merchandise', 'MerchandiseController');
+Route::apiResource('customer', 'CustomerController');
+Route::apiResource('supplier', 'SupplierController');
+
 Route::post('login', 'API\PassportController@login');
 Route::post('register', 'API\PassportController@register');
 

@@ -27,8 +27,8 @@ class Supplier extends Model
 
   public function updateSupplier($request)
   {
-    if($request->name)
-      $this->name = $request->name;
+    if($request->name_supplier)
+      $this->name_supplier = $request->name_supplier;
     if($request->cnpj_supplier)
       $this->cnpj_supplier = $request->cnpj_supplier;
     if($request->adress_supplier)

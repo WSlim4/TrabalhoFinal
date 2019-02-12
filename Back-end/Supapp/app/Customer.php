@@ -21,8 +21,8 @@ class Customer extends Model
 
   public function updateCustomer($request)
   {
-    if($request->name)
-      $this->name = $request->name;
+    if($request->name_customer)
+      $this->name_customer = $request->name_customer;
     if($request->cnpj_customer)
       $this->cnpj_customer = $request->cnpj_customer;
     if($request->adress_customer)

@@ -29,7 +29,8 @@ class Merchandise extends Model
       $this->mer_id = $request->mer_id;
     if($request->category)
       $this->category = $request->category;
-
+    if($request->price)
+      $this->price = $request->price;
       $this->save();
   }
 

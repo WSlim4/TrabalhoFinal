@@ -17,6 +17,7 @@ class CreateSuppliersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('cnpj_supplier')->unique();
+            $table->string('name_supplier');
             $table->string('adress_supplier');
             $table->string('phone_supplier');
             $table->string('id_pic_supplier')->nullable();
