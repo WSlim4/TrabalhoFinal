@@ -1,8 +1,9 @@
 /*Classes*/
 .col{
 	background-color: #4E9525;
-	margin: 15em;
-	padding: 2em 3em 2em 2em;
+	margin-left: 15em;
+	margin-top: 10vh;
+	padding: 2em 3em;
 }
 
 /*Elementos*/
