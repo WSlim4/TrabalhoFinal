@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
+	passwordError: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  passwordCheck(senha){
+  	if(senha.value.length < 6){
+  		this.passwordError = true;
+  	}else{
+  		this.passwordError = false;
+  	}
   }
 
 }

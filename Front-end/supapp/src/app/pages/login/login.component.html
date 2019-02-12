@@ -5,18 +5,25 @@
 
     	<form #login="ngForm" (ngSubmit)="onSubmit(login)">
     		<div class="row ">
-        		<div class="input-field ">
-          			<input placeholder="Email" id="email" type="email" class="validate">
-          			<label for="email"></label>
-        		</div>
-      		</div>
-      		<div class="row">
-        		<div class="input-field ">
-          			<input placeholder="Senha" id="password" type="password" class="validate">
-          			<label for="password"></label>
-        		</div>
-      		</div>
-      		<button class="waves-effect waves-light btn white" type="submit">Enviar</button>
+        	<div class="input-field ">
+          	<input placeholder="Email" id="email" type="email" class="validate" name="email" ngModel required #email="ngModel">
+          	<label for="email"></label>
+        	</div>
+          <div *ngIf="email.touched && email.invalid">
+            <p>Campo Obrigatório!</p>
+          </div>
+      	</div>
+      	<div class="row">
+        	<div class="input-field ">
+          	<input placeholder="Senha" id="password" type="password" class="validate" name="password" ngModel required #senha="ngModel" (blur)="passwordCheck(senha)">
+          	<label for="password"></label>
+        	</div>
+          <div *ngIf="passwordError && senha.touched">
+            <p>Sua senha deve ter no minimo 6 caracteres</p> 
+          </div>
+      	</div>
+
+      	<button class="waves-effect waves-light btn white" type="submit" [disabled]="email.invalid || passwordError" >Enviar</button>
     	</form>
 
     	<a id="cadastro" href="#">Não é cadastrado ?</a>
