@@ -9,6 +9,14 @@
 .botoes-nav{
   background-color: #2E5A1C;
 }
+.botoes-nav-2{
+  background-color: #2E5A1C;
+}
+.botoes-nav-3{
+  background-color: #2E5A1C;
+  color:white;
+  margin-left: -0.5vw;
+}
 .texto-botoes{
   color:white;
   font-size: 3vh;
@@ -16,10 +24,16 @@
 }
 .botao-sobre{
   font-family: 'Rubik', sans-serif;
-  font-size: 3vh;
+  font-size: 2.5vh;
   color:white;
   background-color: #477B32;
 }
+/* para tirar o padding automatico do collapsible no materialize */
+.row .col{
+  padding:0;
+}
 #slide-out{
+  display:flex;
+  flex-direction: column;
   background-color: #4E9525;
 }
