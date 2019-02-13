@@ -16,25 +16,22 @@ class Merchandise extends Model
     return $this->belongsTo('App\Supplier');
   }
 
-  public function manyCustomer()
+  public function customer()
   {
     return $this->belongsToMany('App\Customer');
   }
 
   public function updateMerchandise($request)
   {
-    $user = Auth::user();
-    $suplier = Supplier::where('user_id',$user->id)->first();
-    if($request->name_mer)
-      $this->name_mer = $request->name_mer;
-    if($request->stock)
-      $this->stock = $request->stock;
-    if($request->mer_id)
-      $this->mer_id = $request->mer_id;
+    if($request->name)
+      $this->name = $request->name;
+    if($request->measure)
+      $this->measure = $request->measure;
     if($request->category)
       $this->category = $request->category;
     if($request->price)
       $this->price = $request->price;
+
       $this->save();
   }
 

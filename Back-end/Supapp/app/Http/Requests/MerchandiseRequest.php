@@ -27,19 +27,19 @@ class MerchandiseRequest extends FormRequest
     public function rules()
     {
         return [
-             'name_mer' => 'string|required',
+             'name' => 'required|string',
              'price' => 'required|numeric|min:0',
-             'stock' => 'required|numeric|min:0',
-             'category' => 'string|required'
+             'measure' => 'required|string',
+             'category' => 'required|string'
         ];
     }
 
-    public function message(){
+    public function messages(){
         return [
-              'name_mer.required' => 'Insira um nome para a mercadoria',
+              'name.required' => 'Insira um nome para a mercadoria',
               'price.required' => 'Insira um preço para a mercadoria',
-              'stock.required' => 'Insira a quantidade',
-              'category.required' => 'Insira a categoria corretamente'
+              'measure.required' => 'Insira a medida. Ex: quilo, caixa, etc...',
+              'category.required' => 'Insira a categoria corretamente. Ex: carne, frio, etc...'
         ];
     }
 
