@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Auth;
 
 class Supplier extends Model
 {
@@ -27,6 +28,7 @@ class Supplier extends Model
 
   public function updateSupplier($request)
   {
+    $user = Auth::user();
     if($request->name)
       $this->name = $request->name;
     if($request->cnpj_supplier)
@@ -41,8 +43,8 @@ class Supplier extends Model
       $this->id_pic_supplier = $request->id_pic_supplier;
     if($request->rating)
       $this->rating = $request->rating;
-
-      $this->save();
+    $this->user_id = $user->id;
+    $this->save();
   }
   public function destroySupplier($id)
   {

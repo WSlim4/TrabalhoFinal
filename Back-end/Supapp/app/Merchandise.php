@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Supplier; 
+use Auth;
 
 class Merchandise extends Model
 {
@@ -21,6 +23,8 @@ class Merchandise extends Model
 
   public function updateMerchandise($request)
   {
+    $user = Auth::user();
+    $suplier = Supplier::where('user_id',$user->id)->first();
     if($request->name_mer)
       $this->name_mer = $request->name_mer;
     if($request->stock)
@@ -29,8 +33,8 @@ class Merchandise extends Model
       $this->mer_id = $request->mer_id;
     if($request->category)
       $this->category = $request->category;
-
-      $this->save();
+    $this->supplier_id = $suplier->id;
+    $this->save();
   }
 
   public function destroyMerchandise($id)
