@@ -31,6 +31,8 @@ class Customer extends Model
       $this->phone = $request->phone;
     if($request->email)
       $this->email = $request->email;
+    if($request->user_id)
+      $this->user_id = $request->user_id;
 
       $this->save();
   }

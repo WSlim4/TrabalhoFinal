@@ -17,6 +17,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('carnes', 'MerchandiseController@listCarnes');
+Route::get('frios', 'MerchandiseController@listFrios');
+Route::get('laticinios', 'MerchandiseController@listLaticinios');
+Route::get('hortalicas', 'MerchandiseController@listHortalicas');
+
 Route::apiResource('merchandise', 'MerchandiseController');
 Route::apiResource('customer', 'CustomerController');
 Route::apiResource('supplier', 'SupplierController');

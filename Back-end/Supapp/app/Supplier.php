@@ -19,12 +19,6 @@ class Supplier extends Model
     return $this->belongsTo('App\User');
   }
 
-  public function getCategory()
-  {
-    $category = Merchandise::find($id);
-    return $category->category;
-  }
-
   public function updateSupplier($request)
   {
     if($request->name)
@@ -37,7 +31,9 @@ class Supplier extends Model
       $this->phone = $request->phone;
     if($request->email)
       $this->email = $request->email;
-      
+    if($request->user_id)
+      $this->user_id = $request->user_id;
+
       $this->save();
   }
   public function destroySupplier($id)

@@ -13,12 +13,31 @@ class Merchandise extends Model
   {
     return $this->belongsTo('App\Supplier');
   }
+/*Categorias*/
+  public function getCarne(){
+    $carne = Merchandise::where('category','carne')->get();
+    echo $carne;
+  }
+  public function getFrio(){
+    $frio = Merchandise::where('category','frios')->get();
+    echo $frio;
+  }
+  public function getHortalica(){
+    $hortalica = Merchandise::where('category','hortalica')->get();
+    echo $hortalica;
+  }
+  public function getLaticinio(){
+    $laticinio = Merchandise::where('category','laticinio')->get();
+    echo $laticinio;
+  }
 
+/*Relationship*/
   public function customer()
   {
     return $this->belongsToMany('App\Customer');
   }
 
+/*CRUD*/
   public function updateMerchandise($request)
   {
     if($request->name)
@@ -29,6 +48,8 @@ class Merchandise extends Model
       $this->category = $request->category;
     if($request->price)
       $this->price = $request->price;
+    if($request->supplier_id)
+      $this->supplier_id = $request->supplier_id;
 
       $this->save();
   }
