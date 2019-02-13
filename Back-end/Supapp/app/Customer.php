@@ -14,25 +14,23 @@ class Customer extends Model
     return $this->belongsTo('App\User');
   }
 
-  public function manyMerchandise()
+  public function merchandise()
   {
     return $this->belongsToMany('App\Merchandise');
   }
 
   public function updateCustomer($request)
   {
-    if($request->name_customer)
-      $this->name_customer = $request->name_customer;
-    if($request->cnpj_customer)
-      $this->cnpj_customer = $request->cnpj_customer;
-    if($request->adress_customer)
-      $this->adress_customer = $request->adress_customer;
-    if($request->phone_customer)
-      $this->phone_customer = $request->phone_customer;
+    if($request->name)
+      $this->name = $request->name;
+    if($request->cnpj)
+      $this->cnpj = $request->cnpj;
+    if($request->address)
+      $this->address = $request->address;
+    if($request->phone)
+      $this->phone = $request->phone;
     if($request->email)
       $this->email = $request->email;
-    if($request->id_pic_customer)
-      $this->id_pic_customer = $request->id_pic_customer;
 
       $this->save();
   }

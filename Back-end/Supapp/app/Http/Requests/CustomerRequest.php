@@ -27,24 +27,24 @@ class CustomerRequest extends FormRequest
     public function rules()
     {
       return [
-        'name_customer' => 'required|string',
-        'cnpj_customer' => 'required|cnpj',
-        'adress_customer' => 'required',
-        'phone_customer' => 'telefone|required'
+        'name' => 'required|string',
+        'cnpj' => 'required|cnpj',
+        'address' => 'required|string',
+        'phone' => 'telefone|required'
       ];
     }
 
-    public function message(){
+    public function messages(){
 
       return [
-        'name_customer.unique' => 'Este nome ja existe',
-        'name_customer.required' => 'Insira um nome valido',
-        'cnpj_customer.unique' => 'Este cnpj ja existe',
-        'cnpj_customer.required' => 'Insira um cnpj valido',
-        'adress_customer.unique' => 'Este endereço ja existe',
-        'adress_customer.required' => 'Insira um endereco valido',
-        'phone_customer.required' => 'Insira um telefone válido',
-        'phone_customer.unique' => 'Este numero de telefone ja existe'
+        'name.unique' => 'Este nome ja existe',
+        'name.required' => 'Insira um nome valido',
+        'cnpj.unique' => 'Este cnpj ja existe',
+        'cnpj.required' => 'Insira um cnpj valido',
+        'address.unique' => 'Este endereço ja existe',
+        'address.required' => 'Insira um endereco valido',
+        'phone.required' => 'Insira um telefone válido',
+        'phone.unique' => 'Este numero de telefone ja existe'
       ];
     }
 

@@ -27,24 +27,24 @@ class SupplierRequest extends FormRequest
     public function rules()
     {
         return [
-          'name_supplier' => 'string|required',
-          'cnpj_supplier' => 'required|cnpj',
-          'adress_supplier' => 'required',
-          'phone_supplier' => 'required|telefone'
+          'name' => 'required|string',
+          'cnpj' => 'required|cnpj',
+          'address' => 'required|string',
+          'phone' => 'required|telefone|string'
         ];
     }
 
-    public function message(){
+    public function messages(){
 
         return[
-          'name_supplier.unique' => 'Este nome ja existe',
-          'name_supplier.required' => 'Insira um nome valido',
-          'cnpj_supplier.unique' => 'Este cnpj ja existe',
-          'cnpj_supplier.required' => 'Insira um cnpj valido',
-          'adress_supplier.unique' => 'Este endereco ja existe',
-          'adress_supplier.required' => 'Insira um endereco valido',
-          'phone_supplier.required' => 'Insira um telefone valido',
-          'phone_supplier.unique' => 'Este numero de telefone ja existe'
+          'name.unique' => 'Este nome ja existe',
+          'name.required' => 'Insira um nome valido',
+          'cnpj.unique' => 'Este cnpj ja existe',
+          'cnpj.required' => 'Insira um cnpj valido',
+          'address.unique' => 'Este endereco ja existe',
+          'address.required' => 'Insira um endereco valido',
+          'phone.required' => 'Insira um telefone valido',
+          'phone.unique' => 'Este numero de telefone ja existe'
         ];
     }
 

@@ -27,21 +27,17 @@ class Supplier extends Model
 
   public function updateSupplier($request)
   {
-    if($request->name_supplier)
-      $this->name_supplier = $request->name_supplier;
-    if($request->cnpj_supplier)
-      $this->cnpj_supplier = $request->cnpj_supplier;
-    if($request->adress_supplier)
-      $this->adress_supplier = $request->adress_supplier;
-    if($request->phone_supplier)
-      $this->phone_supplier = $request->phone_supplier;
+    if($request->name)
+      $this->name = $request->name;
+    if($request->cnpj)
+      $this->cnpj = $request->cnpj;
+    if($request->address)
+      $this->address = $request->address;
+    if($request->phone)
+      $this->phone = $request->phone;
     if($request->email)
       $this->email = $request->email;
-    if($request->id_pic_supplier)
-      $this->id_pic_supplier = $request->id_pic_supplier;
-    if($request->rating)
-      $this->rating = $request->rating;
-
+      
       $this->save();
   }
   public function destroySupplier($id)
