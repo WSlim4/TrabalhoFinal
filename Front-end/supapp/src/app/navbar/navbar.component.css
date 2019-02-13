@@ -1,0 +1,45 @@
+.collapsible-header{
+  display: block;
+  font-size: 2.5vh;
+}
+.titulo{
+  font-family: 'Montserrat Subrayada', sans-serif;
+  font-size: 6vh;
+  color:white;
+}
+/*Configuracoes para botoes de Frios e Hortifruti*/
+
+.botoes-sidenav-1{
+  background-color: #2E5A1C !important;
+}
+/*Configuracoes para botoes de Carnes, Derivados, Frutas e Hortaliças*/
+.botoes-sidenav-2{
+  background-color: #477B32 !important;
+}
+/*Configuracoes para botoes de Peixe, Boi, Frango, Porco, Leite, Manteiga e Queijo*/
+.botoes-sidenav-3{
+  background-color: #71B455;
+  margin-left: -0.5vw;
+  color: white;
+  font-size: 2.5vh;
+}
+.botoes-sidenav-3:hover{
+  background-color: #93ba82;
+}
+/*Configuracoes do botao Sobre Nós*/
+.botao-sobre{
+  font-family: 'Rubik', sans-serif;
+  font-size: 2.5vh;
+  color:white;
+  background-color: #477B32;
+}
+/* para tirar o padding automatico do collapsible no materialize */
+.row .col{
+  padding:0;
+}
+/*Background da sidenav e aplicando flexbox*/
+#slide-out{
+  display:flex;
+  flex-direction: column;
+  background-color: #4E9525;
+}
