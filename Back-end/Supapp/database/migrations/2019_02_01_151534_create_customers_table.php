@@ -17,6 +17,7 @@ class CreateCustomersTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('cnpj_customer')->unique();
+            $table->string('name_customer');
             $table->string('adress_customer');
             $table->string('phone_customer');
             $table->integer('id_pic_customer')->nullable();

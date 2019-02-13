@@ -33,8 +33,9 @@ class Merchandise extends Model
       $this->mer_id = $request->mer_id;
     if($request->category)
       $this->category = $request->category;
-    $this->supplier_id = $suplier->id;
-    $this->save();
+    if($request->price)
+      $this->price = $request->price;
+      $this->save();
   }
 
   public function destroyMerchandise($id)
