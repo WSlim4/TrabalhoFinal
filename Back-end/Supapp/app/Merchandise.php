@@ -16,13 +16,16 @@ class Merchandise extends Model
     return $this->belongsTo('App\Supplier');
   }
 
-  public function customer()
+  public function customers()
   {
     return $this->belongsToMany('App\Customer');
   }
 
   public function updateMerchandise($request)
   {
+    $user = Auth::user();
+    $supplier-> $user->supplier;
+    $this->supplier_id= $supplier->id;
     if($request->name)
       $this->name = $request->name;
     if($request->measure)
@@ -31,8 +34,7 @@ class Merchandise extends Model
       $this->category = $request->category;
     if($request->price)
       $this->price = $request->price;
-
-      $this->save();
+    $this->save();
   }
 
   public function destroyMerchandise($id)

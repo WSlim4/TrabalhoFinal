@@ -17,8 +17,8 @@ class CustomerMerchandise extends Migration
           $table->increments('id');
           $table->integer('price_paid');
           $table->integer('amount_purchased');
-          $table->integer('customer_id')->unsigned();
-          $table->integer('merchandise_id')->unsigned();
+          $table->integer('customer_id')->unsigned()->unique();
+          $table->integer('merchandise_id')->unsigned()->unique();
           $table->timestamps();
         });
         Schema::table('customer_merchandise', function (Blueprint $table){

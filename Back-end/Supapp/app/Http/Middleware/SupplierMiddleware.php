@@ -19,10 +19,10 @@ class SupplierMiddleware
     public function handle($request, Closure $next)
     {
 
-      if (Auth::user()->id===$request->id){
+      if (Auth::user()->id==$request->id){
           return $next($request);
       }else{
-          return response()->json(['Permission denied'], 401);
+          return response()->json(['Permission denied Supplier'], 401);
       }
     }
 }
