@@ -11,11 +11,5 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
   }
-  onClick(){
-    this.clicked=!this.clicked;
-  }
-  onClick2(){
-    this.clicked2=!this.clicked2;
-  }
 
 }
