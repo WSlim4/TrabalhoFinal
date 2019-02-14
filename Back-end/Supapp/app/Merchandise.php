@@ -4,6 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Supplier; 
+use Auth;
 
 class Merchandise extends Model
 {
@@ -14,23 +16,25 @@ class Merchandise extends Model
     return $this->belongsTo('App\Supplier');
   }
 
-  public function manyCustomer()
+  public function customers()
   {
     return $this->belongsToMany('App\Customer');
   }
 
   public function updateMerchandise($request)
   {
-    if($request->name_mer)
-      $this->name_mer = $request->name_mer;
-    if($request->stock)
-      $this->stock = $request->stock;
-    if($request->mer_id)
-      $this->mer_id = $request->mer_id;
+    $user = Auth::user();
+    $supplier-> $user->supplier;
+    $this->supplier_id= $supplier->id;
+    if($request->name)
+      $this->name = $request->name;
+    if($request->measure)
+      $this->measure = $request->measure;
     if($request->category)
       $this->category = $request->category;
-
-      $this->save();
+    if($request->price)
+      $this->price = $request->price;
+    $this->save();
   }
 
   public function destroyMerchandise($id)

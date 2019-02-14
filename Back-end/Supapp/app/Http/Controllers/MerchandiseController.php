@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Merchandise;
+use App\Http\Requests\MerchandiseRequest;
 
 class MerchandiseController extends Controller
 {
@@ -24,7 +25,7 @@ class MerchandiseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MerchandiseRequest $request)
     {
       $merchandise = new Merchandise;
       $merchandise->updateMerchandise($request);
@@ -51,7 +52,7 @@ class MerchandiseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MerchandiseRequest $request, $id)
     {
       $merchandise = Merchandise::findOrFail($id);
       $merchandise->updateMerchandise($request);

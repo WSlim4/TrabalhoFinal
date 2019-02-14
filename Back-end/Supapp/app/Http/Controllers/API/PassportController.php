@@ -28,10 +28,10 @@ class PassportController extends Controller
         $newUser->name = $request->name;
         $newUser->email = $request->email;
         $newUser->password = bcrypt($request->password);
-        $success['token'] = $newUser->createToken('MyApp')->accessToken;
-        $success['name'] = $newUser->name;
         $newUser->save();
-        return response() -> json(['success' => $success],$this->successStatus);
+        $success['name'] = $newUser->name;
+        $success['token'] = $newUser->createToken('MyApp')->accessToken;
+        return response()->json(['success' => $success],$this->successStatus);
     }
 
     public function login() {

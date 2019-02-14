@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Customer;
+use App\Http\Requests\CustomerRequest;
 
 class CustomerController extends Controller
 {
@@ -27,7 +28,7 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CustomerRequest $request)
     {
       $customer = new Customer;
       $customer->updateCustomer($request);
@@ -54,7 +55,7 @@ class CustomerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CustomerRequest $request, $id)
     {
 
       $customer = Customer::findOrFail($id);
@@ -71,7 +72,7 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        $customer = new Customer;
+        $customer = Customer::find($id);
         $customer->destroyCustomer($id);
 
         return response()->json(['DELETADO']);

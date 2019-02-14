@@ -4,45 +4,37 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Auth;
 
 class Supplier extends Model
 {
   use SoftDeletes;
 
-  public function merchandise()
+  public function merchandises()
   {
     return $this->hasMany('App\Merchandise');
   }
 
-  public function supplierUser()
+  public function user()
   {
     return $this->belongsTo('App\User');
-  }
-
-  public function getCategory()
-  {
-    $category = Merchandise::find($id);
-    return $category->category;
-  }
+  } 
 
   public function updateSupplier($request)
   {
+    $user = Auth::user();
+    $this->user_id = $user->id;
+    if($request->cnpj)
+      $this->cnpj = $request->cnpj;
     if($request->name)
       $this->name = $request->name;
-    if($request->cnpj_supplier)
-      $this->cnpj_supplier = $request->cnpj_supplier;
-    if($request->adress_supplier)
-      $this->adress_supplier = $request->adress_supplier;
-    if($request->phone_supplier)
-      $this->phone_supplier = $request->phone_supplier;
+    if($request->address)
+      $this->address = $request->address;
+    if($request->phone)
+      $this->phone = $request->phone;
     if($request->email)
       $this->email = $request->email;
-    if($request->id_pic_supplier)
-      $this->id_pic_supplier = $request->id_pic_supplier;
-    if($request->rating)
-      $this->rating = $request->rating;
-
-      $this->save();
+    $this->save();
   }
   public function destroySupplier($id)
   {

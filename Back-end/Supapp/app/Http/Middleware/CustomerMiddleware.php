@@ -17,11 +17,11 @@ class CustomerMiddleware
      */
     public function handle($request, Closure $next)
     {
-
-      if (Auth::user()->id===$request->id){
+        $custumer = Customer::find($request->id);
+        if (Auth::user()->id===$custumer->user_id){
           return $next($request);
-      }else{
+        }else{
           return response()->json(['Permission denied'], 401);
-      }
+        }
     }
 }

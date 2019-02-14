@@ -4,37 +4,37 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Auth;
 
 class Customer extends Model
 {
   use SoftDeletes;
 
-  public function customerUser()
+  public function user()
   {
     return $this->belongsTo('App\User');
   }
 
-  public function manyMerchandise()
+  public function merchandises()
   {
     return $this->belongsToMany('App\Merchandise');
   }
 
   public function updateCustomer($request)
   {
+    $user = Auth::user();
+    $this->user_id = $user->id;
+    if($request->cnpj)
+      $this->cnpj = $request->cnpj;
     if($request->name)
       $this->name = $request->name;
-    if($request->cnpj_customer)
-      $this->cnpj_customer = $request->cnpj_customer;
-    if($request->adress_customer)
-      $this->adress_customer = $request->adress_customer;
-    if($request->phone_customer)
-      $this->phone_customer = $request->phone_customer;
+    if($request->address)
+      $this->address = $request->address;
+    if($request->phone)
+      $this->phone = $request->phone;
     if($request->email)
       $this->email = $request->email;
-    if($request->id_pic_customer)
-      $this->id_pic_customer = $request->id_pic_customer;
-
-      $this->save();
+    $this->save();
   }
 
   public function destroyCustomer($id)
