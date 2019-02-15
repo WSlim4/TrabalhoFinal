@@ -36,6 +36,11 @@ Route::apiResource('merchandise', 'MerchandiseController');
 Route::apiResource('customer', 'CustomerController');
 Route::apiResource('supplier', 'SupplierController');
 
+Route::get('/{id}', function (Request $request) {
+    return $request->id;
+});
+*/
+
 Route::post('login', 'API\PassportController@login');
 Route::post('register', 'API\PassportController@register');
 
@@ -44,22 +49,28 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::post('createsupplier', 'SupplierController@store');
     Route::post('createcustomer', 'CustomerController@store');
     Route::get('get-details', 'API\PassportController@getDetails');
+    //
+    Route::post('createmerchandise', 'MerchandiseController@store');
+    Route::get('showmerchandise', 'MerchandiseController@index');
+    //
     Route::group([
       'middleware'=>'CustomerMiddleware',
     ], function($router){
-         Route::put('updateCustomer', 'CustomerController@update');
-         Route::delete('deleteCustomer', 'CustomerConhtroller@destroy');
+         Route::put('updatecustomer/{id}', 'CustomerController@update');
+         Route::delete('deletecustomer/{id}', 'CustomerController@destroy');
     });
     Route::group([
       'middleware' =>'SupplierMiddleware',
     ], function($router){
-         //Merchandises routes allowed for it's supplier*/
-         Route::post('createmerchandise', 'MerchandiseController@store');
-         Route::put('updatemerchandise', 'MerchandiseController@update');
-         Route::get('showmerchandise', 'MerchandiseController@index');
-         Route::delete('deletemerchandise', 'MerchandiseController@destroy');
          /*Supplier routes*/
-         Route::put('updatesupplier', 'SupplierController@update');
-         Route::delete('deletesupplier', 'SupplierController@destroy');
-  });
+         Route::put('updatesupplier/{id}', 'SupplierController@update');
+         Route::delete('deletesupplier/{id}', 'SupplierController@destroy');
+    });
+    Route::group([
+    'middleware' =>'MerchandiseMiddleware',
+    ], function($router){
+       //Merchandises routes allowed for it's supplier*/
+        Route::put('updatemerchandise/{id}', 'MerchandiseController@update');
+        Route::delete('deletemerchandise/{id}', 'MerchandiseController@destroy');
+    });
 });

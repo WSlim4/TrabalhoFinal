@@ -12,12 +12,12 @@ class User extends Authenticatable
     use Notifiable;
     use HasApiTokens;
 
-    public function generalSupplier()
+    public function supplier()
     {
       return $this->hasOne('App\Supplier');
     }
 
-    public function generalCustomer()
+    public function customer()
     {
       return $this->hasOne('App\Customer');
     }

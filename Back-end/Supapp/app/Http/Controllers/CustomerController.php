@@ -72,7 +72,7 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        $customer = new Customer;
+        $customer = Customer::find($id);
         $customer->destroyCustomer($id);
 
         return response()->json(['DELETADO']);

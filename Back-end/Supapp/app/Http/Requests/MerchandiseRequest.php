@@ -32,7 +32,9 @@ class MerchandiseRequest extends FormRequest
             'price' => 'required|numeric|min:0',
             'measure' => 'required|string',
             'category' => 'required|string',
+            /* tirei pq não obriga a ter no forme
             'supplier_id' => 'required'
+            */
           ];
         }
          if ($this->isMethod('put')){
