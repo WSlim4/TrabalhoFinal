@@ -1,0 +1,34 @@
+
+/*Classes*/
+.col{
+	background-color: #4E9525;
+	margin-left: 15em;
+	margin-top: 10vh;
+	padding: 2em 3em;
+}
+.flex{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.imagem-grande{
+	height: 15em;
+	margin-left: 5em;
+}
+.imagem-medio{
+	margin-left: 2em;
+	height: 30vh;
+}
+.caixa-texto{
+	width: 20em;
+	margin-left: 4vw;
+}
+.titulo{
+	font-family: 'Rubik', sans-serif;
+  font-size: 5vh;
+  color:white;
+}
+/*Elementos*/
+a{
+	color: white;
+}

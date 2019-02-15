@@ -12,6 +12,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AreaPesquisaComponent } from './pages/area-pesquisa/area-pesquisa.component';
 import { Error404Component } from './pages/error404/error404.component';
+import { SobrenosComponent } from './pages/sobrenos/sobrenos.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Error404Component } from './pages/error404/error404.component';
     HomeComponent,
     NavbarComponent,
     AreaPesquisaComponent,
-    Error404Component
+    Error404Component,
+    SobrenosComponent
   ],
   imports: [
     BrowserModule,

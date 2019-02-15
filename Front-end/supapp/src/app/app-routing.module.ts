@@ -5,7 +5,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AreaPesquisaComponent } from './pages/area-pesquisa/area-pesquisa.component';
 import { Error404Component } from './pages/error404/error404.component';
-
+import { SobrenosComponent } from './pages/sobrenos/sobrenos.component';
 
 const routes: Routes = [
 	{ path: 'login', component: LoginComponent },
@@ -13,6 +13,7 @@ const routes: Routes = [
 	{ path: 'home', component: HomeComponent },
 	{ path: 'area-pesquisa', component: AreaPesquisaComponent },
 	{ path: 'error404', component: Error404Component },
+	{ path: 'sobrenos', component: SobrenosComponent },
 ];
 
 @NgModule({
