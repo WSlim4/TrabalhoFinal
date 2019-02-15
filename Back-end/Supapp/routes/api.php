@@ -31,10 +31,8 @@ Route::get('laticinios/queijos', 'MerchandiseController@listQueijo');
 Route::get('laticinios/margarinas', 'MerchandiseController@listMargarina');
 Route::get('laticinios/leites', 'MerchandiseController@listLeite');
 
-//Rota de testes
-Route::apiResource('merchandise', 'MerchandiseController');
-Route::apiResource('customer', 'CustomerController');
-Route::apiResource('supplier', 'SupplierController');
+//Rotas de testes
+
 
 Route::get('/{id}', function (Request $request) {
     return $request->id;
