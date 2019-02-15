@@ -16,12 +16,22 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//Rotas subcategorias carnes*/
+Route::get('carnes/frangos', 'MerchandiseController@listFrangos');
+Route::get('carnes/bovinos', 'MerchandiseController@listBovinos');
+Route::get('carnes/suinos',  'MerchandiseController@listSuinos');
+Route::get('carnes/peixes',  'MerchandiseController@listPeixes');
 
-Route::get('carnes', 'MerchandiseController@listCarnes');
-Route::get('frios', 'MerchandiseController@listFrios');
-Route::get('laticinios', 'MerchandiseController@listLaticinios');
-Route::get('hortalicas', 'MerchandiseController@listHortalicas');
+//Rotas subcategorias  hortifruti
+Route::get('hortifruti/frutas', 'MerchandiseController@listFrutas');
+Route::get('hortifruti/hortalicas', 'MerchandiseController@listHortalicas');
 
+//Rotas laticinios
+Route::get('laticinios/queijos', 'MerchandiseController@listQueijo');
+Route::get('laticinios/margarinas', 'MerchandiseController@listMargarina');
+Route::get('laticinios/leites', 'MerchandiseController@listLeite');
+
+//Rota de testes
 Route::apiResource('merchandise', 'MerchandiseController');
 Route::apiResource('customer', 'CustomerController');
 Route::apiResource('supplier', 'SupplierController');

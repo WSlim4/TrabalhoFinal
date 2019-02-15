@@ -13,29 +13,60 @@ class MerchandiseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-/*Categorias*/
 
-     public function listCarnes(){
-       $carne = new Merchandise;
-       $carne->getCarne();
-       return response()->json([$carne]);
+/*Subcategorias carnes*/
+
+     public function listFrangos(){
+       $frango = new Merchandise;
+       $frango->getFrangos();
+       return response()->json([$frango]);
      }
-     public function listFrios(){
-       $frio = new Merchandise;
-       $frio->getFrio();
-       return response()->json([$frio]);
+     public function listSuinos(){
+       $suino = new Merchandise;
+       $suino->getSuinos();
+       return response()->json([$suino]);
+     }
+     public function listBovinos(){
+       $bovino = new Merchandise;
+       $bovino->getBovinos();
+       return response()->json([$bovino]);
+     }
+     public function listPeixes(){
+       $peixe = new Merchandise;
+       $peixe->getPeixes();
+       return response()->json([$peixe]);
+     }
+
+/*Subcategorias hortifrut*/
+
+     public function listFrutas(){
+       $fruta = new Merchandise;
+       $fruta->getFrutas();
+       return response()->json([$fruta]);
      }
      public function listHortalicas(){
        $hortalica = new Merchandise;
-       $hortalica->getHortalica();
+       $hortalica->getHortalicas();
        return response()->json([$hortalica]);
      }
 
-     public function listLaticinios(){
-       $laticinio = new Merchandise;
-       $laticinio->getLaticinio();
-       return response()->json([$laticinio]);
-     }
+/*Subcategoria laticinios*/
+      public function listLeites(){
+        $leite = new Merchandise;
+        $leite->getLeites();
+        return response()->json([$leite]);
+      }
+      public function listMargarinas(){
+        $margarina = new Merchandise;
+        $margarina->getMargarinas();
+        return response()->json([$margarina]);
+      }
+      public function listQueijos(){
+        $queijo = new Merchandise;
+        $queijo->getQueijos();
+        return response()->json([$queijo]);
+      }
+
 
 /*CRUD*/
     public function index()
