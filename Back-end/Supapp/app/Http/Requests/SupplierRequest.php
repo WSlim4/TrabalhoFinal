@@ -26,13 +26,23 @@ class SupplierRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-          'name' => 'required|string',
-          'cnpj' => 'required|cnpj',
-          'address' => 'required|string',
-          'phone' => 'required|telefone|string'
+        if($this->isMethod('post'){
+          return [
+            'name' => 'required|string',
+            'cnpj' => 'required|cnpj',
+            'address' => 'required|string',
+            'phone' => 'required|telefone|string'
         ];
     }
+        if($this->isMethod('put')){
+          return [
+            'name' => 'string',
+            'cnpj' => 'cnpj',
+            'address' => 'string',
+            'phone' => 'telefone|string'
+          ];
+      }
+  }
 
     public function messages(){
 

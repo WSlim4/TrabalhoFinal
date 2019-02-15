@@ -26,20 +26,32 @@ class MerchandiseRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-             'name' => 'required|string',
-             'price' => 'required|numeric|min:0',
-             'measure' => 'required|string',
-             'category' => 'required|string'
-        ];
+       if ($this->isMethod('post')){
+         return [
+            'name' => 'required|string',
+            'price' => 'required|numeric|min:0',
+            'measure' => 'required|string',
+            'category' => 'required|string',
+            /* tirei pq não obriga a ter no forme
+            'supplier_id' => 'required'
+            */
+          ];
+        }
+         if ($this->isMethod('put')){
+           return[
+             'name' => 'string',
+             'price' => 'numeric|min:0',
+             'supplier_id' => 'numeric'
+            ];
+         }
     }
 
     public function messages(){
         return [
-              'name.required' => 'Insira um nome para a mercadoria',
-              'price.required' => 'Insira um preço para a mercadoria',
-              'measure.required' => 'Insira a medida. Ex: quilo, caixa, etc...',
-              'category.required' => 'Insira a categoria corretamente. Ex: carne, frio, etc...'
+            'name.required' => 'Insira um nome para a mercadoria',
+            'price.required' => 'Insira um preço para a mercadoria',
+            'measure.required' => 'Insira a medida. Ex: quilo, caixa, etc...',
+            'category.required' => 'Insira a categoria corretamente. Ex: carne, frio, etc...'
         ];
     }
 

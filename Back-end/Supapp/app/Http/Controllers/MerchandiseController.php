@@ -13,6 +13,31 @@ class MerchandiseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+/*Categorias*/
+
+     public function listCarnes(){
+       $carne = new Merchandise;
+       $carne->getCarne();
+       return response()->json([$carne]);
+     }
+     public function listFrios(){
+       $frio = new Merchandise;
+       $frio->getFrio();
+       return response()->json([$frio]);
+     }
+     public function listHortalicas(){
+       $hortalica = new Merchandise;
+       $hortalica->getHortalica();
+       return response()->json([$hortalica]);
+     }
+
+     public function listLaticinios(){
+       $laticinio = new Merchandise;
+       $laticinio->getLaticinio();
+       return response()->json([$laticinio]);
+     }
+
+/*CRUD*/
     public function index()
     {
       $lista = Merchandise::all();
