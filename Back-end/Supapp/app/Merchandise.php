@@ -15,16 +15,35 @@ class Merchandise extends Model
   {
     return $this->belongsTo('App\Supplier');
   }
+/*Categorias*/
+  public function getCarne(){
+    $carne = Merchandise::where('category','carne')->get();
+    echo $carne;
+  }
+  public function getFrio(){
+    $frio = Merchandise::where('category','frios')->get();
+    echo $frio;
+  }
+  public function getHortalica(){
+    $hortalica = Merchandise::where('category','hortalica')->get();
+    echo $hortalica;
+  }
+  public function getLaticinio(){
+    $laticinio = Merchandise::where('category','laticinio')->get();
+    echo $laticinio;
+  }
 
-  public function customers()
+/*Relationship*/
+  public function customer()
   {
     return $this->belongsToMany('App\Customer');
   }
 
+/*CRUD*/
   public function updateMerchandise($request)
   {
     $user = Auth::user();
-    $supplier-> $user->supplier;
+    $supplier= $user->supplier;
     $this->supplier_id= $supplier->id;
     if($request->name)
       $this->name = $request->name;

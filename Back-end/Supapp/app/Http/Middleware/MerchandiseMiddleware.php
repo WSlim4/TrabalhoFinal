@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Auth;
-use DB;
-use App\Supplier;
+use App\Merchandise;
 
-class SupplierMiddleware
+class MerchandiseMiddleware
 {
     /**
      * Handle an incoming request.
@@ -20,10 +19,11 @@ class SupplierMiddleware
     {
         $user = Auth::user();
         $supplier = $user->supplier;
-        if ($user->id==$supplier->user_id){
-          return $next($request);
+        $merchandise = Merchandise::find($request->id); 
+        if ($merchandise->supplier_id==$supplier->id){
+            return $next($request);
         }else{
-          return response()->json(['Permission denied'], 401);
+            return response()->json(['Permission denied'], 401);
         }
     }
 }
