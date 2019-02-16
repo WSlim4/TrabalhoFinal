@@ -22,8 +22,7 @@ class Customer extends Model
 
   public function updateCustomer($request)
   {
-    $user = Auth::user();
-    $this->user_id = $user->id;
+    
     if($request->cnpj)
       $this->cnpj = $request->cnpj;
     if($request->name)

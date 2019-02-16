@@ -30,6 +30,36 @@ class SupplierController extends Controller
       $supplier = new Supplier;
       $supplier->updateSupplier($request);
 
+      if (!Storage::exists('supplierPhotos'))
+                 Storage::makeDirectory('supplierPhotos',0775,true);
+
+      $file = $request->file('id_pic');
+
+      $filename = 'foto.' . $file->getClientOriginalExtension();
+
+      $validator = Validator::make($request->all(),[
+        'id_pic' => 'required|file|image|mimes:jpeg,jpg,png|max:2048'
+      ]);
+
+      if ($validator->fails()){
+            return response()->json(['erro' => $validator->errors()], 400);
+      }
+
+      $path = $file->storeAs('supplierPhotos', $filename);
+
+      $supplier->id_pic = $path;
+
+      $supplier->save();
+
+      return response()->json([$supplier]);
+    }
+    public function supPhoto($id){
+
+        $supplier = Supplier::findOrFail($id);
+
+        return response()->download(storage_path('app\\' .$supplier->id_pic));
+      }
+
       return response()->json([$supplier]);
     }
 

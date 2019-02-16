@@ -33,11 +33,10 @@ Route::get('laticinios/leites', 'MerchandiseController@listLeite');
 
 //Rotas de testes
 
-
 Route::get('/{id}', function (Request $request) {
     return $request->id;
 });
-*/
+
 
 Route::post('login', 'API\PassportController@login');
 Route::post('register', 'API\PassportController@register');

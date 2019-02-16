@@ -21,7 +21,7 @@ class CreateCustomersTable extends Migration
             $table->string('address');
             $table->string('phone');
             $table->string('email')->unique();
-            $table->integer('id_pic')->nullable();
+            $table->string('id_pic')->nullable();
             $table->timestamps();
         });
         Schema::table('customers', function(Blueprint $table)
