@@ -11,10 +11,12 @@
 
 .botoes-sidenav-1{
   background-color: #2E5A1C !important;
+  color:white;
 }
 /*Configuracoes para botoes de Carnes, Derivados, Frutas e Hortaliças*/
 .botoes-sidenav-2{
   background-color: #477B32 !important;
+  color:white;
 }
 /*Configuracoes para botoes de Peixe, Boi, Frango, Porco, Leite, Manteiga e Queijo*/
 .botoes-sidenav-3{
@@ -38,8 +40,15 @@
   padding:0;
 }
 /*Background da sidenav e aplicando flexbox*/
-#slide-out{
+.bg-side{
   display:flex;
   flex-direction: column;
   background-color: #4E9525;
+}
+.brand-logo{
+  margin-top: 1vh;
+  height:8vh;
+}
+nav{
+    background-color: #4E9525;
 }
