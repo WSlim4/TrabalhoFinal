@@ -16,6 +16,9 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+//Search bar
+Route::get('merchandise/search', 'MerchandiseController@searchBar');
+
 //Rotas subcategorias carnes*/
 Route::get('carnes/frangos', 'MerchandiseController@listFrangos');
 Route::get('carnes/bovinos', 'MerchandiseController@listBovinos');
@@ -32,6 +35,9 @@ Route::get('laticinios/margarinas', 'MerchandiseController@listMargarina');
 Route::get('laticinios/leites', 'MerchandiseController@listLeite');
 
 //Rotas de testes
+Route::apiResource('customers', 'CustomerController');
+Route::apiResource('suppliers', 'SupplierController');
+Route::get('downloadPhoto/{id}', 'CustomerController@downloadPhoto');
 
 Route::get('/{id}', function (Request $request) {
     return $request->id;

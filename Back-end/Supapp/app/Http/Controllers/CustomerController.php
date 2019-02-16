@@ -7,6 +7,7 @@ use App\Customer;
 use App\Http\Requests\CustomerRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use App\User;
 
 class CustomerController extends Controller
 {
@@ -35,27 +36,6 @@ class CustomerController extends Controller
       $customer = new Customer;
       $customer->updateCustomer($request);
 
-      if (!Storage::exists('customerPhotos'))
-                 Storage::makeDirectory('customerPhotos',0775,true);
-
-      $file = $request->file('id_pic');
-
-      $filename = 'foto.' . $file->getClientOriginalExtension();
-
-      $validator = Validator::make($request->all(),[
-        'id_pic' => 'required|file|image|mimes:jpeg,jpg,png|max:2048'
-      ]);
-
-      if ($validator->fails()){
-            return response()->json(['erro' => $validator->errors()], 400);
-      }
-
-      $path = $file->storeAs('customerPhotos', $filename);
-
-      $customer->id_pic = $path;
-
-      $customer->save();
-
       return response()->json([$customer]);
     }
     public function downloadPhoto($id){
@@ -64,6 +44,8 @@ class CustomerController extends Controller
 
         return response()->download(storage_path('app\\' .$customer->id_pic));
       }
+
+
     /**
      * Display the specified resource.
      *

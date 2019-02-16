@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Auth;
+use App\User;
 
 class Supplier extends Model
 {
@@ -22,6 +23,7 @@ class Supplier extends Model
 
   public function updateSupplier($request)
   {
+    $newUser = new User;
     $user = Auth::user();
     $this->user_id = $user->id;
     if($request->cnpj)
@@ -34,7 +36,28 @@ class Supplier extends Model
       $this->phone = $request->phone;
     if($request->email)
       $this->email = $request->email;
+
+    if (!Storage::exists('supplierPhotos'))
+                 Storage::makeDirectory('supplierPhotos',0775,true);
+
+    $file = $request->file('id_pic');
+
+    $filename = 'foto.' . $file->getClientOriginalExtension();
+
+    $validator = Validator::make($request->all(),[
+        'id_pic' => 'required|file|image|mimes:jpeg,jpg,png|max:2048'
+    ]);
+
+    if ($validator->fails()){
+            return response()->json(['erro' => $validator->errors()], 400);
+    }
+
+    $path = $file->storeAs('supplierPhotos', $filename);
+
+    $this->id_pic = $path;
+
     $this->save();
+
   }
   public function destroySupplier($id)
   {

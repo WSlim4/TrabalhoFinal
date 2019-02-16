@@ -13,6 +13,14 @@ class MerchandiseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+/*Search bar*/
+     public function searchBar(Request $request){
+       $lista = Merchandise::where('name', 'like', '%' .$request->name. '%')
+       ->orWhere('category', 'like', '%' .$request. '%')
+       ->orderBy('id', 'ASC')
+       ->get();
+       return response()->json([$lista]);
+     }
 
 /*Subcategorias carnes*/
 
