@@ -38,19 +38,19 @@ Route::get('/{id}', function (Request $request) {
     return $request->id;
 });
 */
-Route::get('rating/{id}', 'SupplierController@showrating');
+Route::get('rating/{id}', 'RatingController@showrating');
 Route::post('login', 'API\PassportController@login');
 Route::post('register', 'API\PassportController@register');
+Route::post('createcustomer', 'CustomerController@store');
+Route::post('createsupplier', 'SupplierController@store');
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('purchase','PurchaseController@index');
     Route::post('purchase/{id}','PurchaseController@store');
     Route::get('purchase/{id}','PurchaseController@show');
     Route::get('logout', 'API\PassportController@logout');
-    Route::post('createsupplier', 'SupplierController@store');
-    Route::post('createcustomer', 'CustomerController@store');
     Route::get('get-details', 'API\PassportController@getDetails');
-    Route::post('rating/{id}','CustomerController@rate');
+    Route::post('rating/{id}','RatingController@rate');
     Route::post('createmerchandise', 'MerchandiseController@store');
     Route::get('showmerchandise', 'MerchandiseController@index');
     //
