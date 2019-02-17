@@ -27,9 +27,6 @@ class Customer extends Model
 
   public function suppliers()
   {
-<<<<<<< HEAD
-    $newUser = new User;
-=======
     return $this->belongsToMany('App\Supplier')->withPivot('rating');
   }
 
@@ -43,7 +40,6 @@ class Customer extends Model
   {
     if($user)
       $this->user_id = $user->id;
->>>>>>> 4f807891177a94cba0c8b23086717f8a64a407b8
     if($request->cnpj)
       $this->cnpj = $request->cnpj;
     if($request->name)
@@ -58,10 +54,11 @@ class Customer extends Model
     if (!Storage::exists('customerPhotos'))
                Storage::makeDirectory('customerPhotos',0775,true);
 
+    if($request->id_pic){
     $file = $request->file('id_pic');
 
     $filename = 'foto.' . $file->getClientOriginalExtension();
-
+    }
     $validator = Validator::make($request->all(),[
       'id_pic' => 'required|file|image|mimes:jpeg,jpg,png|max:2048'
     ]);

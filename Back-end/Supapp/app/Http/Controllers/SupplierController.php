@@ -6,10 +6,9 @@ use Illuminate\Http\Request;
 use App\Supplier;
 use App\User;
 use App\Http\Requests\SupplierRequest;
-
 use App\Notifications\SupplierNotification;
+use Illuminate\Support\Facades\Validator;
 
-use Validator;
 
 
 class SupplierController extends Controller
@@ -36,21 +35,6 @@ class SupplierController extends Controller
      */
     public function store(SupplierRequest $request)
     {
-      $supplier = new Supplier;
-      $supplier->updateSupplier($request);
-
-      return response()->json([$supplier]);
-    }
-    public function supPhoto($id){
-
-        $supplier = Supplier::findOrFail($id);
-
-        return response()->download(storage_path('app\\' .$supplier->id_pic));
-      }
-
-      return response()->json([$supplier]);
-    }
-
       $validator = Validator::make($request -> all(), [
         'name' => 'required',
         'email' => 'required|email',
@@ -70,12 +54,20 @@ class SupplierController extends Controller
         $supplier = new Supplier;
         try {
           $supplier->updateSupplier($request, $newUser);
+          $supplier->save();
         }finally{
           if(!($supplier->id)){
             $newUser->delete();
           }
         }
         return response()->json(['success' => $success, 'Supplier' => $supplier],$this->successStatus);
+     }
+
+     public function supPhoto($id){
+
+        $supplier = Supplier::findOrFail($id);
+
+        return response()->download(storage_path('app\\' .$supplier->id_pic));
       }
 
     /**

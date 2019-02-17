@@ -6,16 +6,11 @@ use Illuminate\Http\Request;
 use App\Customer;
 use App\User;
 use App\Http\Requests\CustomerRequest;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
-use App\User;
 use App\Notifications\CustomerNotification;
-
-=======
 use Auth;
-use Validator;
->>>>>>> 4f807891177a94cba0c8b23086717f8a64a407b8
+
 class CustomerController extends Controller
 {
     /**
@@ -53,16 +48,17 @@ class CustomerController extends Controller
       $newUser->name = $request->name;
       $newUser->email = $request->email;
       $newUser->password = bcrypt($request->password);
-      $newUser->save(); 
+      $newUser->save();
       $success['name'] = $newUser->name;
       $success['token'] = $newUser->createToken('MyApp')->accessToken;
       $customer = new Customer;
       try {
         $customer->updateCustomer($request, $newUser);
+        $customer->save();
       }finally{
         if(!($customer->id)){
           $newUser->delete();
-        }   
+        }
       }
       return response()->json(['success' => $success, 'Customer' => $customer],$this->successStatus);
     }

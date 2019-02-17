@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Auth;
 use App\User;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class Supplier extends Model
 {
@@ -29,7 +31,7 @@ class Supplier extends Model
     $newUser = new User;
     $user = Auth::user();
     $this->user_id = $user->id;
-    
+
       return $this->belongsToMany('App\Customer')->withPivot('rating');
   }
 
@@ -51,10 +53,11 @@ class Supplier extends Model
     if (!Storage::exists('supplierPhotos'))
                  Storage::makeDirectory('supplierPhotos',0775,true);
 
+    if($request->id_pic){
     $file = $request->file('id_pic');
 
     $filename = 'foto.' . $file->getClientOriginalExtension();
-
+    }
     $validator = Validator::make($request->all(),[
         'id_pic' => 'required|file|image|mimes:jpeg,jpg,png|max:2048'
     ]);
