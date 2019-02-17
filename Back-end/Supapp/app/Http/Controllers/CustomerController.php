@@ -8,6 +8,7 @@ use App\Http\Requests\CustomerRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\User;
+use App\Notifications\CustomerNotification;
 
 class CustomerController extends Controller
 {

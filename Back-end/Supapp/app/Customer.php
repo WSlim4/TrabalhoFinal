@@ -8,10 +8,12 @@ use Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use App\User;
+use Illuminate\Notifications\Notifiable;
 
 class Customer extends Model
 {
   use SoftDeletes;
+  use Notifiable;
 
   public function user()
   {

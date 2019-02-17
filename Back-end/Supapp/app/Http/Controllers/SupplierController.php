@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Supplier;
 use App\Http\Requests\SupplierRequest;
+use App\Notifications\SupplierNotification;
 
 class SupplierController extends Controller
 {
