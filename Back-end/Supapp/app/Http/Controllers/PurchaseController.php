@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Purchase;
 use Illuminate\Http\Request;
+use Auth;
 
 class PurchaseController extends Controller
 {
@@ -15,16 +16,19 @@ class PurchaseController extends Controller
     public function index()
     {
         //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $user = Auth::user();
+        if($user->customer){
+            $lista = Purchase::where('customer_id',$user->customer->id)->get();            
+            return response()->json([$lista]);
+        }else{
+            $supplier = $user->supplier;
+            $merchandises = $supplier->merchandises;
+            $lista = [];
+            foreach ($merchandises as $merchandise) {
+                array_push($lista, $merchandise->purchases); 
+            }
+            return response()->json($lista);
+        }
     }
 
     /**
@@ -36,6 +40,9 @@ class PurchaseController extends Controller
     public function store(Request $request)
     {
         //
+        $purchase = new Purchase;
+        $purchase->createPurchase($request);
+        return response()->json([$purchase]);
     }
 
     /**
@@ -44,22 +51,14 @@ class PurchaseController extends Controller
      * @param  \App\Purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function show(Purchase $purchase)
+    public function show($id)
     {
         //
+        $showPurchase = Purchase::find($id);
+        return response()->json([$showPurchase]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Purchase  $purchase
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Purchase $purchase)
-    {
-        //
-    }
-
+  
     /**
      * Update the specified resource in storage.
      *
@@ -67,10 +66,6 @@ class PurchaseController extends Controller
      * @param  \App\Purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Purchase $purchase)
-    {
-        //
-    }
 
     /**
      * Remove the specified resource from storage.
@@ -81,5 +76,9 @@ class PurchaseController extends Controller
     public function destroy(Purchase $purchase)
     {
         //
+        $purchase = Purchase::find($id);
+        $purchase->destroyPurchase($id);
+
+        return response()->json(['DELETADO']);
     }
 }

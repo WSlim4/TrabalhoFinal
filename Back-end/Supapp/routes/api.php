@@ -16,36 +16,41 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-/*
-Route::get('carnes', 'MerchandiseController@listCarnes');
-Route::get('frios', 'MerchandiseController@listFrios');
-Route::get('laticinios', 'MerchandiseController@listLaticinios');
-Route::get('hortalicas', 'MerchandiseController@listHortalicas');
+//Rotas subcategorias carnes*/
+Route::get('carnes/frangos', 'MerchandiseController@listFrangos');
+Route::get('carnes/bovinos', 'MerchandiseController@listBovinos');
+Route::get('carnes/suinos',  'MerchandiseController@listSuinos');
+Route::get('carnes/peixes',  'MerchandiseController@listPeixes');
+
+//Rotas subcategorias  hortifruti
+Route::get('hortifruti/frutas', 'MerchandiseController@listFrutas');
+Route::get('hortifruti/hortalicas', 'MerchandiseController@listHortalicas');
 
 //Rotas laticinios
 Route::get('laticinios/queijos', 'MerchandiseController@listQueijo');
 Route::get('laticinios/margarinas', 'MerchandiseController@listMargarina');
 Route::get('laticinios/leites', 'MerchandiseController@listLeite');
 
-//Rota de testes
-Route::apiResource('merchandise', 'MerchandiseController');
-Route::apiResource('customer', 'CustomerController');
-Route::apiResource('supplier', 'SupplierController');
+//Rotas de testes
 
+/*
 Route::get('/{id}', function (Request $request) {
     return $request->id;
 });
 */
-
+Route::get('rating/{id}', 'SupplierController@showrating');
 Route::post('login', 'API\PassportController@login');
 Route::post('register', 'API\PassportController@register');
 
 Route::group(['middleware' => 'auth:api'], function() {
+    Route::get('purchase','PurchaseController@index');
+    Route::post('purchase/{id}','PurchaseController@store');
+    Route::get('purchase/{id}','PurchaseController@show');
     Route::get('logout', 'API\PassportController@logout');
     Route::post('createsupplier', 'SupplierController@store');
     Route::post('createcustomer', 'CustomerController@store');
     Route::get('get-details', 'API\PassportController@getDetails');
-    //
+    Route::post('rating/{id}','CustomerController@rate');
     Route::post('createmerchandise', 'MerchandiseController@store');
     Route::get('showmerchandise', 'MerchandiseController@index');
     //

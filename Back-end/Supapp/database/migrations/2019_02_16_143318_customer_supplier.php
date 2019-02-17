@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePurchasesTable extends Migration
+class CustomerSupplier extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,19 @@ class CreatePurchasesTable extends Migration
      */
     public function up()
     {
-        Schema::create('purchases', function (Blueprint $table) {
+        Schema::create('customer_supplier', function (Blueprint $table) {
             $table->increments('id');
-            $table->float('price_paid');
-            $table->integer('amount_purchased');
+            $table->float('rating');
             $table->integer('customer_id')->unsigned();
-            $table->integer('merchandise_id')->unsigned();
+            $table->integer('supplier_id')->unsigned();
             $table->timestamps();            
         });
-        Schema::table('purchases', function (Blueprint $table){
+        Schema::table('customer_supplier', function (Blueprint $table){
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
         });
-        Schema::table('purchases', function (Blueprint $table){
-            $table->foreign('merchandise_id')->references('id')->on('merchandises')->onDelete('cascade');
+        Schema::table('customer_supplier', function (Blueprint $table){
+            $table->foreign('supplier_id')->references('id')->on('suppliers')->onDelete('cascade');
         });
-
     }
 
     /**
@@ -37,6 +35,7 @@ class CreatePurchasesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('purchases');
+        //
+        Schema::dropIfExists('customer_supplier');
     }
 }

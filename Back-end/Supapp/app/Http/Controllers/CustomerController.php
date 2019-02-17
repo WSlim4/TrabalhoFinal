@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Customer;
 use App\Http\Requests\CustomerRequest;
+use Auth;
 
 class CustomerController extends Controller
 {
@@ -18,7 +19,6 @@ class CustomerController extends Controller
     public function index()
     {
      $lista = Customer::all();
-
      return response()->json([$lista]);
     }
 
@@ -28,11 +28,18 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function rate(CustomerRequest $request){
+      $user = Auth::user();
+      $customer = $user->customer;
+      $customer->rateSupplier($request);
+      return response()->json['Nota dada'];
+    }
+
     public function store(CustomerRequest $request)
     {
       $customer = new Customer;
       $customer->updateCustomer($request);
-
       return response()->json([$customer]);
     }
 

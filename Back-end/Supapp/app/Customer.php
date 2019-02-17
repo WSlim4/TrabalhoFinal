@@ -15,9 +15,20 @@ class Customer extends Model
     return $this->belongsTo('App\User');
   }
 
-  public function merchandises()
+  public function purchases()
   {
-    return $this->belongsToMany('App\Merchandise');
+    return $this->hasMany('App\Purchase');
+  }
+
+  public function suppliers()
+  {
+    return $this->belongsToMany('App\Supplier')->withPivot('rating');
+  }
+
+  public function rateSupplier($request)
+  {
+    $this->suppliers()->attach($request->id,['rating' => $request->rate]);
+
   }
 
   public function updateCustomer($request)

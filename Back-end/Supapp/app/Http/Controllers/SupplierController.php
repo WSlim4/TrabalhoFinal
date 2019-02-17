@@ -45,6 +45,18 @@ class SupplierController extends Controller
         return response()->json([$showSupplier]);
     }
 
+    public function showrating($id)
+    {
+      $supplier = Supplier::find($id);
+      $customers = $supplier->customers;
+      $array = [];
+      foreach ($customers as $customer)
+      {                                                                                                                   
+        array_push($array,$customer->pivot->rating);
+      }
+      $rate = array_sum($array)/count($array);
+      return response()->json($rate); 
+    }
     /**
      * Update the specified resource in storage.
      *
