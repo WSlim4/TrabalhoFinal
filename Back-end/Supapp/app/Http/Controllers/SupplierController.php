@@ -6,12 +6,11 @@ use Illuminate\Http\Request;
 use App\Supplier;
 use App\User;
 use App\Http\Requests\SupplierRequest;
-<<<<<<< HEAD
+
 use App\Notifications\SupplierNotification;
-=======
+
 use Validator;
 
->>>>>>> 4f807891177a94cba0c8b23086717f8a64a407b8
 
 class SupplierController extends Controller
 {
@@ -22,7 +21,7 @@ class SupplierController extends Controller
      */
 
     public $successStatus = 200;
-     
+
     public function index()
     {
       $lista = Supplier::all();
@@ -37,7 +36,6 @@ class SupplierController extends Controller
      */
     public function store(SupplierRequest $request)
     {
-<<<<<<< HEAD
       $supplier = new Supplier;
       $supplier->updateSupplier($request);
 
@@ -52,7 +50,7 @@ class SupplierController extends Controller
 
       return response()->json([$supplier]);
     }
-=======
+
       $validator = Validator::make($request -> all(), [
         'name' => 'required',
         'email' => 'required|email',
@@ -75,11 +73,10 @@ class SupplierController extends Controller
         }finally{
           if(!($supplier->id)){
             $newUser->delete();
-          }   
+          }
         }
         return response()->json(['success' => $success, 'Supplier' => $supplier],$this->successStatus);
       }
->>>>>>> 4f807891177a94cba0c8b23086717f8a64a407b8
 
     /**
      * Display the specified resource.
