@@ -1,3 +1,11 @@
+/*caracteristicas do materialize*/
+.row .col{
+  padding:0;
+  margin:0;
+}
+p.col.l4.pull-l8.m12.s12.center-align.footer{
+  margin-top: 4vh;
+}
 .modal {
   margin-top: -8vh;
   max-width: 50%;
@@ -6,82 +14,88 @@
 }
 .modal-content{
   padding: 0;
-  display:flex;
-  flex-direction: column;
 }
+
+/*parte do design da paginas*/
 .bg-header{
   background-color: #2E5A1C;
 }
+
+.bg-contato{
+  margin-top: -14vh;
+  background-color: #2E5A1C;
+  padding-bottom: 0.5vh;
+}
+
+.espaco{
+  background-color: white;
+  height: 4vh;
+  border-radius: 25px;
+  margin-top:-1vh;
+}
+
+/*caixas de texto*/
 .empresa{
   color:white;
   font-family: 'Rubik', sans-serif;
   margin-top: -4vh;
 }
+
 .endereco{
   color:#C4C4C4;
   font-family: 'Rubik', sans-serif;
   margin-top: -2vh;
 }
+
+.texto-info{
+  padding-top: 2vh;
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 3vh;
+}
+
+.texto{
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 2vh;
+  font-weight: lighter;
+  margin-top: -1vh;
+}
+
+.footer{
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  margin-bottom: 5vh;
+  font-size: 3vh;
+  margin-top: 10vh;
+}
+
+/*ajuste de figuras*/
 .material-icons{
   color:white;
   display: flex;
   flex-direction: row-reverse;
   padding:1vh;
 }
+
 .foto{
   width:100%;
 }
-.bg-contato{
-  margin-top: -12vh;
-  background-color: #2E5A1C;
-  width:60%;
-  align-self: flex-end;
-  padding-bottom: 2vh;
-}
-.texto-info{
-  margin-top: 1vh;
-  color:white;
-  font-family: 'Rubik', sans-serif;
-  font-size: 3vh;
-}
-.texto{
-  color:white;
-  font-family: 'Rubik', sans-serif;
-  font-size: 2vh;
-  font-weight: lighter;
-  margin-top: 0vh;
-}
-.espaco{
-  background-color: white;
-  height: 4vh;
-  border-radius: 25px;
 
-}
-.row{
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.footer{
-  margin-top: -6vh;
-  padding-left: 2em;
-  color: white;
-  font-family: 'Rubik', sans-serif;
-  margin-bottom: 5vh;
-  font-size: 3vh;
-}
 .icones{
-  height:8vh;
-  padding-left: 5vh;
+  margin-left: 7vh !important;
 }
-.espaco-antes{
-  margin-top: -1vh;
-  padding-left: 6vh;
-  margin-bottom: -1vh;
-}
+
 .btn{
   background-color: #2E5A1C;
-  margin-left: 60%;
-  margin-top: -8vh;
-  margin-bottom: 3vh;
   font-size: 1.8vh;
+}
+
+.hide-on-med-and-down{
+  margin-left: -12vh !important;
+}
+
+.flex{
+  display: flex;
+  flex-direction: column;
 }

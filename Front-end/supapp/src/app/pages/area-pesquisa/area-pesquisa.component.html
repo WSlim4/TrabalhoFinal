@@ -1,34 +1,45 @@
 <app-navbar></app-navbar>
+
 <button class="waves-effect waves-light" (click)="abreModal()">Modal</button>
-<div class="modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
+<!--modal-->
+<div class="modal row" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
   <div class="modal-content">
-    <div class="bg-header">
-      <i class="small material-icons" (click)="fecharModal()">close</i>
-      <h4 class="center-align empresa">Empresa</h4>
-      <p class="center-align endereco">Endereço</p>
-    </div>
-    <div>
+    <div class="flex">
+      <div class="bg-header">
+        <i class="small material-icons" (click)="fecharModal()">close</i>
+        <h4 class="center-align empresa">Empresa</h4>
+        <p class="center-align endereco">Endereço</p>
+      </div>
+      <!--foto da empresa-->
       <img class="foto" src="../../../assets/empresa-exemplo.png">
     </div>
-    <div class="bg-contato">
-      <p class="texto-info center-align">Informações para contato</p>
-      <div class="row">
-        <p class="texto center-align col l3 m3 s3">Telefone</p>
-        <div class="espaco col l8 m8 s8 center-align">(21)99999-9999</div>
+    <div class="row">
+      <div class="col l8 push-l4 m12 s12">
+        <!--info contato-->
+        <div class="bg-contato">
+          <p class="texto-info center-align">Informações para contato</p>
+          <div class="row">
+           <p class="texto col l3 offset-l1 m3 s3 center-align">Telefone</p>
+           <div class="espaco col l8 m8 s8 center-align">(21)99999-9999</div>
+          </div>
+          <div class="row">
+           <p class="texto col l3 offset-l1 m3 s3 center-align">Email</p>
+           <div class="espaco col l8 m8 s8 center-align">fulanodetal@gmail.com</div>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <p class="texto center-align col l3 m3 s3">Email</p>
-        <div class="espaco col l8 m8 s8 center-align">fulanodetal@gmail.com</div>
-      </div>
+     <!--produtos disponiveis-->
+      <p class="col l4 pull-l8 m12 s12 center-align footer">Produtos disponíveis</p>
     </div>
-    <div>
-      <p class="footer">Produtos disponíveis</p>
-      <div class="espaco-antes">
-        <img src="../../../assets/meat.png" class="icones">
-        <img src="../../../assets/chicken.png" class="icones">
-        <img src="../../../assets/pork.png" class="icones">
+    <div class="row">
+      <div class="col l8 s12">
+      <img src="../../../assets/meat.png" class="col l1 m2 s2 icones">
+      <img src="../../../assets/chicken.png" class="col l1 m2 s2 icones">
+      <img src="../../../assets/pork.png" class="col l1 m2 s2 icones">
       </div>
-      <div class="btn">Faça uma estipulação</div>
+      <!--botao para estipulação-->
+      <div class="btn col l4 hide-on-med-and-down">Faça uma estipulação</div>
+      <div class="btn col m12 s12 hide-on-large-only">Faça uma estipulação</div>
     </div>
   </div>
 </div>
