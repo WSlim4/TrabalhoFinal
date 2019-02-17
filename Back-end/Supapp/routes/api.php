@@ -39,9 +39,9 @@ Route::get('/{id}', function (Request $request) {
 });
 */
 Route::get('rating/{id}', 'RatingController@showrating');
-Route::post('register', 'API\PassportController@register');
-Route::post('logincustomer', 'CustomerController@store');
-Route::post('loginsupplier', 'SupplierController@store');
+Route::post('login', 'API\PassportController@login');
+Route::post('registercustomer', 'CustomerController@store');
+Route::post('registersupplier', 'SupplierController@store');
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('purchase','PurchaseController@index');
