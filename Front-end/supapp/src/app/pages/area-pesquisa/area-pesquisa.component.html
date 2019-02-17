@@ -1,60 +1,34 @@
 <app-navbar></app-navbar>
-<nav class="bg-side fixed hide-on-med-and-down">
-  <div class="nav-wrapper">
-  <!--Logo-->
-    <div class="titulo center-align">
-      <p>SUPAPP</p>
+<button class="waves-effect waves-light" (click)="abreModal()">Modal</button>
+<div class="modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
+  <div class="modal-content">
+    <div class="bg-header">
+      <i class="small material-icons" (click)="fecharModal()">close</i>
+      <h4 class="center-align empresa">Empresa</h4>
+      <p class="center-align endereco">Endereço</p>
     </div>
-    <ul class="collapsible center-align" data-collapsible="accordion">
-      <li>
-        <!--Frios-->
-        <div class="collapsible-header botoes-sidenav-1">Frios</div>
-        <div class="collapsible-body">
-          <div class="row">
-            <div class="col s12 m12">
-              <ul class="collapsible" data-collapsible="accordion">
-                <li>
-                  <!--Carnes-->
-                  <div class="collapsible-header botoes-sidenav-2">Carnes</div>
-                  <div class="collapsible-body">
-                    <ul>
-                      <li><a href="#" class="botoes-sidenav-3">Peixe</a></li>
-                      <li><a href="#" class="botoes-sidenav-3">Boi</a></li>
-                      <li><a href="#" class="botoes-sidenav-3">Frango</a></li>
-                      <li><a href="#" class="botoes-sidenav-3">Porco</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <!--Derivados-->
-                  <div class="collapsible-header botoes-sidenav-2">Derivados</div>
-                  <div class="collapsible-body">
-                    <ul>
-                      <li><a href="#" class="botoes-sidenav-3">Manteiga</a></li>
-                      <li><a href="#" class="botoes-sidenav-3">Leite</a></li>
-                      <li><a href="#" class="botoes-sidenav-3">Frango</a></li>
-                    </ul>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </li>
-      <li>
-        <!--Hortifruti-->
-        <div class="collapsible-header botoes-sidenav-1">Hortifruti</div>
-        <div class="collapsible-body">
-          <ul>
-            <li><a href="#" class="botoes-sidenav-3">Frutas</a></li>
-            <li><a href="#" class="botoes-sidenav-3">Hortaliças</a></li>
-          </ul>
-        </div>
-      </li>
-    <li>
-      <!--botao sobre nos-->
-      <a routerLink="/sobrenos" class="botao-sobre center-align">Sobre nós</a>
-    </li>
-    </ul>
+    <div>
+      <img class="foto" src="../../../assets/empresa-exemplo.png">
+    </div>
+    <div class="bg-contato">
+      <p class="texto-info center-align">Informações para contato</p>
+      <div class="row">
+        <p class="texto center-align col l3 m3 s3">Telefone</p>
+        <div class="espaco col l8 m8 s8 center-align">(21)99999-9999</div>
+      </div>
+      <div class="row">
+        <p class="texto center-align col l3 m3 s3">Email</p>
+        <div class="espaco col l8 m8 s8 center-align">fulanodetal@gmail.com</div>
+      </div>
+    </div>
+    <div>
+      <p class="footer">Produtos disponíveis</p>
+      <div class="espaco-antes">
+        <img src="../../../assets/meat.png" class="icones">
+        <img src="../../../assets/chicken.png" class="icones">
+        <img src="../../../assets/pork.png" class="icones">
+      </div>
+      <div class="btn">Faça uma estipulação</div>
+    </div>
   </div>
-</nav>
+</div>

@@ -1,0 +1,87 @@
+.modal {
+  margin-top: -8vh;
+  max-width: 50%;
+  max-height: 100% !important ;
+  background-color: #4E9525;
+}
+.modal-content{
+  padding: 0;
+  display:flex;
+  flex-direction: column;
+}
+.bg-header{
+  background-color: #2E5A1C;
+}
+.empresa{
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  margin-top: -4vh;
+}
+.endereco{
+  color:#C4C4C4;
+  font-family: 'Rubik', sans-serif;
+  margin-top: -2vh;
+}
+.material-icons{
+  color:white;
+  display: flex;
+  flex-direction: row-reverse;
+  padding:1vh;
+}
+.foto{
+  width:100%;
+}
+.bg-contato{
+  margin-top: -12vh;
+  background-color: #2E5A1C;
+  width:60%;
+  align-self: flex-end;
+  padding-bottom: 2vh;
+}
+.texto-info{
+  margin-top: 1vh;
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 3vh;
+}
+.texto{
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 2vh;
+  font-weight: lighter;
+  margin-top: 0vh;
+}
+.espaco{
+  background-color: white;
+  height: 4vh;
+  border-radius: 25px;
+
+}
+.row{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.footer{
+  margin-top: -6vh;
+  padding-left: 2em;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  margin-bottom: 5vh;
+  font-size: 3vh;
+}
+.icones{
+  height:8vh;
+  padding-left: 5vh;
+}
+.espaco-antes{
+  margin-top: -1vh;
+  padding-left: 6vh;
+  margin-bottom: -1vh;
+}
+.btn{
+  background-color: #2E5A1C;
+  margin-left: 60%;
+  margin-top: -8vh;
+  margin-bottom: 3vh;
+  font-size: 1.8vh;
+}

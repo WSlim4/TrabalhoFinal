@@ -46,8 +46,10 @@
   background-color: #4E9525;
 }
 .brand-logo{
-  margin-top: 1vh;
-  height:8vh;
+  margin-top: 2vh;
+  height:6vh;
+}.material-icons{
+  margin-left: 2vh;
 }
 nav{
     background-color: #4E9525;

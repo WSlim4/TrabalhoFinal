@@ -11,8 +11,10 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AreaPesquisaComponent } from './pages/area-pesquisa/area-pesquisa.component';
-import { Error404Component } from './pages/error404/error404.component';
 import { SobrenosComponent } from './pages/sobrenos/sobrenos.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { HomeService } from './service/home.service';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,7 @@ import { SobrenosComponent } from './pages/sobrenos/sobrenos.component';
     HomeComponent,
     NavbarComponent,
     AreaPesquisaComponent,
-    Error404Component,
-    SobrenosComponent
+    SobrenosComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,10 @@ import { SobrenosComponent } from './pages/sobrenos/sobrenos.component';
     MaterializeModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    HttpClientModule,
+    HomeService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
