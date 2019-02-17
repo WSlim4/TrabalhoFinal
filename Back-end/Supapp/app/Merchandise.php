@@ -10,6 +10,11 @@ use Auth;
 class Merchandise extends Model
 {
   use SoftDeletes;
+ 
+  public function purchases()
+  {
+      return $this->hasMany('App\Purchase');
+  }
 
   public function supplier()
   {

@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Supplier;
+use App\User;
 use App\Http\Requests\SupplierRequest;
+<<<<<<< HEAD
 use App\Notifications\SupplierNotification;
+=======
+use Validator;
+
+>>>>>>> 4f807891177a94cba0c8b23086717f8a64a407b8
 
 class SupplierController extends Controller
 {
@@ -14,6 +20,9 @@ class SupplierController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public $successStatus = 200;
+     
     public function index()
     {
       $lista = Supplier::all();
@@ -28,6 +37,7 @@ class SupplierController extends Controller
      */
     public function store(SupplierRequest $request)
     {
+<<<<<<< HEAD
       $supplier = new Supplier;
       $supplier->updateSupplier($request);
 
@@ -42,6 +52,34 @@ class SupplierController extends Controller
 
       return response()->json([$supplier]);
     }
+=======
+      $validator = Validator::make($request -> all(), [
+        'name' => 'required',
+        'email' => 'required|email',
+        'password' => 'required',
+        'c_password' => 'required|same:password',
+        ]);
+        if ($validator -> fails()) {
+            return response() -> json(['error' => $validator -> errors()], 401);
+        }
+        $newUser = new User;
+        $newUser->name = $request->name;
+        $newUser->email = $request->email;
+        $newUser->password = bcrypt($request->password);
+        $newUser->save();
+        $success['name'] = $newUser->name;
+        $success['token'] = $newUser->createToken('MyApp')->accessToken;
+        $supplier = new Supplier;
+        try {
+          $supplier->updateSupplier($request, $newUser);
+        }finally{
+          if(!($supplier->id)){
+            $newUser->delete();
+          }   
+        }
+        return response()->json(['success' => $success, 'Supplier' => $supplier],$this->successStatus);
+      }
+>>>>>>> 4f807891177a94cba0c8b23086717f8a64a407b8
 
     /**
      * Display the specified resource.

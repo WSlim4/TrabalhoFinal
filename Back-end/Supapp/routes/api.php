@@ -35,6 +35,7 @@ Route::get('laticinios/margarinas', 'MerchandiseController@listMargarina');
 Route::get('laticinios/leites', 'MerchandiseController@listLeite');
 
 //Rotas de testes
+<<<<<<< HEAD
 Route::apiResource('customers', 'CustomerController');
 Route::apiResource('suppliers', 'SupplierController');
 Route::get('downloadPhoto/{id}', 'CustomerController@downloadPhoto');
@@ -45,16 +46,28 @@ Route::get('/{id}', function (Request $request) {
 
 
 Route::post('login', 'API\PassportController@login');
+=======
+
+/*
+Route::get('/{id}', function (Request $request) {
+    return $request->id;
+});
+*/
+Route::get('rating/{id}', 'RatingController@showrating');
+>>>>>>> 4f807891177a94cba0c8b23086717f8a64a407b8
 Route::post('register', 'API\PassportController@register');
+Route::post('logincustomer', 'CustomerController@store');
+Route::post('loginsupplier', 'SupplierController@store');
 
 Route::group(['middleware' => 'auth:api'], function() {
+    Route::get('purchase','PurchaseController@index');
+    Route::post('purchase/{id}','PurchaseController@store');
+    Route::get('purchase/{id}','PurchaseController@show');
     Route::get('logout', 'API\PassportController@logout');
-    Route::post('createsupplier', 'SupplierController@store');
-    Route::post('createcustomer', 'CustomerController@store');
     Route::get('get-details', 'API\PassportController@getDetails');
-    //
-    Route::post('createmerchandise', 'MerchandiseController@store');
-    Route::get('showmerchandise', 'MerchandiseController@index');
+    Route::post('rating/{id}','RatingController@rate');
+    Route::post('merchandise', 'MerchandiseController@store');
+    Route::get('smerchandise', 'MerchandiseController@index');
     //
     Route::group([
       'middleware'=>'CustomerMiddleware',
