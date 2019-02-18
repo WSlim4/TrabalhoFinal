@@ -2,7 +2,7 @@
   <div class="nav-wrapper">
   <!--Logo-->
     <div class="titulo center-align">
-      <p>SUPAPP</p>
+      <a routerLink="/home"><p>SUPAPP</p></a>
     </div>
     <ul class="collapsible center-align" data-collapsible="accordion">
       <li>
@@ -54,13 +54,15 @@
       <!--botao sobre nos-->
       <a routerLink="/sobrenos" class="botao-sobre center-align">Sobre nós</a>
     </li>
+    <!--botao de configuracoes-->
+    <li><a routerLink="/configuracoes" class="botao-sobre">Configurações</a></li>
     </ul>
   </div>
   <!--falta colocar login funcional no final dessa pagina-->
 </nav>
 <!--navbar de telas medias e pequenas-->
 <nav class="hide-on-large-only">
-  <img src="../../assets/logo-palavra.png"class="brand-logo">
+  <a routerLink="/home"><img src="../../assets/logo-palavra.png"class="brand-logo"></a>
   <div id="slide-out" class="bg-side side-nav">
     <div class="nav-wrapper">
     <!--Logo-->
@@ -117,6 +119,8 @@
         <!--botao sobre nos-->
         <a routerLink="/sobrenos" class="botao-sobre center-align">Sobre nós</a>
       </li>
+      <!--botao de configuracoes-->
+      <li><a routerLink="/configuracoes" class="botao-sobre">Configurações</a></li>
       </ul>
     </div>
   </div>

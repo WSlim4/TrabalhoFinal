@@ -8,8 +8,8 @@ p.col.l4.pull-l8.m12.s12.center-align.footer{
 }
 .modal {
   margin-top: -8vh;
-  max-width: 50%;
-  max-height: 100% !important ;
+  min-width: 50%;
+  max-height: 100%;
   background-color: #4E9525;
 }
 .modal-content{
@@ -98,4 +98,14 @@ p.col.l4.pull-l8.m12.s12.center-align.footer{
 .flex{
   display: flex;
   flex-direction: column;
+}
+@media only screen and (max-width: 600px) {
+  .modal{
+    min-width: 100% !important;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+  .modal{
+    max-width: 50% !important;
+  }
 }

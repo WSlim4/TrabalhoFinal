@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+<div class="header row">
+  <p class="col offset-l6 offset-m4 offset-s3">Configurações de perfil</p>
+</div>
+<form #login="ngForm" (ngSubmit)="onSubmit(login)">
+  <div class="row">
+    <div class="col l3 offset-l3 m6 s8 offset-s2 flex">
+      <img src="../../../assets/empresa-exemplo.png">
+      <div class="botao btn waves-effect hoverable">Alterar foto</div>
+      <div class="produtos btn waves-effect hoverable">Alterar produtos</div>
+    </div>
+    <div class="col l5 m5 s8 offset-s2">
+      <p class="center-align titulo">Dados da Empresa</p>
+      <!--nome-->
+      <div class="input-field ">
+        <input placeholder="Nome" id="nome" type="text" class="validate" name="nome" ngModel required #nome="ngModel">
+        <label for="nome"></label>
+      </div>
+      <!--email-->
+      <div class="input-field ">
+        <input placeholder="Email" id="email" type="email" class="validate" name="email" ngModel required #email="ngModel">
+        <label for="email"></label>
+      </div>
+      <!--telefone-->
+      <div class="input-field ">
+        <input placeholder="Telefone" id="telefone" type="text" class="validate" name="telefone" ngModel required #telefone="ngModel">
+        <label for="telefone"></label>
+      </div>
+      <!--endereco-->
+      <div class="input-field ">
+        <input placeholder="Endereço" id="endereco" type="text" class="validate" name="endereco" ngModel required #endereco="ngModel">
+        <label for="endereco"></label>
+      </div>
+      <!--cnpj-->
+      <div class="input-field ">
+        <input placeholder="cnpj" id="cnpj" type="text" class="validate" name="cnpj" ngModel required #cnpj="ngModel">
+        <label for="cnpj"></label>
+      </div>
+      <p class="center-align titulo">Alterar Senha</p>
+      <!--senha-->
+      <div class="input-field ">
+        <input placeholder="Senha" id="senha" type="password" class="validate" name="senha" ngModel required #senha="ngModel">
+        <label for="senha"></label>
+      </div>
+      <!--nova senha-->
+      <div class="input-field ">
+        <input placeholder="Nova Senha" id="novaSenha" type="password" class="validate" name="novaSenha" ngModel required #novaSenha="ngModel">
+        <label for="novaSenha"></label>
+      </div>
+    </div>
+  </div>
+  <div class="baixo row">
+    <div class="botao btn waves-effect hoverable col l3 offset-l9 m6 offset-m6 s8 offset-s2" type="submit">Salvar alterações</div>
+  </div>
+</form>
