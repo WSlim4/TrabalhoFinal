@@ -6,10 +6,17 @@
 	padding: 2em 3em;
 }
 .btn{
-  color: black;
+  align-items: center;
+  color: white;
   font-family: 'Rubik', sans-serif;
-  font-size: 1.8em;
+  font-size: 2em;
   background-color: #2E5A1C;
+  text-transform: none;
+  padding: 0 1em 0 1em ;
+  width: 100%;
+  height: 6vh;
+  margin-top: 2vh;
+  margin-right: 1vw;
 }
 
 
@@ -51,4 +58,31 @@ h1{
 		text-decoration: underline;
 		cursor: pointer;
 	}
+}
+
+@media screen and (max-width: 600px) {
+  img{
+  	margin-left: 20vw;
+  }
+  #cadastro{
+  	margin-left: 30vw;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  img{
+  	margin-left: 11vw;
+  }
+  #cadastro{
+  	margin-left: 15vw;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  img{
+  	margin-left: 7vw;
+  }
+  #cadastro{
+  	margin-left: 11vw;
+  }
 }
