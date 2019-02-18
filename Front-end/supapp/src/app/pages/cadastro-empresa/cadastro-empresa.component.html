@@ -35,7 +35,15 @@
               <input placeholder="CNPJ" id="cnpj" type="text" class="validate" name="cnpj" ngModel required #cnpj="ngModel">
               <label for="cnpj"></label>
             </div>
-            <div class="btn botao">Selecione Foto</div>
+            <div class="file-field input-field">
+              <div class="btn botao">
+                <span>Imagem</span>
+                <input type="file" name="myImage" accept="image/jpeg,image/x-png" name="image" ngModel required #image="ngModel">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
           </div>
           <div class="col l5 offset-l1 offset-m1 m10 s10 offset-s1">
             <table>

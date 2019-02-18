@@ -19,6 +19,7 @@ import { ConfiguracoesComponent } from './pages/configuracoes/configuracoes.comp
 import { CadastreseComponent } from './pages/cadastrese/cadastrese.component';
 import { CadastroEmpresaComponent } from './pages/cadastro-empresa/cadastro-empresa.component';
 import { CadastroClienteComponent } from './pages/cadastro-cliente/cadastro-cliente.component';
+import { FaltaLoginComponent } from './pages/falta-login/falta-login.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CadastroClienteComponent } from './pages/cadastro-cliente/cadastro-clie
     CadastreseComponent,
     CadastroEmpresaComponent,
     CadastroClienteComponent,
+    FaltaLoginComponent,
   ],
   imports: [
     BrowserModule,
