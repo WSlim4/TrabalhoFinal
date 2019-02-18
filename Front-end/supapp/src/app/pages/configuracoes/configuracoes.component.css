@@ -25,6 +25,7 @@
 .flex{
   display: flex;
   flex-direction: column;
+  padding-left: -5vh;
 }
 /*botao dos produtos*/
 .produtos{
@@ -105,5 +106,10 @@ img{
 @media only screen and (min-width: 600px){
   .flex{
     margin-top: 20vh;
+  }
+}
+@media only screen and (max-width: 992px){
+  .header{
+    background-color: #477B32;
   }
 }
