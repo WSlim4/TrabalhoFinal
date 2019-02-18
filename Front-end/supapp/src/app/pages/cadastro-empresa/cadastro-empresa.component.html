@@ -1,3 +1,47 @@
-<p>
-  cadastro-empresa works!
-</p>
+<div class="row">
+    <div class="col l8 offset-l2 m10 offset-m1 s12 z-depth-2">
+    	<a routerLink="/home" class="right"><i class="small material-icons">close</i></a>
+      <form #login="ngForm" (ngSubmit)="onSubmit(login)">
+        <div class="row">
+          <div class="col l4 offset-l1 m5 s8 offset-s2">
+            <img src="../assets/truck.png" class="center-align">
+            <!--nome-->
+            <div class="input-field ">
+              <input placeholder="Nome" id="nome" type="text" class="validate" name="nome" ngModel required #nome="ngModel">
+              <label for="nome"></label>
+            </div>
+            <!--senha-->
+            <div class="input-field ">
+              <input placeholder="Senha" id="senha" type="password" class="validate" name="senha" ngModel required #senha="ngModel">
+              <label for="senha"></label>
+            </div>
+            <!--email-->
+            <div class="input-field ">
+              <input placeholder="Email" id="email" type="email" class="validate" name="email" ngModel required #email="ngModel">
+              <label for="email"></label>
+            </div>
+            <!--telefone-->
+            <div class="input-field ">
+              <input placeholder="Telefone" id="telefone" type="text" class="validate" name="telefone" ngModel required #telefone="ngModel">
+              <label for="telefone"></label>
+            </div>
+            <!--endereco-->
+            <div class="input-field ">
+              <input placeholder="Endereço" id="endereco" type="text" class="validate" name="endereco" ngModel required #endereco="ngModel">
+              <label for="endereco"></label>
+            </div>
+            <!--cnpj-->
+            <div class="input-field ">
+              <input placeholder="CNPJ" id="cnpj" type="text" class="validate" name="cnpj" ngModel required #cnpj="ngModel">
+              <label for="cnpj"></label>
+            </div>
+          </div>
+        </div>
+        <div class="baixo row">
+          <div class="botao btn waves-effect hoverable col l4 offset-l4 m6 offset-m3 s8 offset-s2" type="submit">Realizar Cadastro</div>
+        </div>
+      </form>
+    </div>
+    <div>
+    </div>
+</div>
