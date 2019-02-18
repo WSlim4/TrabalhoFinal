@@ -1,0 +1,79 @@
+.col.l8.offset-l2.m10.offset-m1.s12.z-depth-2{
+	background-color: #4E9525;
+	margin-top: 10vh;
+	padding: 2em 3em;
+}
+.botao{
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  background-color: #2E5A1C;
+  margin-top: 2vh;
+}
+/*Elementos*/
+a{
+	color: white;
+}
+p{
+	color: white;
+	font-size: 12px;
+}
+
+img{
+	width: 50%;
+}
+
+button{
+	margin-left: 9.5vw;
+	margin-bottom: 4vh;
+	color: black;
+}
+#nome{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+#email{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+#telefone{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+#endereco{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+#cnpj{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+#senha{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+#novaSenha{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}

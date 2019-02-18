@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="header row">
-  <p class="col offset-l6 offset-m4 offset-s3">Configurações de perfil</p>
+  <p class="center-align aqui">Configurações de perfil</p>
 </div>
 <form #login="ngForm" (ngSubmit)="onSubmit(login)">
   <div class="row">
@@ -9,7 +9,7 @@
       <div class="botao btn waves-effect hoverable l3 m6 s8">Alterar foto</div>
       <div class="produtos btn waves-effect hoverable l3 m6 s8">Alterar produtos</div>
     </div>
-    <div class="col l5 m6 s8 offset-s2">
+    <div class="col l3 offset-l1 m5 s8 offset-s2">
       <p class="center-align titulo">Dados da Empresa</p>
       <!--nome-->
       <div class="input-field ">
@@ -33,7 +33,7 @@
       </div>
       <!--cnpj-->
       <div class="input-field ">
-        <input placeholder="cnpj" id="cnpj" type="text" class="validate" name="cnpj" ngModel required #cnpj="ngModel">
+        <input placeholder="CNPJ" id="cnpj" type="text" class="validate" name="cnpj" ngModel required #cnpj="ngModel">
         <label for="cnpj"></label>
       </div>
       <p class="center-align titulo">Alterar Senha</p>
@@ -50,6 +50,6 @@
     </div>
   </div>
   <div class="baixo row">
-    <div class="botao btn waves-effect hoverable col l3 offset-l9 m6 offset-m6 s8 offset-s2" type="submit">Salvar alterações</div>
+    <div class="botao btn waves-effect hoverable col l3 offset-l5 m6 offset-m3 s8 offset-s2" type="submit">Salvar alterações</div>
   </div>
 </form>

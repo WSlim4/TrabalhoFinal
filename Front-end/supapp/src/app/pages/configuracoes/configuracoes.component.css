@@ -13,7 +13,6 @@
 /*div para salvar alteracoes*/
 .baixo{
   padding: 3vh;
-  background-color: #71B455;
   bottom:0;
 }
 .botao{
@@ -50,7 +49,12 @@ p.col.offset-l6.offset-m4.offset-s3{
   margin-top: 2vh !important;
 }
 img{
-  height:25vh;
+  height:20vh;
+}
+p.center-align.aqui{
+  margin-bottom: 2vh !important;
+  margin-top: -0.5vh !important;
+  padding-top: 2vh !important;
 }
 /*estilo das boxes de input*/
 #nome{
@@ -108,8 +112,16 @@ img{
     margin-top: 20vh;
   }
 }
-@media only screen and (max-width: 992px){
-  .header{
-    background-color: #477B32;
+@media only screen and (max-width: 600px){
+  .baixo{
+    background-color: #71B455;
+  }
+}
+@media only screen and (min-width: 992px){
+  p.center-align.aqui{
+    margin-left: 10vh;
+  }
+  .flex{
+    padding-left:5vh;
   }
 }
