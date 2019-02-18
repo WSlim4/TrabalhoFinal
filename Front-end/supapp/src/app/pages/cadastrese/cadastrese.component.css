@@ -1,0 +1,54 @@
+/*Classes*/
+.col{
+	background-color: #4E9525;
+	margin-left: 15em;
+	margin-top: 10vh;
+	padding: 2em 3em;
+}
+.btn{
+  color: black;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1.8em;
+  background-color: #2E5A1C;
+}
+
+
+/*Elementos*/
+a{
+	color: white;
+}
+
+img{
+	width: 50%;
+	margin-left: 6.5vw;
+}
+
+h1{
+  color: white;
+  font-size: 3em;
+  font-family: 'Rubik',sans-serif;
+  margin-top: 0;
+  text-align: center;
+}
+
+/*elementos*/
+
+#cadastro{
+	margin-left: 9vw;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+	img{
+		margin-left: 7.5vw;
+	}
+
+
+	#cadastro{
+		color: white;
+		margin-left: 11vw;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+}
