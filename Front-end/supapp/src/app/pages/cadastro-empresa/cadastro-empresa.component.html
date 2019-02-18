@@ -3,8 +3,8 @@
     	<a routerLink="/home" class="right"><i class="small material-icons">close</i></a>
       <form #login="ngForm" (ngSubmit)="onSubmit(login)">
         <div class="row">
-          <div class="col l4 offset-l1 m5 s8 offset-s2">
-            <img src="../assets/truck.png" class="center-align">
+          <div class="col l4 offset-l1 m10 offset-m1 s10 offset-s1 center-align">
+            <img src="../assets/caminhao-com-nome.png">
             <!--nome-->
             <div class="input-field ">
               <input placeholder="Nome" id="nome" type="text" class="validate" name="nome" ngModel required #nome="ngModel">
@@ -35,6 +35,30 @@
               <input placeholder="CNPJ" id="cnpj" type="text" class="validate" name="cnpj" ngModel required #cnpj="ngModel">
               <label for="cnpj"></label>
             </div>
+            <div class="btn botao">Selecione Foto</div>
+          </div>
+          <div class="col l5 offset-l1 offset-m1 m10 s10 offset-s1">
+            <table>
+               <thead>
+                 <tr>
+                     <th>Mercadoria</th>
+                     <th>Preco/kg</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                   <td><div class="input-field ">
+                     <input placeholder="Produto" id="produto" type="text" class="validate" name="produto" ngModel required #produto="ngModel">
+                     <label for="produto"></label>
+                   </div></td>
+                   <td><div class="input-field ">
+                     <input placeholder="R$" id="preco" type="text" class="validate" name="preco" ngModel required #preco="ngModel">
+                     <label for="preco"></label>
+                   </div></td>
+                 </tr>
+               </tbody>
+             </table>
+             <p class="center-align">Caso queira adicionar mais produtos, vá para configurações</p>
           </div>
         </div>
         <div class="baixo row">

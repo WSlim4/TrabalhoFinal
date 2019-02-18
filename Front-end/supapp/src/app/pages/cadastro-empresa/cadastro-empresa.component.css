@@ -8,6 +8,23 @@
   font-family: 'Rubik', sans-serif;
   background-color: #2E5A1C;
   margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+table{
+  margin-top: 10vh;
+}
+thead{
+  background-color: #2E5A1C;
+}
+th{
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  padding-left: 2vh;
+  font-weight: lighter !important;
+}
+td{
+  background-color: white;
+  padding-left: 2vh;
 }
 /*Elementos*/
 a{
@@ -15,18 +32,14 @@ a{
 }
 p{
 	color: white;
-	font-size: 12px;
+	font-size: 15px;
+  padding-bottom:2vh;
 }
 
 img{
 	width: 50%;
 }
 
-button{
-	margin-left: 9.5vw;
-	margin-bottom: 4vh;
-	color: black;
-}
 #nome{
 	background-color: white;
 	margin: 0;
@@ -76,4 +89,9 @@ button{
 	padding-left: 1.2vw;
 	border-radius: 5px;
 	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+@media screen and (min-width: 992px) {
+	table{
+    margin-top: 30vh;
+  }
 }
