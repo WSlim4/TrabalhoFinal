@@ -17,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeService } from './service/home.service';
 import { ConfiguracoesComponent } from './pages/configuracoes/configuracoes.component';
 import { CadastreseComponent } from './pages/cadastrese/cadastrese.component';
+import { CadastroEmpresaComponent } from './pages/cadastro-empresa/cadastro-empresa.component';
+import { CadastroClienteComponent } from './pages/cadastro-cliente/cadastro-cliente.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { CadastreseComponent } from './pages/cadastrese/cadastrese.component';
     SobrenosComponent,
     ConfiguracoesComponent,
     CadastreseComponent,
+    CadastroEmpresaComponent,
+    CadastroClienteComponent,
   ],
   imports: [
     BrowserModule,
