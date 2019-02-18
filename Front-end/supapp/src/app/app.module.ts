@@ -9,12 +9,23 @@ import { LoginComponent } from './pages/login/login.component';
 
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AreaPesquisaComponent } from './pages/area-pesquisa/area-pesquisa.component';
+import { SobrenosComponent } from './pages/sobrenos/sobrenos.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { HomeService } from './service/home.service';
+import { ConfiguracoesComponent } from './pages/configuracoes/configuracoes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    NavbarComponent,
+    AreaPesquisaComponent,
+    SobrenosComponent,
+    ConfiguracoesComponent,
   ],
   imports: [
     BrowserModule,
@@ -22,7 +33,10 @@ import { HomeComponent } from './pages/home/home.component';
     MaterializeModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    HttpClientModule,
+    HomeService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

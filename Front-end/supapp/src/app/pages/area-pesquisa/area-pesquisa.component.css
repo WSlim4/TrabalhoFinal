@@ -1,0 +1,111 @@
+/*caracteristicas do materialize*/
+.row .col{
+  padding:0;
+  margin:0;
+}
+p.col.l4.pull-l8.m12.s12.center-align.footer{
+  margin-top: 4vh;
+}
+.modal {
+  margin-top: -8vh;
+  min-width: 50%;
+  max-height: 100%;
+  background-color: #4E9525;
+}
+.modal-content{
+  padding: 0;
+}
+
+/*parte do design da paginas*/
+.bg-header{
+  background-color: #2E5A1C;
+}
+
+.bg-contato{
+  margin-top: -14vh;
+  background-color: #2E5A1C;
+  padding-bottom: 0.5vh;
+}
+
+.espaco{
+  background-color: white;
+  height: 4vh;
+  border-radius: 25px;
+  margin-top:-1vh;
+}
+
+/*caixas de texto*/
+.empresa{
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  margin-top: -4vh;
+}
+
+.endereco{
+  color:#C4C4C4;
+  font-family: 'Rubik', sans-serif;
+  margin-top: -2vh;
+}
+
+.texto-info{
+  padding-top: 2vh;
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 3vh;
+}
+
+.texto{
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 2vh;
+  font-weight: lighter;
+  margin-top: -1vh;
+}
+
+.footer{
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  margin-bottom: 5vh;
+  font-size: 3vh;
+  margin-top: 10vh;
+}
+
+/*ajuste de figuras*/
+.material-icons{
+  color:white;
+  display: flex;
+  flex-direction: row-reverse;
+  padding:1vh;
+}
+
+.foto{
+  width:100%;
+}
+
+.icones{
+  margin-left: 7vh !important;
+}
+
+.btn{
+  background-color: #2E5A1C;
+  font-size: 1.8vh;
+}
+
+.hide-on-med-and-down{
+  margin-left: -12vh !important;
+}
+
+.flex{
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (max-width: 600px) {
+  .modal{
+    min-width: 100% !important;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+  .modal{
+    max-width: 50% !important;
+  }
+}

@@ -1,0 +1,128 @@
+<nav class="bg-side side-nav fixed hide-on-med-and-down">
+  <div class="nav-wrapper">
+  <!--Logo-->
+    <div class="titulo center-align">
+      <a routerLink="/home"><p>SUPAPP</p></a>
+    </div>
+    <ul class="collapsible center-align" data-collapsible="accordion">
+      <li>
+        <!--Frios-->
+        <div class="collapsible-header botoes-sidenav-1">Frios</div>
+        <div class="collapsible-body">
+          <div class="row">
+            <div class="col s12 m12">
+              <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                  <!--Carnes-->
+                  <div class="collapsible-header botoes-sidenav-2">Carnes</div>
+                  <div class="collapsible-body">
+                    <ul>
+                      <li><a href="#" class="botoes-sidenav-3">Peixe</a></li>
+                      <li><a href="#" class="botoes-sidenav-3">Boi</a></li>
+                      <li><a href="#" class="botoes-sidenav-3">Frango</a></li>
+                      <li><a href="#" class="botoes-sidenav-3">Porco</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li>
+                  <!--Derivados-->
+                  <div class="collapsible-header botoes-sidenav-2">Laticínios</div>
+                  <div class="collapsible-body">
+                    <ul>
+                      <li><a href="#" class="botoes-sidenav-3">Manteiga</a></li>
+                      <li><a href="#" class="botoes-sidenav-3">Leite</a></li>
+                      <li><a href="#" class="botoes-sidenav-3">Queijo</a></li>
+                    </ul>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <!--Hortifruti-->
+        <div class="collapsible-header botoes-sidenav-1">Hortifruti</div>
+        <div class="collapsible-body">
+          <ul>
+            <li><a href="#" class="botoes-sidenav-3">Frutas</a></li>
+            <li><a href="#" class="botoes-sidenav-3">Hortaliças</a></li>
+          </ul>
+        </div>
+      </li>
+    <li>
+      <!--botao sobre nos-->
+      <a routerLink="/sobrenos" class="botao-sobre center-align">Sobre nós</a>
+    </li>
+    <!--botao de configuracoes-->
+    <li><a routerLink="/configuracoes" class="botao-sobre">Configurações</a></li>
+    </ul>
+  </div>
+  <!--falta colocar login funcional no final dessa pagina-->
+</nav>
+<!--navbar de telas medias e pequenas-->
+<nav class="hide-on-large-only">
+  <a routerLink="/home"><img src="../../assets/logo-palavra.png"class="brand-logo"></a>
+  <div id="slide-out" class="bg-side side-nav">
+    <div class="nav-wrapper">
+    <!--Logo-->
+      <div class="titulo center-align">
+        <p>SUPAPP</p>
+      </div>
+      <ul class="collapsible center-align" data-collapsible="accordion">
+        <li>
+          <!--Frios-->
+          <div class="collapsible-header botoes-sidenav-1">Frios</div>
+          <div class="collapsible-body">
+            <div class="row">
+              <div class="col s12 m12">
+                <ul class="collapsible" data-collapsible="accordion">
+                  <li>
+                    <!--Carnes-->
+                    <div class="collapsible-header botoes-sidenav-2">Carnes</div>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li><a href="#" class="botoes-sidenav-3">Peixe</a></li>
+                        <li><a href="#" class="botoes-sidenav-3">Boi</a></li>
+                        <li><a href="#" class="botoes-sidenav-3">Frango</a></li>
+                        <li><a href="#" class="botoes-sidenav-3">Porco</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li>
+                    <!--Derivados-->
+                    <div class="collapsible-header botoes-sidenav-2">Derivados</div>
+                    <div class="collapsible-body">
+                      <ul>
+                        <li><a href="#" class="botoes-sidenav-3">Manteiga</a></li>
+                        <li><a href="#" class="botoes-sidenav-3">Leite</a></li>
+                        <li><a href="#" class="botoes-sidenav-3">Queijo</a></li>
+                      </ul>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <!--Hortifruti-->
+          <div class="collapsible-header botoes-sidenav-1">Hortifruti</div>
+          <div class="collapsible-body">
+            <ul>
+              <li><a href="#" class="botoes-sidenav-3">Frutas</a></li>
+              <li><a href="#" class="botoes-sidenav-3">Hortaliças</a></li>
+            </ul>
+          </div>
+        </li>
+      <li>
+        <!--botao sobre nos-->
+        <a routerLink="/sobrenos" class="botao-sobre center-align">Sobre nós</a>
+      </li>
+      <!--botao de configuracoes-->
+      <li><a routerLink="/configuracoes" class="botao-sobre">Configurações</a></li>
+      </ul>
+    </div>
+  </div>
+  <a data-activates="slide-out" materialize="sideNav"><i class="material-icons">menu</i></a>
+</nav>

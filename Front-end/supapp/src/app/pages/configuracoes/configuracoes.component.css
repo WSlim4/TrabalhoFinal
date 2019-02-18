@@ -1,0 +1,109 @@
+.header{
+  background-color: #477B32;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 3.5vh;
+}
+/* dados da empresa e alterar senha*/
+.titulo{
+  padding: 2vh;
+  font-family: 'Rubik', sans-serif;
+  font-size: 3.5vh;
+}
+/*div para salvar alteracoes*/
+.baixo{
+  padding: 3vh;
+  background-color: #71B455;
+  bottom:0;
+}
+.botao{
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  background-color: #2E5A1C;
+}
+/*usar flex box*/
+.flex{
+  display: flex;
+  flex-direction: column;
+}
+/*botao dos produtos*/
+.produtos{
+  color: black;
+  background-color: #DEDEDE;
+  margin-top: 3vh;
+}
+/*ajuste da pagina pelo ferramenta de inspecionar*/
+div.baixo.row{
+  margin:0;
+}
+div.header.row{
+  margin: 0;
+}
+p.center-align.titulo{
+  margin: 0;
+  padding-bottom: 0;
+  padding-top: 1vh;
+}
+p.col.offset-l6.offset-m4.offset-s3{
+  margin-bottom: 2vh !important;
+  margin-top: 2vh !important;
+}
+img{
+  height:25vh;
+}
+/*estilo das boxes de input*/
+#nome{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+#email{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+#telefone{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+
+#endereco{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+#cnpj{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+#senha{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+#novaSenha{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+}
+@media only screen and (min-width: 600px){
+  .flex{
+    margin-top: 20vh;
+  }
+}
