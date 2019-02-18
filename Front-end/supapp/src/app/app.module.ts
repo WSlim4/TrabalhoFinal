@@ -16,6 +16,7 @@ import { SobrenosComponent } from './pages/sobrenos/sobrenos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeService } from './service/home.service';
 import { ConfiguracoesComponent } from './pages/configuracoes/configuracoes.component';
+import { CadastreseComponent } from './pages/cadastrese/cadastrese.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ConfiguracoesComponent } from './pages/configuracoes/configuracoes.comp
     AreaPesquisaComponent,
     SobrenosComponent,
     ConfiguracoesComponent,
+    CadastreseComponent,
   ],
   imports: [
     BrowserModule,
