@@ -12,4 +12,8 @@ export class CadastroEmpresaComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(cadastroEmpresa){
+    console.log(cadastroEmpresa)
+  }
+
 }

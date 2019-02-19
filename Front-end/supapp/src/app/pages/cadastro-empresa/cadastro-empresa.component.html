@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col l8 offset-l2 m10 offset-m1 s12 z-depth-2">
     	<a routerLink="/home" class="right"><i class="small material-icons">close</i></a>
-      <form #login="ngForm" (ngSubmit)="onSubmit(login)">
+      <form #cadastroEmpresa="ngForm" (ngSubmit)="onSubmit(cadastroEmpresa)">
         <div class="row">
           <div class="col l4 offset-l1 m10 offset-m1 s10 offset-s1 center-align">
             <img src="../assets/caminhao-com-nome.png">
@@ -35,8 +35,18 @@
               <input placeholder="CNPJ" id="cnpj" type="text" class="validate" name="cnpj" ngModel required #cnpj="ngModel">
               <label for="cnpj"></label>
             </div>
-            <div class="btn botao">Selecione Foto</div>
+            <!--Chamar imagem-->
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>Imagem</span>
+                <input type="file" name="myImage" accept="image/jpeg,image/x-png" name="image" ngModel required #image="ngModel">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
           </div>
+          <!--Produto-->
           <div class="col l5 offset-l1 offset-m1 m10 s10 offset-s1">
             <table>
                <thead>
@@ -47,27 +57,21 @@
                </thead>
                <tbody>
                  <tr>
-                   <td>
-                     <div class="input-field col s12">
-                        <select>
-                          <optgroup label="Frios">
-                            <option value="1">Carne de boi</option>
-                            <option value="2">Carne de frango</option>
-                            <option value="3">Carne de frango</option>
-                            <option value="4">Carne de porco</option>
-                            <option value="5">Manteiga</option>
-                            <option value="6">Leite</option>
-                            <option value="7">Queijo</option>
-
-                          </optgroup>
-                          <optgroup label="Hortifruti">
-                            <option value="8">Frutas</option>
-                            <option value="9">hortaliças</option>
-                          </optgroup>
-                        </select>
-                        <label>produtos</label>
-                      </div>
-                   </td>
+                  <td>
+                    <div class="input-field col s12">
+                      <select name="multiSelect" [(ngModel)]="selectedOption" name="selectedOption" materialize="material_select" [materializeSelectOptions]="selectOptions" [disabled]="isDisabled?true:null" >
+                        <option value="" disabled selected>Frios</option>
+                        <option value="1">Carne de boi</option>
+                        <option value="2">Carne de frango</option>
+                        <option value="3">Carne de porco</option>
+                        <option value="4">Carne de peixe</option>
+                        <option value="" disabled selected>Hortifruti</option>
+                        <option value="6">frutas</option>
+                        <option value="7">Hortaliças</option>
+                      </select>
+                      <label>Produto</label>
+                    </div>
+                  </td>
                    <td><div class="input-field ">
                      <input placeholder="R$" id="preco" type="text" class="validate" name="preco" ngModel required #preco="ngModel">
                      <label for="preco"></label>
@@ -86,8 +90,3 @@
     <div>
     </div>
 </div>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('select').material_select();
-  });
-</script>

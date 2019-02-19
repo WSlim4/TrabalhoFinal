@@ -3,6 +3,11 @@
 	margin-top: 10vh;
 	padding: 2em 3em;
 }
+.btn{
+	color:white;
+	font-family: 'Rubik', sans-serif;
+	background-color: #2E5A1C;
+}
 .botao{
   color:white;
   font-family: 'Rubik', sans-serif;
