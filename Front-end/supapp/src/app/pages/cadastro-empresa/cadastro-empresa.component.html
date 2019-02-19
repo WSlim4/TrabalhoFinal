@@ -12,18 +12,24 @@
             </div>
             <!--senha-->
             <div class="input-field ">
-              <input placeholder="Senha" id="senha" type="password" class="validate" name="senha" ngModel required #senha="ngModel">
+              <input placeholder="Senha" id="senha" type="password" class="validate" name="senha" ngModel required #senha="ngModel" (blur)="checkPassword(senha)">
               <label for="senha"></label>
+            </div>
+            <div *ngIf="passwordError">
+              <p> Sua senha deve conter 6 ou mais caracteres</p>
             </div>
             <!--email-->
             <div class="input-field ">
-              <input placeholder="Email" id="email" type="email" class="validate" name="email" ngModel required #email="ngModel">
+              <input placeholder="Email" id="email" type="email" class="validate" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" ngModel required #email="ngModel">
               <label for="email"></label>
             </div>
             <!--telefone-->
             <div class="input-field ">
-              <input placeholder="Telefone" id="telefone" type="text" class="validate" name="telefone" ngModel required #telefone="ngModel">
+              <input placeholder="Telefone" id="telefone" type="text" class="validate" name="telefone" ngModel required #telefone="ngModel" (blur)="checkNumber(telefone)">
               <label for="telefone"></label>
+            </div>
+            <div *ngIf="numberError">
+              <p>Coloque um numero de telefone valido </p>
             </div>
             <!--endereco-->
             <div class="input-field ">
@@ -32,8 +38,11 @@
             </div>
             <!--cnpj-->
             <div class="input-field ">
-              <input placeholder="CNPJ" id="cnpj" type="text" class="validate" name="cnpj" ngModel required #cnpj="ngModel">
+              <input placeholder="CNPJ" id="cnpj" type="text" class="validate" name="cnpj" ngModel required #cnpj="ngModel" (blur)="checkCnpj(cnpj)">
               <label for="cnpj"></label>
+            </div>
+            <div *ngIf="cnpjError">
+              <p> Coloque um numero de CNPJ valido(sem pontuaçao)</p>
             </div>
             <!--Chamar imagem-->
             <div class="file-field input-field">
@@ -59,7 +68,7 @@
                  <tr>
                   <td>
                     <div class="input-field col s12">
-                      <select name="multiSelect" [(ngModel)]="selectedOption" name="selectedOption" materialize="material_select" [materializeSelectOptions]="selectOptions" [disabled]="isDisabled?true:null" >
+                      <select name="multiSelect" [(ngModel)]="selectedOption" name="selectedOption" materialize="material_select" [materializeSelectOptions]="selectOptions" [disabled]="isDisabled?true:null" name="categoria" ngModel required #categoria="ngModel">
                         <option value="" disabled selected>Frios</option>
                         <option value="1">Carne de boi</option>
                         <option value="2">Carne de frango</option>
@@ -79,11 +88,11 @@
                  </tr>
                </tbody>
              </table>
-             <p class="center-align">Caso queira adicionar mais produtos, vá para configurações</p>
+             <p class="alerta center-align">Caso queira adicionar mais produtos, vá para configurações</p>
           </div>
         </div>
         <div class="baixo row">
-          <div class="botao btn waves-effect hoverable col l4 offset-l4 m6 offset-m3 s8 offset-s2" type="submit">Realizar Cadastro</div>
+          <button class="botao btn waves-effect hoverable col l4 offset-l4 m6 offset-m3 s8 offset-s2" [disabled]="cadastroEmpresa.invalid || passwordError || email.invalid" type="submit">Realizar Cadastro</button>
         </div>
       </form>
     </div>

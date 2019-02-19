@@ -15,6 +15,12 @@
   margin-top: 2vh;
   margin-bottom: 2vh;
 }
+
+.alerta{
+	color: white;
+	font-size: 15px;
+	margin-top: 2vh;
+}
 table{
   margin-top: 10vh;
 }
@@ -38,7 +44,7 @@ a{
 p{
 	color: white;
 	font-size: 15px;
-  padding-bottom:2vh;
+  margin: 0;
 }
 
 img{
