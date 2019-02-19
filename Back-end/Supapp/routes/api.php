@@ -16,8 +16,13 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+<<<<<<< HEAD
 //Search bar
 Route::get('merchandise/search', 'MerchandiseController@searchBar');
+=======
+
+
+>>>>>>> cfdc94153ed9c9f44442030bfa3f5fc586f6260d
 
 //Rotas subcategorias carnes*/
 Route::get('carnes/frangos', 'MerchandiseController@listFrangos');
@@ -50,6 +55,7 @@ Route::post('loginsupplier', 'SupplierController@store');
 Route::post('login', 'API\PassportController@login');
 Route::post('registercustomer', 'CustomerController@store');
 Route::post('registersupplier', 'SupplierController@store');
+Route::get('get_boleto/{id}', 'BoletoController@boleto');
 
 
 Route::group(['middleware' => 'auth:api'], function() {
