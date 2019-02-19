@@ -31,7 +31,7 @@ class MerchandiseRequest extends FormRequest
             'name' => 'required|string',
             'price' => 'required|numeric|min:0',
             'measure' => 'required|string',
-            'category' => 'required|string',
+            'category' => 'required|string'
             /* tirei pq não obriga a ter no forme
             'supplier_id' => 'required'
             */

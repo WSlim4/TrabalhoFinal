@@ -7,7 +7,6 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use App\Purchase;
-use Illuminate\Support\Facades\Storage;
 
 class SupplierNotification extends Notification
 {
