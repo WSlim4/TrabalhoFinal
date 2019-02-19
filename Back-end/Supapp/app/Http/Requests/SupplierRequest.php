@@ -26,8 +26,8 @@ class SupplierRequest extends FormRequest
      */
     public function rules()
     {
-        if($this->isMethod('post'){
-          return [
+        if($this->isMethod('post')){
+          return[
             'name' => 'required|string',
             'cnpj' => 'required|cnpj',
             'address' => 'required|string',

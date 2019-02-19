@@ -20,10 +20,16 @@ class Supplier extends Model
     return $this->belongsTo('App\User');
   }
 
-  public function updateSupplier($request)
+  
+  public function customers()
   {
-    $user = Auth::user();
-    $this->user_id = $user->id;
+      return $this->belongsToMany('App\Customer')->withPivot('rating');
+  }
+
+  public function updateSupplier($request, $user = null)
+  {
+    if($user)
+      $this->user_id = $user->id;
     if($request->cnpj)
       $this->cnpj = $request->cnpj;
     if($request->name)

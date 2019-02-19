@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Customer;
+use App\User;
 use App\Http\Requests\CustomerRequest;
-
+use Auth;
+use Validator;
 class CustomerController extends Controller
 {
     /**
@@ -14,11 +16,11 @@ class CustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    public $successStatus = 200;
 
     public function index()
     {
      $lista = Customer::all();
-
      return response()->json([$lista]);
     }
 
@@ -30,10 +32,31 @@ class CustomerController extends Controller
      */
     public function store(CustomerRequest $request)
     {
+      $validator = Validator::make($request -> all(), [
+      'name' => 'required',
+      'email' => 'required|email',
+      'password' => 'required',
+      'c_password' => 'required|same:password',
+      ]);
+      if ($validator -> fails()) {
+          return response() -> json(['error' => $validator -> errors()], 401);
+      }
+      $newUser = new User;
+      $newUser->name = $request->name;
+      $newUser->email = $request->email;
+      $newUser->password = bcrypt($request->password);
+      $newUser->save(); 
+      $success['name'] = $newUser->name;
+      $success['token'] = $newUser->createToken('MyApp')->accessToken;
       $customer = new Customer;
-      $customer->updateCustomer($request);
-
-      return response()->json([$customer]);
+      try {
+        $customer->updateCustomer($request, $newUser);
+      }finally{
+        if(!($customer->id)){
+          $newUser->delete();
+        }   
+      }
+      return response()->json(['success' => $success, 'Customer' => $customer],$this->successStatus);
     }
 
     /**

@@ -15,15 +15,26 @@ class Customer extends Model
     return $this->belongsTo('App\User');
   }
 
-  public function merchandises()
+  public function purchases()
   {
-    return $this->belongsToMany('App\Merchandise');
+    return $this->hasMany('App\Purchase');
   }
 
-  public function updateCustomer($request)
+  public function suppliers()
   {
-    $user = Auth::user();
-    $this->user_id = $user->id;
+    return $this->belongsToMany('App\Supplier')->withPivot('rating');
+  }
+
+  public function rateSupplier($request)
+  {
+    $this->suppliers()->attach($request->id,['rating' => $request->rate]);
+
+  }
+
+  public function updateCustomer($request, $user = null)
+  {
+    if($user)
+      $this->user_id = $user->id;
     if($request->cnpj)
       $this->cnpj = $request->cnpj;
     if($request->name)

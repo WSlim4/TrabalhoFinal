@@ -10,27 +10,54 @@ use Auth;
 class Merchandise extends Model
 {
   use SoftDeletes;
+ 
+  public function purchases()
+  {
+      return $this->hasMany('App\Purchase');
+  }
 
   public function supplier()
   {
     return $this->belongsTo('App\Supplier');
   }
-/*Categorias*/
-  public function getCarne(){
-    $carne = Merchandise::where('category','carne')->get();
-    echo $carne;
+/*Subcategorias carnes*/
+  public function getFrangos(){
+    $frango = Merchandise::where('category','frango')->get();
+    echo $frango;
   }
-  public function getFrio(){
-    $frio = Merchandise::where('category','frios')->get();
-    echo $frio;
+  public function getSuinos(){
+    $suino = Merchandise::where('category', 'suino')->get();
+    echo $suino;
   }
-  public function getHortalica(){
-    $hortalica = Merchandise::where('category','hortalica')->get();
+  public function getBovinos(){
+    $bovino = Merchandise::where('category', 'bovino')->get();
+    echo $bovino;
+  }
+  public function getPeixes(){
+    $peixe = Merchandise::where('category', 'peixe')->get();
+    echo $peixe;
+  }
+
+  /*Subcategorias derivados*/
+  public function getQueijos(){
+    $queijo = Merchandise::where('category', 'queijo')->get();
+    echo $queijo;
+  }
+  public function getMargarinas(){
+    $margarina = Merchandise::where('category', 'margarina')->get();
+  }
+  public function getLeites(){
+    $leite = Merchandise::where('category', 'leite');
+  }
+
+  /*Subcategoria hortifrut*/
+  public function getFrutas(){
+    $frutas = Merchandise::where('category', 'fruta')->get();
+    echo $frutas;
+  }
+  public function getHortalicas(){
+    $hortalica = Merchandise::where('category', 'hortalica')->get();
     echo $hortalica;
-  }
-  public function getLaticinio(){
-    $laticinio = Merchandise::where('category','laticinio')->get();
-    echo $laticinio;
   }
 
 /*Relationship*/
