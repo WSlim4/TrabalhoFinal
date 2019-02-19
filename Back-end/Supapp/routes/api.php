@@ -16,13 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-<<<<<<< HEAD
 //Search bar
 Route::get('merchandise/search', 'MerchandiseController@searchBar');
-=======
-
-
->>>>>>> cfdc94153ed9c9f44442030bfa3f5fc586f6260d
 
 //Rotas subcategorias carnes*/
 Route::get('carnes/frangos', 'MerchandiseController@listFrangos');
@@ -47,16 +42,12 @@ Route::get('/{id}', function (Request $request) {
 });
 */
 Route::get('rating/{id}', 'RatingController@showrating');
-
-Route::post('register', 'API\PassportController@register');
-Route::post('logincustomer', 'CustomerController@store');
-Route::post('loginsupplier', 'SupplierController@store');
-
 Route::post('login', 'API\PassportController@login');
 Route::post('registercustomer', 'CustomerController@store');
 Route::post('registersupplier', 'SupplierController@store');
-Route::get('get_boleto/{id}', 'BoletoController@boleto');
+Route::post('putPhoto', 'SupplierController@putPhoto');
 
+Route::get('enviaBoleto/{id}', 'NotificationController@enviaBoleto');
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('purchase','PurchaseController@index');
@@ -66,7 +57,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('get-details', 'API\PassportController@getDetails');
     Route::post('rating/{id}','RatingController@rate');
     Route::post('merchandise', 'MerchandiseController@store');
-    Route::get('smerchandise', 'MerchandiseController@index');
+    Route::get('merchandise', 'MerchandiseController@index');
     //
     Route::group([
       'middleware'=>'CustomerMiddleware',

@@ -29,7 +29,7 @@ class SupplierRequest extends FormRequest
         if($this->isMethod('post')){
           return[
             'name' => 'required|string',
-            'cnpj' => 'required|cnpj',
+            'cnpj' => 'required|formato_cnpj|cnpj',
             'address' => 'required|string',
             'phone' => 'required|telefone|string'
         ];

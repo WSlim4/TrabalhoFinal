@@ -30,7 +30,7 @@ class CustomerRequest extends FormRequest
       if($this->isMethod('post')){
          return [
           'name' => 'required|string',
-          'cnpj' => 'required|cnpj',
+          'cnpj' => 'required|formato_cnpj|cnpj',
           'address' => 'required|string',
           'phone' => 'telefone|required'
       ];
@@ -38,7 +38,7 @@ class CustomerRequest extends FormRequest
      if($this->isMethod('put')){
         return[
           'name' => 'string',
-          'cnpj' => 'cnpj',
+          'cnpj' => 'formato_cnpj|cnpj',
           'address' => 'string',
           'phone' => 'telefone'
       ];

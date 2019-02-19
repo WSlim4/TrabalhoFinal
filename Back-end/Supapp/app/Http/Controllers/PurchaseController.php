@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Purchase;
 use Illuminate\Http\Request;
 use Auth;
+use App\Notifications\SupplierNotification;
 
 class PurchaseController extends Controller
 {
@@ -42,6 +43,9 @@ class PurchaseController extends Controller
         //
         $purchase = new Purchase;
         $purchase->createPurchase($request);
+        $merchandise = $purchase->merchandise;
+        $supplier = $merchandise->supplier;
+        $supplier->notify(new SupplierNotification($request->id));
         return response()->json([$purchase]);
     }
 
