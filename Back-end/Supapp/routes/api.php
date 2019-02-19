@@ -55,7 +55,8 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('get-details', 'API\PassportController@getDetails');
     Route::post('rating/{id}','RatingController@rate');
     Route::post('merchandise', 'MerchandiseController@store');
-    Route::get('smerchandise', 'MerchandiseController@index');
+    Route::get('merchandise', 'MerchandiseController@index');
+    Route::get('listmerchandise','MerchandiseController@supplier_show');
     //
     Route::group([
       'middleware'=>'CustomerMiddleware',
@@ -82,4 +83,10 @@ Route::group(['middleware' => 'auth:api'], function() {
     ], function($router){
       Route::get('boleto/{id}', 'BoletoController@boleto');
     });
+    Route::group([
+    'middleware' =>'PurchaseMiddleware',
+    ], function($router){
+            Route::delete('purchase/{id}', 'PurchaseController@destroy');
+    });
+
 });

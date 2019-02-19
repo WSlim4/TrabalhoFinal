@@ -65,6 +65,7 @@ class Kernel extends HttpKernel
         'SupplierMiddleware' => \App\Http\Middleware\CustomerMiddleware::class,
         'MerchandiseMiddleware' => \App\Http\Middleware\MerchandiseMiddleware::class,
         'BoletoMiddleware' => \App\Http\Middleware\BoletoMiddleware::class,
+        'PurchaseMiddleware' => \App\Http\Middleware\PurchaseMiddleware::class,
 
     ];
 
