@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CadastroEmpresaService } from '../../service/cadastro-empresa.service';
 
 @Component({
   selector: 'app-cadastro-empresa',
@@ -10,8 +11,9 @@ export class CadastroEmpresaComponent implements OnInit {
   passwordError: boolean = false;
   numberError: boolean = false;
   cnpjError: boolean = false;
+  suppliers: any[] = [];
 
-  constructor() { }
+  constructor(private CadastroEmpresaService: CadastroEmpresaService) { }
 
   ngOnInit() {
   }
@@ -42,6 +44,23 @@ export class CadastroEmpresaComponent implements OnInit {
     }else{
       this.cnpjError = false;
     }
+  }
+
+  save(cadastroEmpresa){
+    let supplier = cadastroEmpresa.value;
+    this.CadastroEmpresaService.addsupplier(supplier).subscribe(
+      res => {
+        this.suppliers.push({
+          name: supplier.nome,
+          password: supplier.senha,
+          c_password: supplier.senha,
+          email: supplier.email,
+          phone: supplier.telefone,
+          address: supplier.endereco,
+          cnpj: supplier.cnpj
+        })
+      }
+    );
   }
 
 }

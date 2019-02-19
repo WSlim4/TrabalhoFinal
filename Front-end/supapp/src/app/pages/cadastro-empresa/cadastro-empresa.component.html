@@ -1,10 +1,11 @@
 <div class="row">
-    <div class="col l8 offset-l2 m10 offset-m1 s12 z-depth-2">
+    <div class="col offset-l4 offset-m3 l4 m6 s12 z-depth-2" id="fundo">
     	<a routerLink="/home" class="right"><i class="small material-icons">close</i></a>
-      <form #cadastroEmpresa="ngForm" (ngSubmit)="onSubmit(cadastroEmpresa)">
+
+      <form #cadastroCliente="ngForm" (ngSubmit)="onSubmit(cadastroCliente)">
         <div class="row">
-          <div class="col l4 offset-l1 m10 offset-m1 s10 offset-s1 center-align">
-            <img src="../assets/caminhao-com-nome.png">
+          <div class="col l10 offset-l1 m12 s10 offset-s1">
+            <img src="../assets/caminhao-com-nome.png" class="center-align">
             <!--nome-->
             <div class="input-field ">
               <input placeholder="Nome" id="nome" type="text" class="validate" name="nome" ngModel required #nome="ngModel">
@@ -16,7 +17,7 @@
               <label for="senha"></label>
             </div>
             <div *ngIf="passwordError">
-              <p> Sua senha deve conter 6 ou mais caracteres</p>
+                <p> Sua senha deve conter 6 ou mais caracteres </p>
             </div>
             <!--email-->
             <div class="input-field ">
@@ -29,7 +30,7 @@
               <label for="telefone"></label>
             </div>
             <div *ngIf="numberError">
-              <p>Coloque um numero de telefone valido </p>
+                <p> Coloque um numero de telefone valido </p>
             </div>
             <!--endereco-->
             <div class="input-field ">
@@ -42,57 +43,22 @@
               <label for="cnpj"></label>
             </div>
             <div *ngIf="cnpjError">
-              <p> Coloque um numero de CNPJ valido(sem pontuaçao)</p>
+                <p> Coloque um numero de cnpj valido(sem pontuação) </p>
             </div>
-            <!--Chamar imagem-->
+            <!--upload imagem-->
             <div class="file-field input-field">
               <div class="btn">
                 <span>Imagem</span>
-                <input type="file" name="myImage" accept="image/jpeg,image/x-png" name="image" ngModel required #image="ngModel">
+                <input type="file" name="myImage" accept="image/jpeg,image/x-png" name="image" ngModel #image="ngModel">
               </div>
               <div class="file-path-wrapper">
                 <input class="file-path validate" type="text">
               </div>
             </div>
           </div>
-          <!--Produto-->
-          <div class="col l5 offset-l1 offset-m1 m10 s10 offset-s1">
-            <table>
-               <thead>
-                 <tr>
-                     <th>Mercadoria</th>
-                     <th>Preco/kg</th>
-                 </tr>
-               </thead>
-               <tbody>
-                 <tr>
-                  <td>
-                    <div class="input-field col s12">
-                      <select name="multiSelect" [(ngModel)]="selectedOption" name="selectedOption" materialize="material_select" [materializeSelectOptions]="selectOptions" [disabled]="isDisabled?true:null" name="categoria" ngModel required #categoria="ngModel">
-                        <option value="" disabled selected>Frios</option>
-                        <option value="1">Carne de boi</option>
-                        <option value="2">Carne de frango</option>
-                        <option value="3">Carne de porco</option>
-                        <option value="4">Carne de peixe</option>
-                        <option value="" disabled selected>Hortifruti</option>
-                        <option value="6">frutas</option>
-                        <option value="7">Hortaliças</option>
-                      </select>
-                      <label>Produto</label>
-                    </div>
-                  </td>
-                   <td><div class="input-field ">
-                     <input placeholder="R$" id="preco" type="text" class="validate" name="preco" ngModel required #preco="ngModel">
-                     <label for="preco"></label>
-                   </div></td>
-                 </tr>
-               </tbody>
-             </table>
-             <p class="alerta center-align">Caso queira adicionar mais produtos, vá para configurações</p>
-          </div>
         </div>
         <div class="baixo row">
-          <button class="botao btn waves-effect hoverable col l4 offset-l4 m6 offset-m3 s8 offset-s2" [disabled]="cadastroEmpresa.invalid || passwordError || email.invalid" type="submit">Realizar Cadastro</button>
+          <button class="btn waves-effect hoverable col l4 offset-l4 m6 offset-m3 s8 offset-s2" [disabled]="cadastroCliente.invalid || passwordError || email.invalid || cnpjError" type="submit">Realizar Cadastro</button>
         </div>
       </form>
     </div>

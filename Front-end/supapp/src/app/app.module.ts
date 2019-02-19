@@ -35,6 +35,7 @@ import { CadastroClienteComponent } from './pages/cadastro-cliente/cadastro-clie
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     MaterializeModule,
     FormsModule
