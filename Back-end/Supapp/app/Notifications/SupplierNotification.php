@@ -6,6 +6,8 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use App\Purchase;
+use Illuminate\Support\Facades\Storage;
 
 class SupplierNotification extends Notification
 {
@@ -16,9 +18,10 @@ class SupplierNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($id)
     {
         //
+        $this->id = $id;
     }
 
     /**
@@ -40,10 +43,12 @@ class SupplierNotification extends Notification
      */
     public function toMail($notifiable)
     {
-        return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+        $purchase = Purchase::find($this->id);
+        $url = url('api/enviaBoleto/'.$this->id);
+     return (new MailMessage)
+                    ->subject('Novo pedido de compra')
+                    ->action('Enviar boleto', $url)
+                    ->line('Obrigado por utilizar os nossos serviços!');
     }
 
     /**

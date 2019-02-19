@@ -8,7 +8,7 @@ use App\User;
 use App\Http\Requests\SupplierRequest;
 use App\Notifications\SupplierNotification;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Storage;
 
 
 class SupplierController extends Controller
@@ -80,6 +80,26 @@ class SupplierController extends Controller
     {
         $showSupplier = Supplier::find($id);
         return response()->json([$showSupplier]);
+    }
+    
+    public function putPhoto(Request $request){
+    if (!Storage::exists('supplierPhotos'))
+                 Storage::makeDirectory('supplierPhotos',0775,true);
+         
+    $file = $request->file('id_pic');
+    $path = $file->store('supplierPhotos');
+    $this->id_pic = $path;           
+    
+    $validator = Validator::make($request->all(),[
+        'id_pic' => 'file|image|mimes:jpeg,jpg,png|max:2048'
+      ]);
+
+    
+        
+    if ($validator->fails()){
+            return response()->json(['erro' => $validator->errors()], 400);
+      }
+    
     }
 
     /**

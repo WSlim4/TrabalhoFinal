@@ -18,16 +18,22 @@ class RatingController extends Controller
         {                                                                                                                   
           array_push($array,$customer->pivot->rating);
         }
-        $rate = array_sum($array)/count($array);
-        return response()->json($rate); 
+        if(count($array) != 0)
+        {
+            $rate = array_sum($array)/count($array);
+            return response()->json($rate); 
+        }else
+        {
+            return response()->json('#');
+        }
     }
 
-    public function rate(CustomerRequest $request)
+    public function rate(Request $request)
     {
         $user = Auth::user();
         $customer = $user->customer;
         $customer->rateSupplier($request);
-        return response()->json['Nota dada'];
+        return response()->json('Nota dada');
     }
 
 }
