@@ -55,10 +55,27 @@
                </thead>
                <tbody>
                  <tr>
-                   <td><div class="input-field ">
-                     <input placeholder="Produto" id="produto" type="text" class="validate" name="produto" ngModel required #produto="ngModel">
-                     <label for="produto"></label>
-                   </div></td>
+                   <td>
+                     <div class="input-field col s12">
+                        <select>
+                          <optgroup label="Frios">
+                            <option value="1">Carne de boi</option>
+                            <option value="2">Carne de frango</option>
+                            <option value="3">Carne de frango</option>
+                            <option value="4">Carne de porco</option>
+                            <option value="5">Manteiga</option>
+                            <option value="6">Leite</option>
+                            <option value="7">Queijo</option>
+
+                          </optgroup>
+                          <optgroup label="Hortifruti">
+                            <option value="8">Frutas</option>
+                            <option value="9">hortaliças</option>
+                          </optgroup>
+                        </select>
+                        <label>produtos</label>
+                      </div>
+                   </td>
                    <td><div class="input-field ">
                      <input placeholder="R$" id="preco" type="text" class="validate" name="preco" ngModel required #preco="ngModel">
                      <label for="preco"></label>
@@ -77,3 +94,8 @@
     <div>
     </div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('select').material_select();
+  });
+</script>

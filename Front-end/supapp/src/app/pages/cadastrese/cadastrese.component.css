@@ -9,7 +9,7 @@
   align-items: center;
   color: white;
   font-family: 'Rubik', sans-serif;
-  font-size: 2em;
+  font-size: 1.5em;
   background-color: #2E5A1C;
   text-transform: none;
   padding: 0 1em 0 1em ;
@@ -30,9 +30,9 @@ img{
 	margin-left: 6.5vw;
 }
 
-h1{
+p{
   color: white;
-  font-size: 3em;
+  font-size: 2em;
   font-family: 'Rubik',sans-serif;
   margin-top: 0;
   text-align: center;
@@ -54,7 +54,6 @@ h1{
 
 	#cadastro{
 		color: white;
-		margin-left: 11vw;
 		text-decoration: underline;
 		cursor: pointer;
 	}

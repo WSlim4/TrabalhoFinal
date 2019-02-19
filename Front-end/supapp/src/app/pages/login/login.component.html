@@ -1,9 +1,9 @@
-<div class="row ">
-    <div class="col offset-l4 offset-m2 l4 m6 s12 z-depth-2">
-    	<a routerLink="/home" class="right"><i class="small material-icons">close</i></a>
-    	<img src="../assets/truck.png">
-
-    	<form #login="ngForm" (ngSubmit)="onSubmit(login)">
+<div class="row">
+  <div class="bg-fundo col l4 offset-l4 m8 offset-m2">
+      <a routerLink="/home" class="right"><i class="small material-icons">close</i></a>
+      <div class="col l10 offset-l1 m10 offset-m1 s10 offset-s1 center-align">
+        <img src="../assets/caminhao-com-nome.png">
+        <form #login="ngForm" (ngSubmit)="onSubmit(login)">
     		<div class="row ">
         	<div class="input-field ">
           	<input placeholder="Email" id="email" type="email" class="validate" name="email" ngModel required #email="ngModel">
@@ -22,10 +22,8 @@
             <p>Sua senha deve ter no mínimo 6 caracteres</p>
           </div>
       	</div>
-
-      	<button class="waves-effect waves-light btn white" type="submit" [disabled]=" login.invalid || passwordError" >Enviar</button>
+        <button class="botao btn waves-effect hoverable col l4 offset-l4 m6 offset-m3 s8 offset-s2" type="submit" [disabled]=" login.invalid || passwordError" >Entrar</button>
     	</form>
-
-    	<a id="cadastro" routerLink="/cadastro">Não é cadastrado ?</a>
-    </div>
+      </div>
+  </div>
 </div>

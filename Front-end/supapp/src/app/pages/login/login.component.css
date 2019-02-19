@@ -1,39 +1,26 @@
-/*Classes*/
-.col{
+.bg-fundo{
 	background-color: #4E9525;
-	margin-left: 15em;
 	margin-top: 10vh;
 	padding: 2em 3em;
 }
-
-/*Elementos*/
-a{
-	color: white;
-}
-p{
-	color: white;
-	font-size: 12px;
+.botao{
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  background-color: #2E5A1C;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
+.cadastro{
+	margin-left: 9vw;
+	text-decoration: underline;
+	cursor: pointer;
+}
+i{
+	color:white;
+}
 img{
-	width: 50%;
-	margin-left: 6.5vw;
-}
-
-button{
-	margin-left: 9.5vw;
-	margin-bottom: 4vh;
-	color: black;
-}
-
-/*elementos*/
-
-#password{
-	background-color: white;
-	margin: 0;
-	padding-left: 1.2vw;
-	border-radius: 5px;
-	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+	width:50%;
 }
 #email{
 	background-color: white;
@@ -42,28 +29,10 @@ button{
 	border-radius: 5px;
 	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
-
-#cadastro{
-	margin-left: 9vw;
-	text-decoration: underline;
-	cursor: pointer;
-}
-
-@media screen and (min-width: 1000px) {
-	img{
-		margin-left: 7.5vw;
-	}
-
-	button{
-		margin-left: 11.5vw;
-		margin-bottom: 4vh;
-		color: black;
-	}
-
-	#cadastro{
-		color: white;
-		margin-left: 11vw;
-		text-decoration: underline;
-		cursor: pointer;
-	}
+#password{
+	background-color: white;
+	margin: 0;
+	padding-left: 1.2vw;
+	border-radius: 5px;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
