@@ -9,11 +9,12 @@
     "license": "MIT",
     "require": {
         "php": "^7.1.3",
+        "eduardokum/laravel-boleto": "^0.8.1",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
         "laravel/passport": "^7.1",
         "laravel/tinker": "^1.0",
-        "laravellegends/pt-br-validator" : "5.1.*"
+        "laravellegends/pt-br-validator": "5.1.*"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",

@@ -101,3 +101,16 @@ class CustomerController extends Controller
         return response()->json(['DELETADO']);
     }
 }
+
+// Essa é a rota
+/*
+Route::get('boleto/{id}','boleto@fazer');
+
+public function fazer($id){
+  $purchase = Purchase::find($id);
+  $customer = $purchase->customer;
+  $supplier = $purchase->supplier;
+
+}
+
+*/
