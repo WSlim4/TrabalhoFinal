@@ -1,0 +1,31 @@
+<div class="row ">
+    <div class="col offset-l4 offset-m2 l4 m6 s12 z-depth-2">
+    	<a routerLink="/home" class="right"><i class="small material-icons">close</i></a>
+    	<img src="../assets/truck.png">
+
+    	<form #login="ngForm" (ngSubmit)="onSubmit(login)">
+    		<div class="row ">
+        	<div class="input-field ">
+          	<input placeholder="Email" id="email" type="email" class="validate" name="email" ngModel required #email="ngModel">
+          	<label for="email"></label>
+        	</div>
+          <div *ngIf="email.touched && email.invalid">
+            <p>Campo Obrigatório!</p>
+          </div>
+      	</div>
+      	<div class="row">
+        	<div class="input-field ">
+          	<input placeholder="Senha" id="password" type="password" class="validate" name="password" ngModel required #senha="ngModel" (blur)="passwordCheck(senha)">
+          	<label for="password"></label>
+        	</div>
+          <div *ngIf="passwordError && senha.touched">
+            <p>Sua senha deve ter no mínimo 6 caracteres</p>
+          </div>
+      	</div>
+
+      	<button class="waves-effect waves-light btn white" type="submit" [disabled]=" login.invalid || passwordError" >Enviar</button>
+    	</form>
+
+    	<a id="cadastro" routerLink="/cadastro">Não é cadastrado ?</a>
+    </div>
+</div>
