@@ -10,6 +10,9 @@
   margin-top: 2vh;
   margin-bottom: 2vh;
 }
+.right-bottom{
+	margin-left: -20vh;
+}
 
 i{
 	color:white;
@@ -17,10 +20,16 @@ i{
 img{
 	width:50%;
 }
-p{
-  color: white;
-  font-size: 2em;
-  font-family: 'Rubik',sans-serif;
-  margin-top: 0;
-  text-align: center;
+thead{
+  background-color: #2E5A1C;
+}
+th{
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  padding-left: 2vh;
+  font-weight: lighter !important;
+}
+td{
+  background-color: white;
+  padding-left: 2vh;
 }

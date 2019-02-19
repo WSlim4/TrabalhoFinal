@@ -13,13 +13,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AreaPesquisaComponent } from './pages/area-pesquisa/area-pesquisa.component';
 import { SobrenosComponent } from './pages/sobrenos/sobrenos.component';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HomeService } from './service/home.service';
+import { AuthGuard } from './guards/auth.guard';
 import { ConfiguracoesComponent } from './pages/configuracoes/configuracoes.component';
 import { CadastreseComponent } from './pages/cadastrese/cadastrese.component';
 import { CadastroEmpresaComponent } from './pages/cadastro-empresa/cadastro-empresa.component';
 import { CadastroClienteComponent } from './pages/cadastro-cliente/cadastro-cliente.component';
 import { FaltaLoginComponent } from './pages/falta-login/falta-login.component';
+import { ProdutosComponent } from './pages/produtos/produtos.component';
+import { PedidosComponent } from './pages/pedidos/pedidos.component';
 
 @NgModule({
   declarations: [
@@ -34,16 +37,21 @@ import { FaltaLoginComponent } from './pages/falta-login/falta-login.component';
     CadastroEmpresaComponent,
     CadastroClienteComponent,
     FaltaLoginComponent,
+    ProdutosComponent,
+    PedidosComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     MaterializeModule,
     FormsModule
   ],
   providers: [
     HttpClientModule,
+    HttpClient,
     HomeService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })

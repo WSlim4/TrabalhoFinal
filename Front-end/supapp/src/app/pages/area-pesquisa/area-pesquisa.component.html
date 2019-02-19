@@ -32,14 +32,48 @@
       <p class="col l4 pull-l8 m12 s12 center-align footer">Produtos disponíveis</p>
     </div>
     <div class="row">
-      <div class="col l8 s12">
-      <img src="../../../assets/meat.png" class="col l1 m2 s2 icones">
-      <img src="../../../assets/chicken.png" class="col l1 m2 s2 icones">
-      <img src="../../../assets/pork.png" class="col l1 m2 s2 icones">
-      </div>
+      <form #login="ngForm" (ngSubmit)="onSubmit(login)">
+        <table>
+           <thead>
+             <tr>
+                 <th>Mercadoria</th>
+                 <th>Preco/kg</th>
+             </tr>
+           </thead>
+           <tbody>
+             <tr>
+               <td>
+                 <div class="input-field col s12">
+                    <select>
+                      <optgroup label="Frios">
+                        <option value="1">Carne de boi</option>
+                        <option value="2">Carne de frango</option>
+                        <option value="3">Carne de frango</option>
+                        <option value="4">Carne de porco</option>
+                        <option value="5">Manteiga</option>
+                        <option value="6">Leite</option>
+                        <option value="7">Queijo</option>
+
+                      </optgroup>
+                      <optgroup label="Hortifruti">
+                        <option value="8">Frutas</option>
+                        <option value="9">hortaliças</option>
+                      </optgroup>
+                    </select>
+                    <label>Quantidade</label>
+                  </div>
+               </td>
+               <td><div class="input-field ">
+                 <input placeholder="kg" id="kg" type="text" class="validate" name="kg" ngModel required #kg="ngModel">
+                 <label for="kg"></label>
+               </div></td>
+             </tr>
+           </tbody>
+         </table>
+         <button class="waves-effect waves-light btn white btn col l4 hide-on-med-and-down" type="submit" >Enviar</button>
+         <button class="waves-effect waves-light btn white btn col m12 s12 hide-on-large-only" type="submit">Enviar</button>
+         </form>
       <!--botao para estipulação-->
-      <div class="btn col l4 hide-on-med-and-down">Faça uma estipulação</div>
-      <div class="btn col m12 s12 hide-on-large-only">Faça uma estipulação</div>
     </div>
   </div>
 </div>

@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="bg-fundo col l4 offset-l4 m8 offset-m2">
+      <a routerLink="/home" class="right"><i class="small material-icons">close</i></a>
+      <div class="col l10 offset-l1 m10 offset-m1 s10 offset-s1 center-align">
+        <img src="../assets/caminhao-com-nome.png">
+        <form #login="ngForm" (ngSubmit)="onSubmit(login)">
+          <table>
+             <thead>
+               <tr>
+                   <th>Mercadoria</th>
+                   <th>Preco/kg</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <td>
+                   <div class="input-field col s12">
+                      <select>
+                        <optgroup label="Frios">
+                          <option value="1">Carne de boi</option>
+                          <option value="2">Carne de frango</option>
+                          <option value="3">Carne de frango</option>
+                          <option value="4">Carne de porco</option>
+                          <option value="5">Manteiga</option>
+                          <option value="6">Leite</option>
+                          <option value="7">Queijo</option>
+
+                        </optgroup>
+                        <optgroup label="Hortifruti">
+                          <option value="8">Frutas</option>
+                          <option value="9">hortaliças</option>
+                        </optgroup>
+                      </select>
+                      <label>produtos</label>
+                    </div>
+                 </td>
+                 <td><div class="input-field ">
+                   <input placeholder="R$" id="preco" type="text" class="validate" name="preco" ngModel required #preco="ngModel">
+                   <label for="preco"></label>
+                 </div></td>
+               </tr>
+             </tbody>
+           </table>
+           <button class="waves-effect waves-light btn white" type="submit"[disabled]=" login.invalid || passwordError" >Enviar</button>
+    	    </form>
+      </div>
+  </div>
+</div>

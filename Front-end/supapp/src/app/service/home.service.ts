@@ -8,5 +8,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HomeService {
-  constructor() { }
+
+  apiUrl: string = "http://localhost:8000/api/";
+
+  constructor( public http: HttpClient ) { }
+
+  getMercadoria(nome:string): Observable<any>{
+    return this.http.get( this.apiUrl + nome ).pipe( map(res => res) );
+  }
 }

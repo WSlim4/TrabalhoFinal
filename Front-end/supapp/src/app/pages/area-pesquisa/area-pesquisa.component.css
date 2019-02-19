@@ -99,6 +99,20 @@ p.col.l4.pull-l8.m12.s12.center-align.footer{
   display: flex;
   flex-direction: column;
 }
+thead{
+  background-color: #2E5A1C;
+}
+th{
+  color:white;
+  font-family: 'Rubik', sans-serif;
+  padding-left: 2vh;
+  font-weight: lighter !important;
+}
+td{
+  background-color: white;
+  padding-left: 2vh;
+}
+
 @media only screen and (max-width: 600px) {
   .modal{
     min-width: 100% !important;
