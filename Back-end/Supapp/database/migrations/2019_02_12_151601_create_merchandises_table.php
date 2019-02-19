@@ -16,9 +16,10 @@ class CreateMerchandisesTable extends Migration
         Schema::create('merchandises', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('supplier_id')->unsigned()->nullable();
-            $table->string('name_mer');
+            $table->float('price');
+            $table->string('name');
             $table->string('category');
-            $table->string('stock');
+            $table->string('measure');
             $table->timestamps();
         });
 

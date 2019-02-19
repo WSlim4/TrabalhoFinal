@@ -4,45 +4,74 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Auth;
+use App\User;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class Supplier extends Model
 {
   use SoftDeletes;
+  use Notifiable;
 
-  public function merchandise()
+  public function merchandises()
   {
     return $this->hasMany('App\Merchandise');
   }
 
-  public function supplierUser();
+  public function user()
   {
     return $this->belongsTo('App\User');
   }
 
-  public function getCategory()
+
+  public function customers()
   {
-    $category = Merchandise::find($id);
-    return $category->category;
+    $newUser = new User;
+    $user = Auth::user();
+    $this->user_id = $user->id;
+
+      return $this->belongsToMany('App\Customer')->withPivot('rating');
   }
 
-  public function updateSupplier($request)
+  public function updateSupplier($request, $user = null)
   {
+    if($user)
+      $this->user_id = $user->id;
+    if($request->cnpj)
+      $this->cnpj = $request->cnpj;
     if($request->name)
       $this->name = $request->name;
-    if($request->cnpj_supplier)
-      $this->cnpj_supplier = $request->cnpj_supplier;
-    if($request->adress_supplier)
-      $this->adress_supplier = $request->adress_supplier;
-    if($request->phone_supplier)
-      $this->phone_supplier = $request->phone_supplier;
+    if($request->address)
+      $this->address = $request->address;
+    if($request->phone)
+      $this->phone = $request->phone;
     if($request->email)
       $this->email = $request->email;
-    if($request->id_pic_supplier)
-      $this->id_pic_supplier = $request->id_pic_supplier;
-    if($request->rating)
-      $this->rating = $request->rating;
 
-      $this->save();
+    if (!Storage::exists('supplierPhotos'))
+                 Storage::makeDirectory('supplierPhotos',0775,true);
+
+    if($request->id_pic){
+    $file = $request->file('id_pic');
+
+    $filename = 'foto.' . $file->getClientOriginalExtension();
+    }
+    $validator = Validator::make($request->all(),[
+        'id_pic' => 'required|file|image|mimes:jpeg,jpg,png|max:2048'
+    ]);
+
+    if ($validator->fails()){
+            return response()->json(['erro' => $validator->errors()], 400);
+    }
+
+    $path = $file->storeAs('supplierPhotos', $filename);
+
+    $this->id_pic = $path;
+
+    $this->save();
+
   }
   public function destroySupplier($id)
   {

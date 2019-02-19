@@ -5,17 +5,19 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasApiTokens;
 
-    public function generalSupplier();
+    public function supplier()
     {
       return $this->hasOne('App\Supplier');
     }
 
-    public function generalCustomer();
+    public function customer()
     {
       return $this->hasOne('App\Customer');
     }
