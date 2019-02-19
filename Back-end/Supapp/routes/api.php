@@ -45,7 +45,7 @@ Route::get('rating/{id}', 'RatingController@showrating');
 Route::post('login', 'API\PassportController@login');
 Route::post('registercustomer', 'CustomerController@store');
 Route::post('registersupplier', 'SupplierController@store');
-Route::get('get_boleto/{id}', 'BoletoController@boleto');
+
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('purchase','PurchaseController@index');
@@ -76,5 +76,10 @@ Route::group(['middleware' => 'auth:api'], function() {
        //Merchandises routes allowed for it's supplier*/
         Route::put('updatemerchandise/{id}', 'MerchandiseController@update');
         Route::delete('deletemerchandise/{id}', 'MerchandiseController@destroy');
+    });
+    Route::group([
+      'middleware'=>'BoletoMiddleware',
+    ], function($router){
+      Route::get('boleto/{id}', 'BoletoController@boleto');
     });
 });
