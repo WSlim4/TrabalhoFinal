@@ -18,14 +18,14 @@ class BoletoController extends Controller
     {
         $purchase = Purchase::find($id);
         $customer = $purchase->customer;
-        $beneficiario = new Pessoa(
+        $beneficiario = new Pessoa( /*Cria um objeto da instância presente na biblioteca*/
             [
                 'nome'      => 'Suppap',
                 'endereco'  => 'Rua EJCM, Número 20',
                 'documento' => '99.999.999/9999-99',
             ]
         );
-        $pagador = new Pessoa(
+        $pagador = new Pessoa( /*Acessa os dados do cliente*/
             [
                 'nome'      => $customer->name,
                 'endereco'  => $customer->address,

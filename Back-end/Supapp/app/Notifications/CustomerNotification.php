@@ -43,7 +43,8 @@ class CustomerNotification extends Notification
         $user = $notifiable;
         //$url = url('api/boleto/{id}'. $this->boleto->id);
         return (new MailMessage)
-                    ->subject('Boleto Supapp')        
+                    ->greeting('Seu boleto')
+                    ->subject('Boleto Supapp')
                     ->greeting('Segue em anexo o seu boleto')
                    // ->action('Visualizar boleto', $url)
                     ->line('Obrigado por comprar conosco!');
