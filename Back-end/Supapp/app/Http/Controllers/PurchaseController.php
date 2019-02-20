@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Purchase;
 use Illuminate\Http\Request;
 use Auth;
+use App\Notifications\SupplierNotification;
 
 class PurchaseController extends Controller
 {
@@ -18,14 +19,14 @@ class PurchaseController extends Controller
         //
         $user = Auth::user();
         if($user->customer){
-            $lista = Purchase::where('customer_id',$user->customer->id)->get();            
+            $lista = Purchase::where('customer_id',$user->customer->id)->get();
             return response()->json([$lista]);
         }else{
             $supplier = $user->supplier;
             $merchandises = $supplier->merchandises;
             $lista = [];
             foreach ($merchandises as $merchandise) {
-                array_push($lista, $merchandise->purchases); 
+                array_push($lista, $merchandise->purchases);
             }
             return response()->json($lista);
         }
@@ -42,6 +43,9 @@ class PurchaseController extends Controller
         //
         $purchase = new Purchase;
         $purchase->createPurchase($request);
+        $merchandise = $purchase->merchandise;
+        $supplier = $merchandise->supplier;
+        $supplier->notify(new SupplierNotification($request->id));
         return response()->json([$purchase]);
     }
 
@@ -58,7 +62,7 @@ class PurchaseController extends Controller
         return response()->json([$showPurchase]);
     }
 
-  
+
     /**
      * Update the specified resource in storage.
      *

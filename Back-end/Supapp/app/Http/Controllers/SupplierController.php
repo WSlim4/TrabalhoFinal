@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Supplier;
 use App\User;
 use App\Http\Requests\SupplierRequest;
-use Validator;
+use App\Notifications\SupplierNotification;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 
 class SupplierController extends Controller
@@ -18,7 +20,7 @@ class SupplierController extends Controller
      */
 
     public $successStatus = 200;
-     
+
     public function index()
     {
       $lista = Supplier::all();
@@ -52,12 +54,20 @@ class SupplierController extends Controller
         $supplier = new Supplier;
         try {
           $supplier->updateSupplier($request, $newUser);
+          $supplier->save();
         }finally{
           if(!($supplier->id)){
             $newUser->delete();
-          }   
+          }
         }
         return response()->json(['success' => $success, 'Supplier' => $supplier],$this->successStatus);
+     }
+
+     public function supPhoto($id){
+
+        $supplier = Supplier::findOrFail($id);
+
+        return response()->download(storage_path('app\\' .$supplier->id_pic));
       }
 
     /**
@@ -70,6 +80,26 @@ class SupplierController extends Controller
     {
         $showSupplier = Supplier::find($id);
         return response()->json([$showSupplier]);
+    }
+    
+    public function putPhoto(Request $request){
+    if (!Storage::exists('supplierPhotos'))
+                 Storage::makeDirectory('supplierPhotos',0775,true);
+         
+    $file = $request->file('id_pic');
+    $path = $file->store('supplierPhotos');
+    $this->id_pic = $path;           
+    
+    $validator = Validator::make($request->all(),[
+        'id_pic' => 'file|image|mimes:jpeg,jpg,png|max:2048'
+      ]);
+
+    
+        
+    if ($validator->fails()){
+            return response()->json(['erro' => $validator->errors()], 400);
+      }
+    
     }
 
     /**

@@ -5,10 +5,15 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use App\User;
+use Illuminate\Notifications\Notifiable;
 
 class Customer extends Model
 {
   use SoftDeletes;
+  use Notifiable;
 
   public function user()
   {
@@ -27,7 +32,7 @@ class Customer extends Model
 
   public function rateSupplier($request)
   {
-    $this->suppliers()->attach($request->id,['rating' => $request->rate]);
+    $this->suppliers()->attach($request->id,['rating' => $request->rating]);
 
   }
 
@@ -45,7 +50,34 @@ class Customer extends Model
       $this->phone = $request->phone;
     if($request->email)
       $this->email = $request->email;
-    $this->save();
+
+    if (!Storage::exists('customerPhotos'))
+               Storage::makeDirectory('customerPhotos',0775,true);
+
+    if($request->id_pic){
+       $file = $request->file('id_pic');
+      
+       $filename = 'foto.' . $file->getClientOriginalExtension();
+       
+       $path = $file->storeAs('customerPhotos', $filename);
+
+       $this->id_pic = $path;
+
+       $this->save();
+ 
+    
+        
+    if ($validator->fails()){
+          return response()->json(['erro' => $validator->errors()], 400);
+     }
+
+    }
+    
+    $validator = Validator::make($request->all(),[
+      'id_pic' => 'required|file|image|mimes:jpeg,jpg,png|max:2048'
+    ]);
+
+   
   }
 
   public function destroyCustomer($id)

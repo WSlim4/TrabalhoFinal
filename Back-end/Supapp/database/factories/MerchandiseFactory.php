@@ -1,6 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Merchandise;
 
 $factory->define(App\Merchandise::class, function (Faker $faker) {
     $value = ['quilo','litro', 'caixa']; 
@@ -13,5 +14,6 @@ $factory->define(App\Merchandise::class, function (Faker $faker) {
         'measure'=> $value[array_rand($value)],
         'category' => $category[array_rand($category)],
         'price' => (mt_rand(1, 9)/10)*100,
+
     ];
 });

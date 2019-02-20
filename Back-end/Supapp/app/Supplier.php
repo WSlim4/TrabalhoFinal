@@ -5,10 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Auth;
+use App\User;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Validator;
 
 class Supplier extends Model
 {
   use SoftDeletes;
+  use Notifiable;
 
   public function merchandises()
   {
@@ -20,7 +24,7 @@ class Supplier extends Model
     return $this->belongsTo('App\User');
   }
 
-  
+
   public function customers()
   {
       return $this->belongsToMany('App\Customer')->withPivot('rating');
@@ -40,10 +44,14 @@ class Supplier extends Model
       $this->phone = $request->phone;
     if($request->email)
       $this->email = $request->email;
+
     $this->save();
+
   }
-  public function destroySupplier($id)
-  {
+        
+
+ public function destroySupplier($id){
+  
     Supplier::destroy($id);
   }
 
