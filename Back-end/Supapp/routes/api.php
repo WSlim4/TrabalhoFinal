@@ -45,7 +45,9 @@ Route::get('rating/{id}', 'RatingController@showrating');
 Route::post('login', 'API\PassportController@login');
 Route::post('registercustomer', 'CustomerController@store');
 Route::post('registersupplier', 'SupplierController@store');
-Route::post('putPhoto', 'SupplierController@putPhoto');
+
+Route::get('pathPhoto', 'SupplierController@pathPhoto');
+Route::get('pathPhoto', 'CustomerController@pathPhoto');
 
 Route::get('enviaBoleto/{id}', 'NotificationController@enviaBoleto');
 
@@ -64,6 +66,7 @@ Route::group(['middleware' => 'auth:api'], function() {
     ], function($router){
          Route::put('updatecustomer/{id}', 'CustomerController@update');
          Route::delete('deletecustomer/{id}', 'CustomerController@destroy');
+         Route::post('putPhoto', 'CustomerController@putPhoto');
     });
     Route::group([
       'middleware' =>'SupplierMiddleware',
@@ -71,6 +74,7 @@ Route::group(['middleware' => 'auth:api'], function() {
          /*Supplier routes*/
          Route::put('updatesupplier/{id}', 'SupplierController@update');
          Route::delete('deletesupplier/{id}', 'SupplierController@destroy');
+         Route::post('putPhoto', 'SupplierController@putPhoto');
     });
     Route::group([
     'middleware' =>'MerchandiseMiddleware',

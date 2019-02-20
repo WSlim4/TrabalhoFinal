@@ -20,7 +20,7 @@ class SupplierNotification extends Notification
     public function __construct($id)
     {
         //
-        $this->id = $id;
+        $this->id = $id; //Pega o id da purchase atual
     }
 
     /**
@@ -43,8 +43,9 @@ class SupplierNotification extends Notification
     public function toMail($notifiable)
     {
         $purchase = Purchase::find($this->id);
-        $url = url('api/enviaBoleto/'.$this->id);
-     return (new MailMessage)
+        $url = url('api/enviaBoleto/'.$this->id); //Url da função que envia
+     return (new MailMessage)                     // o boleto ao customer
+                    ->greeting('Nova compra')
                     ->subject('Novo pedido de compra')
                     ->action('Enviar boleto', $url)
                     ->line('Obrigado por utilizar os nossos serviços!');

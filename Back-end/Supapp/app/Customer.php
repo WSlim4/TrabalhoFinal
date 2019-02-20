@@ -50,34 +50,7 @@ class Customer extends Model
       $this->phone = $request->phone;
     if($request->email)
       $this->email = $request->email;
-
-    if (!Storage::exists('customerPhotos'))
-               Storage::makeDirectory('customerPhotos',0775,true);
-
-    if($request->id_pic){
-       $file = $request->file('id_pic');
-      
-       $filename = 'foto.' . $file->getClientOriginalExtension();
-       
-       $path = $file->storeAs('customerPhotos', $filename);
-
-       $this->id_pic = $path;
-
-       $this->save();
- 
-    
-        
-    if ($validator->fails()){
-          return response()->json(['erro' => $validator->errors()], 400);
-     }
-
-    }
-    
-    $validator = Validator::make($request->all(),[
-      'id_pic' => 'required|file|image|mimes:jpeg,jpg,png|max:2048'
-    ]);
-
-   
+     $this->save();
   }
 
   public function destroyCustomer($id)
