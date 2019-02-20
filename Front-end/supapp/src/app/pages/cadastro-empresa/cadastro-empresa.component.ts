@@ -13,7 +13,7 @@ export class CadastroEmpresaComponent implements OnInit {
   cnpjError: boolean = false;
   suppliers: any[] = [];
 
-  constructor(private CadastroEmpresaService: CadastroEmpresaService) { }
+  constructor(private EmpresaService: CadastroEmpresaService) { }
 
   ngOnInit() {
   }
@@ -39,7 +39,7 @@ export class CadastroEmpresaComponent implements OnInit {
   }
 
   checkCnpj(cnpj){
-    if( cnpj.value.length != 14 ){
+    if( cnpj.value.length != 18 ){
       this.cnpjError = true;
     }else{
       this.cnpjError = false;
@@ -48,7 +48,7 @@ export class CadastroEmpresaComponent implements OnInit {
 
   save(cadastroEmpresa){
     let supplier = cadastroEmpresa.value;
-    this.CadastroEmpresaService.addsupplier(supplier).subscribe(
+    this.EmpresaService.addsupplier(supplier).subscribe(
       res => {
         this.suppliers.push({
           name: supplier.nome,

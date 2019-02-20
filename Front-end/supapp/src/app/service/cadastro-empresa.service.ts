@@ -13,6 +13,8 @@ export class CadastroEmpresaService {
   constructor(private http: HttpClient) { }
 
   addsupplier(supplier: any): Observable<any>{
+    let headers: HttpHeaders = new HttpHeaders({ "Content-Type":"application/x-www-form-urlencoded", "Accept":"application/json" });
+    console.log(supplier.nome);
     return this.http.post(this.apiUrl,{
       name: supplier.nome,
       password: supplier.senha,
@@ -21,7 +23,7 @@ export class CadastroEmpresaService {
       phone: supplier.telefone,
       address: supplier.endereco,
       cnpj: supplier.cnpj
-    }).pipe( map(res=>res) );
+    },{ headers }).pipe( map(res=>res) );
   }
 
 }

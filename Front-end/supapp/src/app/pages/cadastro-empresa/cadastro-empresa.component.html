@@ -2,7 +2,7 @@
     <div class="col offset-l4 offset-m3 l4 m6 s12 z-depth-2" id="fundo">
     	<a routerLink="/home" class="right"><i class="small material-icons">close</i></a>
 
-      <form #cadastroCliente="ngForm" (ngSubmit)="onSubmit(cadastroCliente)">
+      <form #cadastroEmpresa="ngForm" (ngSubmit)="onSubmit(cadastroEmpresa)">
         <div class="row">
           <div class="col l10 offset-l1 m12 s10 offset-s1">
             <img src="../assets/caminhao-com-nome.png" class="center-align">
@@ -58,7 +58,7 @@
           </div>
         </div>
         <div class="baixo row">
-          <button class="btn waves-effect hoverable col l4 offset-l4 m6 offset-m3 s8 offset-s2" [disabled]="cadastroCliente.invalid || passwordError || email.invalid || cnpjError" type="submit">Realizar Cadastro</button>
+          <button class="btn waves-effect hoverable col l4 offset-l4 m6 offset-m3 s8 offset-s2" [disabled]="cadastroEmpresa.invalid || passwordError || email.invalid || cnpjError" type="submit" (click)="save(cadastroEmpresa)">Realizar Cadastro</button>
         </div>
       </form>
     </div>

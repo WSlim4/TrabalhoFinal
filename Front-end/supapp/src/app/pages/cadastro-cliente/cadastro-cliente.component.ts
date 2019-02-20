@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CadastroCostumerService } from '../../service/cadastro-costumer.service'
 
 @Component({
   selector: 'app-cadastro-cliente',
@@ -10,8 +11,9 @@ export class CadastroClienteComponent implements OnInit {
   passwordError: boolean = false;
   numberError: boolean = false;
   cnpjError: boolean = false;
+  costumers: any[] = [];
 
-  constructor() { }
+  constructor(private CostumerService: CadastroCostumerService) { }
 
   ngOnInit() {
   }
@@ -41,6 +43,23 @@ export class CadastroClienteComponent implements OnInit {
     }else{
       this.cnpjError = false;
     }
+  }
+
+  save(cadastroCliente){
+    let costumer = cadastroCliente.value;
+    this.CostumerService.addCostumer(costumer).subscribe(
+      res => {
+        this.costumers.push({
+          name: costumer.nome,
+          password: costumer.senha,
+          c_password: costumer.senha,
+          email: costumer.email,
+          phone: costumer.telefone,
+          address: costumer.endereco,
+          cnpj: costumer.cnpj
+        })
+      }
+    );
   }
 
 }

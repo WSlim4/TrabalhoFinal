@@ -16,9 +16,9 @@ class CORS
     public function handle($request, Closure $next)
     {
         $answer = $next($request);
-        $answer->headers->set('Acess-Control-Allow-Origin' , 'http://localhost:8000');
-        $answer->headers->set('Acess-Control-Allow-Methods' , 'GET, POST, PUT, DELETE, OPTIONS' );
-        $answer->headers->set('Acess-Control-Allow-Headers' , 'Authorization, Content-Type' );
+        $answer->headers->set('Access-Control-Allow-Origin' , 'http://localhost:4200');
+        $answer->headers->set('Access-Control-Allow-Methods' , 'GET, POST, PUT, DELETE, OPTIONS' );
+        $answer->headers->set('Access-Control-Allow-Headers' , 'Authorization, Content-Type' );
         return $answer;
     }
 }

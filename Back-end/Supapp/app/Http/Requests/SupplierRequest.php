@@ -29,7 +29,7 @@ class SupplierRequest extends FormRequest
         if($this->isMethod('post')){
           return[
             'name' => 'required|string',
-            'cnpj' => 'required|cnpj',
+            'cnpj' => 'required|formato_cnpj|cnpj',
             'address' => 'required|string',
             'phone' => 'required|telefone|string'
         ];
@@ -47,14 +47,14 @@ class SupplierRequest extends FormRequest
     public function messages(){
 
         return[
-          'name.unique' => 'Este nome ja existe',
+          //'name.unique' => 'Este nome ja existe',
           'name.required' => 'Insira um nome valido',
-          'cnpj.unique' => 'Este cnpj ja existe',
+          //'cnpj.unique' => 'Este cnpj ja existe',
           'cnpj.required' => 'Insira um cnpj valido',
-          'address.unique' => 'Este endereco ja existe',
+          //'address.unique' => 'Este endereco ja existe',
           'address.required' => 'Insira um endereco valido',
           'phone.required' => 'Insira um telefone valido',
-          'phone.unique' => 'Este numero de telefone ja existe'
+          //'phone.unique' => 'Este numero de telefone ja existe'
         ];
     }
 

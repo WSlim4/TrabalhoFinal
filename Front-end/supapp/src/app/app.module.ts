@@ -20,6 +20,9 @@ import { CadastreseComponent } from './pages/cadastrese/cadastrese.component';
 import { CadastroEmpresaComponent } from './pages/cadastro-empresa/cadastro-empresa.component';
 import { CadastroClienteComponent } from './pages/cadastro-cliente/cadastro-cliente.component';
 
+import { CadastroEmpresaService } from './service/cadastro-empresa.service';
+import { CadastroCostumerService } from './service/cadastro-costumer.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +46,8 @@ import { CadastroClienteComponent } from './pages/cadastro-cliente/cadastro-clie
   providers: [
     HttpClientModule,
     HomeService,
+    CadastroEmpresaService,
+    CadastroCostumerService
   ],
   bootstrap: [AppComponent]
 })
