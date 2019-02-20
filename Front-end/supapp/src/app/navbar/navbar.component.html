@@ -54,8 +54,10 @@
       <!--botao sobre nos-->
       <a routerLink="/sobrenos" class="botao-sobre center-align">Sobre nós</a>
     </li>
-    <!--botao de configuracoes-->
-    <li><a class="botao-sobre" (click)="navigateToConfig()">Configurações</a></li>
+    <!--botao de configuracoes para pessoa logada-->
+    <li *ngIf="logado"><a class="botao-sobre" routerLink="/configuracoes">Configurações</a></li>
+    <!--botao de configuracoes para pessoa nao logada-->
+    <li *ngIf="!logado"><a class="botao-sobre" routerLink="/falta-login">Configurações</a></li>
     </ul>
   </div>
   <!--falta colocar login funcional no final dessa pagina-->

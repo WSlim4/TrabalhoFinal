@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
   pagina: string;
 
   constructor(private router: Router) {
-    this.logado = false;
+    this.logado = true;
 
   }
   ngOnInit() {
@@ -25,7 +25,4 @@ export class NavbarComponent implements OnInit {
 
   }
 
-  permission(level: string){
-    localStorage.setItem('permission', level);
-  }
 }

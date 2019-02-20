@@ -13,7 +13,6 @@ import { FaltaLoginComponent } from './pages/falta-login/falta-login.component';
 import { ProdutosComponent } from './pages/produtos/produtos.component';
 import { PedidosComponent } from './pages/pedidos/pedidos.component';
 
-import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
 	{ path: 'home', component: HomeComponent },

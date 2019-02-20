@@ -15,7 +15,6 @@ import { SobrenosComponent } from './pages/sobrenos/sobrenos.component';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { HomeService } from './service/home.service';
-import { AuthGuard } from './guards/auth.guard';
 import { ConfiguracoesComponent } from './pages/configuracoes/configuracoes.component';
 import { CadastreseComponent } from './pages/cadastrese/cadastrese.component';
 import { CadastroEmpresaComponent } from './pages/cadastro-empresa/cadastro-empresa.component';
@@ -51,7 +50,6 @@ import { PedidosComponent } from './pages/pedidos/pedidos.component';
     HttpClientModule,
     HttpClient,
     HomeService,
-    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })

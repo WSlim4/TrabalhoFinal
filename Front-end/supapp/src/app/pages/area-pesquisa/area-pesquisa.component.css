@@ -15,10 +15,22 @@ p.col.l4.pull-l8.m12.s12.center-align.footer{
 .modal-content{
   padding: 0;
 }
-
+.verde{
+  background-color: #4E9525;
+  height: 5vh;
+  margin:0;
+  color:white;
+  padding-top: 1vh;
+  font-family: 'Rubik', sans-serif;
+}
 /*parte do design da paginas*/
+.exemplo{
+  width:100%;
+  border:5px solid;
+  border-color: #4E9525;
+}
 .bg-header{
-  background-color: #2E5A1C;
+  background: #2E5A1C;
 }
 
 .bg-contato{
@@ -72,10 +84,12 @@ p.col.l4.pull-l8.m12.s12.center-align.footer{
 
 /*ajuste de figuras*/
 .material-icons{
+  margin-left: 48vh;
   color:white;
   display: flex;
   flex-direction: row-reverse;
   padding:1vh;
+  padding-right:0;
 }
 
 .foto{
@@ -99,19 +113,6 @@ p.col.l4.pull-l8.m12.s12.center-align.footer{
   display: flex;
   flex-direction: column;
 }
-thead{
-  background-color: #2E5A1C;
-}
-th{
-  color:white;
-  font-family: 'Rubik', sans-serif;
-  padding-left: 2vh;
-  font-weight: lighter !important;
-}
-td{
-  background-color: white;
-  padding-left: 2vh;
-}
 
 @media only screen and (max-width: 600px) {
   .modal{
@@ -121,5 +122,10 @@ td{
 @media only screen and (min-width: 600px) and (max-width: 992px) {
   .modal{
     max-width: 50% !important;
+  }
+}
+@media only screen and (min-width: 993px){
+  .espacamento{
+    padding-left: 70vh;
   }
 }
