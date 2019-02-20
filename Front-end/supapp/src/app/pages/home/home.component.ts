@@ -14,8 +14,15 @@ export class HomeComponent implements OnInit {
 
   constructor( public homeService: HomeService ) { }
 
-  ngOnInit() {
+   mercadorias:any[] = [];
 
+
+  ngOnInit() {
+    this.homeService.getMercadoria().subscribe(
+      (res) => {
+        console.log(res)
+      }
+    );
   }
   onSubmit(){
     if( this.tipoPesquisa == "nome"){

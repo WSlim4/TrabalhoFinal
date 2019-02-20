@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map } from "rxjs/operators";
 import { Observable } from 'rxjs';
 
@@ -9,11 +9,14 @@ import { Observable } from 'rxjs';
 })
 export class HomeService {
 
-  apiUrl: string = "http://localhost:8000/api/";
+  apiUrl: string = "http://localhost:8000/api/carnes/frangos";
 
-  constructor( public http: HttpClient ) { }
+  constructor( private http: HttpClient ) { }
 
-  getMercadoria(nome:string): Observable<any>{
-    return this.http.get( this.apiUrl + nome ).pipe( map(res => res) );
+  getMercadoria(): Observable<any>{
+    let headers: HttpHeaders = new HttpHeaders({ "Content-Type":"application/x-www-form-urlencoded","Accept":"application/json" });
+    console.log(headers);
+    return this.http.get( this.apiUrl
+      ,{ headers} ).pipe( map(res => res) );
   }
 }
