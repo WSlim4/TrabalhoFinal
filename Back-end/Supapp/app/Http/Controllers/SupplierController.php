@@ -8,7 +8,7 @@ use App\User;
 use App\Http\Requests\SupplierRequest;
 use App\Notifications\SupplierNotification;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Storage;
 
 
 class SupplierController extends Controller
@@ -35,10 +35,16 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
+<<<<<<< HEAD
       dd($request);
       $validator = Validator::make($request -> all(), [
         'name' => 'required',
         'email' => 'required|email',
+=======
+      $validator = Validator::make($request -> all(), [//Essa função cria
+        'name' => 'required',                          // um usuário junto com
+        'email' => 'required|email',                  //  um supplier
+>>>>>>> IntegracaoBianca
         'password' => 'required',
         'c_password' => 'required|same:password',
         ]);
@@ -64,11 +70,11 @@ class SupplierController extends Controller
         return response()->json(['success' => $success, 'Supplier' => $supplier],$this->successStatus);
      }
 
-     public function supPhoto($id){
+     public function pathPhoto($id){
 
         $supplier = Supplier::findOrFail($id);
 
-        return response()->download(storage_path('app\\' .$supplier->id_pic));
+        return response()->storage_path('app\\' .$supplier->id_pic);
       }
 
     /**
@@ -81,6 +87,29 @@ class SupplierController extends Controller
     {
         $showSupplier = Supplier::find($id);
         return response()->json([$showSupplier]);
+    }
+
+    public function putPhoto(Request $request){
+        $photo = new Supplier;
+
+        if (!Storage::exists('supplierPhotos'))
+                 Storage::makeDirectory('supplierPhotos',0775,true);
+
+        if($request->id_pic){
+
+            $file = $request->file('id_pic');
+            $path = $file->store('supplierPhotos');
+            $this->id_pic = $path;
+        }
+
+        $validator = Validator::make($request->all(),[
+          'id_pic' => 'file|image|mimes:jpeg,jpg,png|max:2048'
+        ]);
+
+       if ($validator->fails()){
+              return response()->json(['erro' => $validator->errors()], 400);
+        }
+        return response()->json(['Upload feito com sucesso']);
     }
 
     /**

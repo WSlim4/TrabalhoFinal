@@ -51,7 +51,17 @@
 	height: 25vh;
 	margin-left: -3em;
 }
+.margem2{
+	padding-top:5vh;
+}
 /*Elementos*/
 a{
 	color: white;
+}
+@media screen and (min-width: 1643px) {
+	.margem{
+    margin-right: 10vh;
+		margin-left: 10vh;
+  }
+
 }

@@ -56,6 +56,45 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
+=======
+          <!--Produto-->
+          <div class="col l5 offset-l1 offset-m1 m10 s10 offset-s1">
+            <table>
+               <thead>
+                 <tr>
+                     <th>Mercadoria</th>
+                     <th>Preco/kg</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr>
+                  <td>
+                    <div class="input-field col s12">
+                      <select name="multiSelect" [(ngModel)]="selectedOption" name="selectedOption" materialize="material_select" [materializeSelectOptions]="selectOptions" [disabled]="isDisabled?true:null" name="categoria" ngModel required #categoria="ngModel">
+                        <option value="" disabled selected>Frios</option>
+                        <option value="1">Carne de boi</option>
+                        <option value="2">Carne de frango</option>
+                        <option value="3">Carne de porco</option>
+                        <option value="4">Carne de peixe</option>
+                        <option value="" disabled selected>Hortifruti</option>
+                        <option value="6">frutas</option>
+                        <option value="7">Hortaliças</option>
+                      </select>
+                      <label>Produto</label>
+                    </div>
+                  </td>
+                   <td><div class="input-field ">
+                     <input placeholder="R$" id="preco" type="text" class="validate" name="preco" ngModel required #preco="ngModel">
+                     <label for="preco"></label>
+                   </div></td>
+                 </tr>
+               </tbody>
+               <a routerLink="/home" class="right-bottom"><i class="small material-icons">add</i></a>
+             </table>
+             <p class="alerta center-align">Caso queira adicionar mais produtos, vá para configurações</p>
+          </div>
+>>>>>>> IntegracaoBianca
         </div>
         <div class="baixo row">
           <button class="btn waves-effect hoverable col l4 offset-l4 m6 offset-m3 s8 offset-s2" [disabled]="cadastroEmpresa.invalid || passwordError || email.invalid || cnpjError" type="submit" (click)="save(cadastroEmpresa)">Realizar Cadastro</button>

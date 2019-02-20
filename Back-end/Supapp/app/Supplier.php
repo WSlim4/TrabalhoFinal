@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Auth;
 use App\User;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class Supplier extends Model
@@ -28,10 +27,6 @@ class Supplier extends Model
 
   public function customers()
   {
-    $newUser = new User;
-    $user = Auth::user();
-    $this->user_id = $user->id;
-
       return $this->belongsToMany('App\Customer')->withPivot('rating');
   }
 
@@ -50,31 +45,13 @@ class Supplier extends Model
     if($request->email)
       $this->email = $request->email;
 
-    if (!Storage::exists('supplierPhotos'))
-                 Storage::makeDirectory('supplierPhotos',0775,true);
-
-    if($request->id_pic){
-    $file = $request->file('id_pic');
-
-    $filename = 'foto.' . $file->getClientOriginalExtension();
-    }
-    $validator = Validator::make($request->all(),[
-        'id_pic' => 'required|file|image|mimes:jpeg,jpg,png|max:2048'
-    ]);
-
-    if ($validator->fails()){
-            return response()->json(['erro' => $validator->errors()], 400);
-    }
-
-    $path = $file->storeAs('supplierPhotos', $filename);
-
-    $this->id_pic = $path;
-
     $this->save();
 
   }
-  public function destroySupplier($id)
-  {
+        
+
+ public function destroySupplier($id){
+  
     Supplier::destroy($id);
   }
 

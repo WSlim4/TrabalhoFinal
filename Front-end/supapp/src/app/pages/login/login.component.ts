@@ -14,6 +14,10 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(login){
+    console.log(login)
+  }
+
   passwordCheck(senha){
   	if(senha.value.length < 6){
   		this.passwordError = true;

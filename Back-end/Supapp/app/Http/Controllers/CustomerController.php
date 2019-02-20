@@ -62,11 +62,35 @@ class CustomerController extends Controller
       }
       return response()->json(['success' => $success, 'Customer' => $customer],$this->successStatus);
     }
-    public function downloadPhoto($id){
+
+    public function putPhoto(Request $request){
+        $photo = new Customer;
+
+        if (!Storage::exists('customerPhotos'))
+                 Storage::makeDirectory('customerPhotos',0775,true);
+
+        if($request->id_pic){
+
+            $file = $request->file('id_pic');
+            $path = $file->store('customerPhotos');
+            $this->id_pic = $path;
+        }
+
+        $validator = Validator::make($request->all(),[
+          'id_pic' => 'file|image|mimes:jpeg,jpg,png|max:2048'
+        ]);
+
+       if ($validator->fails()){
+              return response()->json(['erro' => $validator->errors()], 400);
+        }
+        return response()->json(['Upload feito com sucesso']);
+    }
+
+    public function pathPhoto($id){ //Acessa a pasta das fotos
 
         $customer = Customer::findOrFail($id);
 
-        return response()->download(storage_path('app\\' .$customer->id_pic));
+        return response()->storage_path('app\\' .$customer->id_pic);
       }
 
 
@@ -112,3 +136,16 @@ class CustomerController extends Controller
         return response()->json(['DELETADO']);
     }
 }
+
+// Essa é a rota
+/*
+Route::get('boleto/{id}','boleto@fazer');
+
+public function fazer($id){
+  $purchase = Purchase::find($id);
+  $customer = $purchase->customer;
+  $supplier = $purchase->supplier;
+
+}
+
+*/

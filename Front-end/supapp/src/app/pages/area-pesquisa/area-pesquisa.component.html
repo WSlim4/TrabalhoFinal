@@ -1,12 +1,17 @@
 <app-navbar></app-navbar>
 
-<button class="waves-effect waves-light" (click)="abreModal()">Modal</button>
+<div class="row espacamento">
+  <button class="col l4 m6 s10" (click)="abreModal()">
+    <img src="../../../assets/empresa-exemplo.png" class="exemplo">
+    <div class="verde center-align">Empresa</div>
+  </button>
+</div>
 <!--modal-->
 <div class="modal row" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="modalActions">
   <div class="modal-content">
     <div class="flex">
       <div class="bg-header">
-        <i class="small material-icons" (click)="fecharModal()">close</i>
+        <i class="small material-icons " (click)="fecharModal()">close</i>
         <h4 class="center-align empresa">Empresa</h4>
         <p class="center-align endereco">Endereço</p>
       </div>
@@ -33,13 +38,13 @@
     </div>
     <div class="row">
       <div class="col l8 s12">
-      <img src="../../../assets/meat.png" class="col l1 m2 s2 icones">
-      <img src="../../../assets/chicken.png" class="col l1 m2 s2 icones">
-      <img src="../../../assets/pork.png" class="col l1 m2 s2 icones">
+        <img src="../../../assets/meat.png" class="col l1 m2 s2 icones">
+        <img src="../../../assets/chicken.png" class="col l1 m2 s2 icones">
+        <img src="../../../assets/pork.png" class="col l1 m2 s2 icones">
       </div>
       <!--botao para estipulação-->
-      <div class="btn col l4 hide-on-med-and-down">Faça uma estipulação</div>
-      <div class="btn col m12 s12 hide-on-large-only">Faça uma estipulação</div>
+      <div class="btn col l4 hide-on-med-and-down" routerLink="/pedidos">Faça uma estipulação</div>
+      <div class="btn col m12 s12 hide-on-large-only" routerLink="/pedidos">Faça uma estipulação</div>
     </div>
   </div>
 </div>
