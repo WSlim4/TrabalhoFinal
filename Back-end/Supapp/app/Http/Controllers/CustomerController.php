@@ -6,8 +6,11 @@ use Illuminate\Http\Request;
 use App\Customer;
 use App\User;
 use App\Http\Requests\CustomerRequest;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use App\Notifications\CustomerNotification;
 use Auth;
-use Validator;
+
 class CustomerController extends Controller
 {
     /**
@@ -45,19 +48,27 @@ class CustomerController extends Controller
       $newUser->name = $request->name;
       $newUser->email = $request->email;
       $newUser->password = bcrypt($request->password);
-      $newUser->save(); 
+      $newUser->save();
       $success['name'] = $newUser->name;
       $success['token'] = $newUser->createToken('MyApp')->accessToken;
       $customer = new Customer;
       try {
         $customer->updateCustomer($request, $newUser);
+        $customer->save();
       }finally{
         if(!($customer->id)){
           $newUser->delete();
-        }   
+        }
       }
       return response()->json(['success' => $success, 'Customer' => $customer],$this->successStatus);
     }
+    public function downloadPhoto($id){
+
+        $customer = Customer::findOrFail($id);
+
+        return response()->download(storage_path('app\\' .$customer->id_pic));
+      }
+
 
     /**
      * Display the specified resource.

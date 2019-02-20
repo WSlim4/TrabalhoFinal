@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Supplier; 
+use App\Supplier;
 use Auth;
 
 class Merchandise extends Model
@@ -45,9 +45,11 @@ class Merchandise extends Model
   }
   public function getMargarinas(){
     $margarina = Merchandise::where('category', 'margarina')->get();
+    echo $margarina;
   }
   public function getLeites(){
     $leite = Merchandise::where('category', 'leite');
+    echo $leite;
   }
 
   /*Subcategoria hortifrut*/
@@ -87,6 +89,5 @@ class Merchandise extends Model
   {
     Merchandise::destroy($id);
   }
-
   protected $dates = ['deleted_at'];
 }

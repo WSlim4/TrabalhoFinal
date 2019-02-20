@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Supplier;
 use App\User;
 use App\Http\Requests\SupplierRequest;
-use Validator;
+use App\Notifications\SupplierNotification;
+use Illuminate\Support\Facades\Validator;
+
 
 
 class SupplierController extends Controller
@@ -18,7 +20,7 @@ class SupplierController extends Controller
      */
 
     public $successStatus = 200;
-     
+
     public function index()
     {
       $lista = Supplier::all();
@@ -52,12 +54,20 @@ class SupplierController extends Controller
         $supplier = new Supplier;
         try {
           $supplier->updateSupplier($request, $newUser);
+          $supplier->save();
         }finally{
           if(!($supplier->id)){
             $newUser->delete();
-          }   
+          }
         }
         return response()->json(['success' => $success, 'Supplier' => $supplier],$this->successStatus);
+     }
+
+     public function supPhoto($id){
+
+        $supplier = Supplier::findOrFail($id);
+
+        return response()->download(storage_path('app\\' .$supplier->id_pic));
       }
 
     /**

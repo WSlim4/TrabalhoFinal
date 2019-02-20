@@ -1,0 +1,88 @@
+/*Classes*/
+.col{
+	background-color: #4E9525;
+	margin-left: 15em;
+	margin-top: 10vh;
+	padding: 2em 3em;
+}
+.btn{
+  align-items: center;
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 2em;
+  background-color: #2E5A1C;
+  text-transform: none;
+  padding: 0 1em 0 1em ;
+  width: 100%;
+  height: 6vh;
+  margin-top: 2vh;
+  margin-right: 1vw;
+}
+
+
+/*Elementos*/
+a{
+	color: white;
+}
+
+img{
+	width: 50%;
+	margin-left: 6.5vw;
+}
+
+h1{
+  color: white;
+  font-size: 3em;
+  font-family: 'Rubik',sans-serif;
+  margin-top: 0;
+  text-align: center;
+}
+
+/*elementos*/
+
+#cadastro{
+	margin-left: 9vw;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 1000px) {
+	img{
+		margin-left: 7.5vw;
+	}
+
+
+	#cadastro{
+		color: white;
+		margin-left: 11vw;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+}
+
+@media screen and (max-width: 600px) {
+  img{
+  	margin-left: 20vw;
+  }
+  #cadastro{
+  	margin-left: 30vw;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  img{
+  	margin-left: 11vw;
+  }
+  #cadastro{
+  	margin-left: 15vw;
+  }
+}
+
+@media screen and (min-width: 993px) {
+  img{
+  	margin-left: 7vw;
+  }
+  #cadastro{
+  	margin-left: 11vw;
+  }
+}

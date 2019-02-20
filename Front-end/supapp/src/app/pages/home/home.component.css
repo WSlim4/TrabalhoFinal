@@ -1,0 +1,17 @@
+
+.barra-pesquisa{
+  background-color: white;
+  height:6vh;
+  margin-top: -6vh;
+}
+span{
+  font-family: 'Rubik', sans-serif;
+  font-size: 2vh;
+}
+.botao-cadastro{
+  background-color: #4E9525;
+  margin-top: 2vh;
+}
+.botao-entrar{
+  background-color: #2E5A1C;
+}

@@ -18,14 +18,14 @@ class PurchaseController extends Controller
         //
         $user = Auth::user();
         if($user->customer){
-            $lista = Purchase::where('customer_id',$user->customer->id)->get();            
+            $lista = Purchase::where('customer_id',$user->customer->id)->get();
             return response()->json([$lista]);
         }else{
             $supplier = $user->supplier;
             $merchandises = $supplier->merchandises;
             $lista = [];
             foreach ($merchandises as $merchandise) {
-                array_push($lista, $merchandise->purchases); 
+                array_push($lista, $merchandise->purchases);
             }
             return response()->json($lista);
         }
@@ -58,7 +58,7 @@ class PurchaseController extends Controller
         return response()->json([$showPurchase]);
     }
 
-  
+
     /**
      * Update the specified resource in storage.
      *
