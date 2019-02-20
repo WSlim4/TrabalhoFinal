@@ -49,7 +49,7 @@
             <div class="file-field input-field">
               <div class="btn">
                 <span>Imagem</span>
-                <input type="file" name="myImage" accept="image/jpeg,image/x-png" name="image" ngModel #image="ngModel">
+                <input type="file" name="myImage" accept="image/jpeg,image/x-png" name="image">
               </div>
               <div class="file-path-wrapper">
                 <input class="file-path validate" type="text">
@@ -97,7 +97,11 @@
 >>>>>>> IntegracaoBianca
         </div>
         <div class="baixo row">
+<<<<<<< HEAD
           <button class="btn waves-effect hoverable col l4 offset-l4 m6 offset-m3 s8 offset-s2" [disabled]="cadastroEmpresa.invalid || passwordError || email.invalid || cnpjError" type="submit" (click)="save(cadastroEmpresa)">Realizar Cadastro</button>
+=======
+          <button class="btn waves-effect hoverable col l4 offset-l4 m6 offset-m3 s8 offset-s2" [disabled]="cadastroEmpresa.invalid || passwordError || email.invalid || cnpjError" type="submit">Realizar Cadastro</button>
+>>>>>>> bd3e2063d74c6cf1082a09770462d9570de0352d
         </div>
       </form>
     </div>
