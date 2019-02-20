@@ -51,6 +51,10 @@ Route::get('pathPhoto', 'CustomerController@pathPhoto');
 
 Route::get('enviaBoleto/{id}', 'NotificationController@enviaBoleto');
 
+Route::get('boleto/{id}', 'BoletoController@boleto');
+
+Route::get('list-merchandise/{id}','MerchandiseController@list_merchandise');
+
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('purchase','PurchaseController@index');
     Route::post('purchase/{id}','PurchaseController@store');
@@ -83,11 +87,13 @@ Route::group(['middleware' => 'auth:api'], function() {
         Route::put('updatemerchandise/{id}', 'MerchandiseController@update');
         Route::delete('deletemerchandise/{id}', 'MerchandiseController@destroy');
     });
+    /*
     Route::group([
       'middleware'=>'BoletoMiddleware',
     ], function($router){
       Route::get('boleto/{id}', 'BoletoController@boleto');
     });
+    */
     Route::group([
     'middleware' =>'PurchaseMiddleware',
     ], function($router){

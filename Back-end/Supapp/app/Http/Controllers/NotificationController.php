@@ -15,7 +15,7 @@ class NotificationController extends Controller
     {
         $purchase = Purchase::find($id);
         $customer = $purchase->customer;
-        $customer->notify(new CustomerNotification($customer)); 
+        $customer->notify(new CustomerNotification($customer->id)); 
         return redirect('/');
     }   
     

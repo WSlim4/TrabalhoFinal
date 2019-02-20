@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Merchandise;
+use App\Supplier;
 use App\Http\Requests\MerchandiseRequest;
 use Auth;
 
@@ -102,6 +103,11 @@ class MerchandiseController extends Controller
         $supplier = $user->supplier;
         $lista = $supplier->merchandises;
         return response()->json([$lista]);
+    }
+    public function list_merchandise($id){
+      $supplier = Supplier::find($id);
+      $lista = $supplier->merchandises;
+      return response()->json([$lista]);
     }
 
     /**

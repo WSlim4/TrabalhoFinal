@@ -16,9 +16,10 @@ class CustomerNotification extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($id)
     {
         //
+        $this->id = $id;
     }
 
     /**
@@ -41,12 +42,12 @@ class CustomerNotification extends Notification
     public function toMail($notifiable)
     {
         $user = $notifiable;
-        //$url = url('api/boleto/{id}'. $this->boleto->id);
+        $url = url('api/boleto/{id}'. $this->id);
         return (new MailMessage)
                     ->greeting('Seu boleto')
                     ->subject('Boleto Supapp')
                     ->greeting('Segue em anexo o seu boleto')
-                   // ->action('Visualizar boleto', $url)
+                    ->action('Visualizar boleto', $url)
                     ->line('Obrigado por comprar conosco!');
     }
 

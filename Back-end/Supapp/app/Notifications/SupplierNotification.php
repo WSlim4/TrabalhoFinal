@@ -44,7 +44,7 @@ class SupplierNotification extends Notification
     {
         $purchase = Purchase::find($this->id);
         $url = url('api/enviaBoleto/'.$this->id); //Url da função que envia
-     return (new MailMessage)                     // o boleto ao customer
+        return (new MailMessage)                  // o boleto ao customer
                     ->greeting('Nova compra')
                     ->subject('Novo pedido de compra')
                     ->action('Enviar boleto', $url)
