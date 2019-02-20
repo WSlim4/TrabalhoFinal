@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5c7b17f736ee5c071769d40e21c459a",
+    "content-hash": "eadfded454ba474cc3e06c92606147b2",
     "packages": [
         {
             "name": "defuse/php-encryption",
@@ -271,6 +271,60 @@
                 "schedule"
             ],
             "time": "2018-06-06T03:12:17+00:00"
+        },
+        {
+            "name": "eduardokum/laravel-boleto",
+            "version": "0.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/eduardokum/laravel-boleto.git",
+                "reference": "068a0994a1726d1f71dce554b9482eafeb18a5e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/eduardokum/laravel-boleto/zipball/068a0994a1726d1f71dce554b9482eafeb18a5e8",
+                "reference": "068a0994a1726d1f71dce554b9482eafeb18a5e8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-intl": "*",
+                "ext-mbstring": "*",
+                "illuminate/contracts": "~5.1",
+                "illuminate/events": "~5.1",
+                "illuminate/support": "~5.1",
+                "illuminate/view": "~5.1",
+                "neitanod/forceutf8": "^2.0",
+                "nesbot/carbon": "1.*",
+                "php": ">=5.5.0",
+                "setasign/fpdf": "^1.8"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.2",
+                "phpunit/phpunit": "~5.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Eduardokum\\LaravelBoleto\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eduardo Gusmão",
+                    "email": "eduguscontra3@hotmail.com"
+                }
+            ],
+            "description": "Biblioteca com boletos para o laravel",
+            "homepage": "https://github.com/eduardokum/laravel-boleto",
+            "keywords": [
+                "eduardokum",
+                "laravel-boleto"
+            ],
+            "time": "2019-01-30T12:19:17+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -951,30 +1005,30 @@
         },
         {
             "name": "laravel/passport",
-            "version": "v7.1.0",
+            "version": "v7.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/passport.git",
-                "reference": "b0c0dcbb8d7d61ba814b1e2cb404dbb4e1d8a852"
+                "reference": "56330509283d465acaaff842637e539d03bcf9ca"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/passport/zipball/b0c0dcbb8d7d61ba814b1e2cb404dbb4e1d8a852",
-                "reference": "b0c0dcbb8d7d61ba814b1e2cb404dbb4e1d8a852",
+                "url": "https://api.github.com/repos/laravel/passport/zipball/56330509283d465acaaff842637e539d03bcf9ca",
+                "reference": "56330509283d465acaaff842637e539d03bcf9ca",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
                 "firebase/php-jwt": "~3.0|~4.0|~5.0",
                 "guzzlehttp/guzzle": "~6.0",
-                "illuminate/auth": "~5.6",
-                "illuminate/console": "~5.6",
-                "illuminate/container": "~5.6",
-                "illuminate/contracts": "~5.6",
-                "illuminate/database": "~5.6",
-                "illuminate/encryption": "~5.6",
-                "illuminate/http": "~5.6",
-                "illuminate/support": "~5.6",
+                "illuminate/auth": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/console": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/container": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/contracts": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/database": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/encryption": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/http": "~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/support": "~5.6.0|~5.7.0|~5.8.0",
                 "league/oauth2-server": "^7.0",
                 "php": ">=7.1",
                 "phpseclib/phpseclib": "^2.0",
@@ -1017,7 +1071,7 @@
                 "oauth",
                 "passport"
             ],
-            "time": "2019-01-22T14:41:41+00:00"
+            "time": "2019-02-14T16:29:26+00:00"
         },
         {
             "name": "laravel/slack-notification-channel",
@@ -1525,6 +1579,43 @@
                 "psr-3"
             ],
             "time": "2018-11-05T09:00:11+00:00"
+        },
+        {
+            "name": "neitanod/forceutf8",
+            "version": "v2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/neitanod/forceutf8.git",
+                "reference": "30980a8ca2787a7730d370eac310b8987eb68229"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/neitanod/forceutf8/zipball/30980a8ca2787a7730d370eac310b8987eb68229",
+                "reference": "30980a8ca2787a7730d370eac310b8987eb68229",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ForceUTF8\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastián Grignoli",
+                    "email": "grignoli@gmail.com"
+                }
+            ],
+            "description": "PHP Class Encoding featuring popular Encoding::toUTF8() function --formerly known as forceUTF8()-- that fixes mixed encoded strings.",
+            "homepage": "https://github.com/neitanod/forceutf8",
+            "time": "2018-10-10T23:03:52+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -2436,6 +2527,45 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
+        },
+        {
+            "name": "setasign/fpdf",
+            "version": "1.8.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Setasign/FPDF.git",
+                "reference": "2c68c9e6c034ac3187d25968790139a73184cdb1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Setasign/FPDF/zipball/2c68c9e6c034ac3187d25968790139a73184cdb1",
+                "reference": "2c68c9e6c034ac3187d25968790139a73184cdb1",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "fpdf.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "no usage restriction"
+            ],
+            "authors": [
+                {
+                    "name": "Olivier Plathey",
+                    "email": "oliver@fpdf.org",
+                    "homepage": "http://fpdf.org/"
+                }
+            ],
+            "description": "FPDF is a PHP class which allows to generate PDF files with pure PHP. F from FPDF stands for Free: you may use it for any kind of usage and modify it to suit your needs.",
+            "homepage": "http://www.fpdf.org",
+            "keywords": [
+                "fpdf",
+                "pdf"
+            ],
+            "time": "2016-01-01T17:47:15+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",

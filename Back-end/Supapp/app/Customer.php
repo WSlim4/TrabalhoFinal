@@ -32,7 +32,7 @@ class Customer extends Model
 
   public function rateSupplier($request)
   {
-    $this->suppliers()->attach($request->id,['rating' => $request->rate]);
+    $this->suppliers()->attach($request->id,['rating' => $request->rating]);
 
   }
 
@@ -50,29 +50,7 @@ class Customer extends Model
       $this->phone = $request->phone;
     if($request->email)
       $this->email = $request->email;
-
-    if (!Storage::exists('customerPhotos'))
-               Storage::makeDirectory('customerPhotos',0775,true);
-
-    if($request->id_pic){
-    $file = $request->file('id_pic');
-
-    $filename = 'foto.' . $file->getClientOriginalExtension();
-    }
-    $validator = Validator::make($request->all(),[
-      'id_pic' => 'required|file|image|mimes:jpeg,jpg,png|max:2048'
-    ]);
-
-    if ($validator->fails()){
-          return response()->json(['erro' => $validator->errors()], 400);
-    }
-
-    $path = $file->storeAs('customerPhotos', $filename);
-
-    $this->id_pic = $path;
-
-    $this->save();
-
+     $this->save();
   }
 
   public function destroyCustomer($id)

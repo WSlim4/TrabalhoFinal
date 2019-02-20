@@ -13,33 +13,28 @@
              </thead>
              <tbody>
                <tr>
-                 <td>
-                   <div class="input-field col s12">
-                      <select>
-                        <optgroup label="Frios">
-                          <option value="1">Carne de boi</option>
-                          <option value="2">Carne de frango</option>
-                          <option value="3">Carne de frango</option>
-                          <option value="4">Carne de porco</option>
-                          <option value="5">Manteiga</option>
-                          <option value="6">Leite</option>
-                          <option value="7">Queijo</option>
-
-                        </optgroup>
-                        <optgroup label="Hortifruti">
-                          <option value="8">Frutas</option>
-                          <option value="9">hortaliças</option>
-                        </optgroup>
-                      </select>
-                      <label>produtos</label>
-                    </div>
-                 </td>
+                <td>
+                  <div class="input-field col s12">
+                    <select name="multiSelect" [(ngModel)]="selectedOption" name="selectedOption" materialize="material_select" [materializeSelectOptions]="selectOptions" [disabled]="isDisabled?true:null" name="categoria" ngModel required #categoria="ngModel">
+                      <option value="" disabled selected>Frios</option>
+                      <option value="1">Carne de boi</option>
+                      <option value="2">Carne de frango</option>
+                      <option value="3">Carne de porco</option>
+                      <option value="4">Carne de peixe</option>
+                      <option value="" disabled selected>Hortifruti</option>
+                      <option value="6">frutas</option>
+                      <option value="7">Hortaliças</option>
+                    </select>
+                    <label>Produto</label>
+                  </div>
+                </td>
                  <td><div class="input-field ">
                    <input placeholder="R$" id="preco" type="text" class="validate" name="preco" ngModel required #preco="ngModel">
                    <label for="preco"></label>
                  </div></td>
                </tr>
              </tbody>
+             <a routerLink="/home" class="right-bottom"><i class="small material-icons">add</i></a>
            </table>
            <button class="waves-effect waves-light btn white" type="submit"[disabled]=" login.invalid || passwordError" >Enviar</button>
     	    </form>

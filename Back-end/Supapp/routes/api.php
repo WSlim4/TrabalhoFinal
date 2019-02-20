@@ -42,11 +42,18 @@ Route::get('/{id}', function (Request $request) {
 });
 */
 Route::get('rating/{id}', 'RatingController@showrating');
-
 Route::post('login', 'API\PassportController@login');
 Route::post('registercustomer', 'CustomerController@store');
 Route::post('registersupplier', 'SupplierController@store');
 
+Route::get('pathPhoto', 'SupplierController@pathPhoto');
+Route::get('pathPhoto', 'CustomerController@pathPhoto');
+
+Route::get('enviaBoleto/{id}', 'NotificationController@enviaBoleto');
+
+Route::get('boleto/{id}', 'BoletoController@boleto');
+
+Route::get('list-merchandise/{id}','MerchandiseController@list_merchandise');
 
 Route::group(['middleware' => 'auth:api'], function() {
     Route::get('purchase','PurchaseController@index');
@@ -56,13 +63,14 @@ Route::group(['middleware' => 'auth:api'], function() {
     Route::get('get-details', 'API\PassportController@getDetails');
     Route::post('rating/{id}','RatingController@rate');
     Route::post('merchandise', 'MerchandiseController@store');
-    Route::get('smerchandise', 'MerchandiseController@index');
+    Route::get('merchandise', 'MerchandiseController@index');
     //
     Route::group([
       'middleware'=>'CustomerMiddleware',
     ], function($router){
          Route::put('updatecustomer/{id}', 'CustomerController@update');
          Route::delete('deletecustomer/{id}', 'CustomerController@destroy');
+         Route::post('putPhoto', 'CustomerController@putPhoto');
     });
     Route::group([
       'middleware' =>'SupplierMiddleware',
@@ -70,6 +78,7 @@ Route::group(['middleware' => 'auth:api'], function() {
          /*Supplier routes*/
          Route::put('updatesupplier/{id}', 'SupplierController@update');
          Route::delete('deletesupplier/{id}', 'SupplierController@destroy');
+         Route::post('putPhoto', 'SupplierController@putPhoto');
     });
     Route::group([
     'middleware' =>'MerchandiseMiddleware',
@@ -78,4 +87,17 @@ Route::group(['middleware' => 'auth:api'], function() {
         Route::put('updatemerchandise/{id}', 'MerchandiseController@update');
         Route::delete('deletemerchandise/{id}', 'MerchandiseController@destroy');
     });
+    /*
+    Route::group([
+      'middleware'=>'BoletoMiddleware',
+    ], function($router){
+      Route::get('boleto/{id}', 'BoletoController@boleto');
+    });
+    */
+    Route::group([
+    'middleware' =>'PurchaseMiddleware',
+    ], function($router){
+            Route::delete('purchase/{id}', 'PurchaseController@destroy');
+    });
+
 });
